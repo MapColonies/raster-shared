@@ -5,4 +5,4 @@ import { ExportTaskParameters } from './task.type';
 
 export type ExportJobParameters = z.infer<typeof exportJobParametersSchema>;
 
-export type JobExportResponse = IJobResponse<ExportTaskParameters, ExportTaskParameters>;
+export type JobExportResponse = IJobResponse<ExportJobParameters, ExportTaskParameters>;
