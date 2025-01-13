@@ -10,7 +10,7 @@ export const callbackSchema = z.object({
 export const callbacksArraySchema = z.array(callbackSchema);
 
 export const exportInputParamsSchema = z.object({
-  crs: z.literal('EPSG:4326'),
+  crs: z.string(z.literal('EPSG:4326')),
   roi: featureCollectionSchema,
   callbacks: callbacksArraySchema.optional(),
 });
