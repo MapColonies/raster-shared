@@ -12,7 +12,7 @@ const featureSchema = z.object({
   }),
 });
 
-export const SourceSchema = z.object({
+export const sourceSchema = z.object({
   path: z.string(),
   type: z.nativeEnum(SourceType),
   extent: z //this is optional because the merger gets 2 source- input and output. only the input has an extent

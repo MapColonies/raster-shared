@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { TileOutputFormat } from '@map-colonies/mc-model-types';
 import { TileFormatStrategy } from '../../constants/export/constants';
-import { SourceSchema } from './export.schema';
+import { sourceSchema } from './export.schema';
 
 //TODO: maybe TileOutputFormat move to this repo
 //TODO:  ITileRange is an interface and can use it here as is, 2 options: create a validation function like so :
@@ -32,7 +32,7 @@ const tileRangeSchema = z.object({
 export const exportTaskParametersSchema = z.object({
   isNewTarget: z.boolean(),
   batches: z.array(tileRangeSchema),
-  sources: z.array(SourceSchema),
+  sources: z.array(sourceSchema),
   targetFormat: z.nativeEnum(TileOutputFormat).optional(),
   outputFormatStrategy: z.nativeEnum(TileFormatStrategy).optional(),
 });
