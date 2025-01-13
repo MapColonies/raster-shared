@@ -6,12 +6,12 @@ export const callbackUrlSchema = z.object({
   url: z.string().url(),
 });
 
-export const callbacksUrlsArraySchema = z.array(callbackUrlSchema);
+export const callbackUrlsArraySchema = z.array(callbackUrlSchema);
 
 export const exportInputParamsSchema = z.object({
   crs: z.string(z.literal('EPSG:4326')),
   roi: featureCollectionSchema,
-  callbackUrls: callbacksUrlsArraySchema.optional(),
+  callbackUrls: callbackUrlsArraySchema.optional(),
 });
 
 export const exportAdditionalParamsSchema = z.object({

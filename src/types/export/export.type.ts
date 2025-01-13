@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { callbackSchema, callbacksUrlsArraySchema, exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
+import { callbackUrlSchema, callbackUrlsArraySchema, exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
 import {
   callbackExportResponseSchema,
   cleanupDataSchema,
@@ -7,8 +7,8 @@ import {
   fileNamesTemplatesSchema,
 } from '../../schemas/export/export.schema';
 
-export type CallbackTarget = z.infer<typeof callbackSchema>;
-export type CallbacksTargetArray = z.infer<typeof callbacksUrlsArraySchema>;
+export type callbackUrls = z.infer<typeof callbackUrlSchema>;
+export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
 export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
 export type LinksDefinition = z.infer<typeof fileNamesTemplatesSchema>;
