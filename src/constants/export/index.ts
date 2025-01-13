@@ -1,1 +1,1 @@
-export * from './exportConstants';
+export * from './constants';

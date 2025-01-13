@@ -1,7 +1,7 @@
 import { FeatureCollection, MultiPolygon, Polygon } from 'geojson';
 import { z } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { ArtifactType, MergerSourceType } from '../../constants/export/exportConstants';
+import { ArtifactType, SourceType } from '../../constants/export/constants';
 
 const featureSchema = z.object({
   type: z.literal('Feature'),
@@ -11,10 +11,11 @@ const featureSchema = z.object({
     minResolutionDeg: z.number().optional(),
   }),
 });
-export const mapSourceSchema = z.object({
+
+export const SourceSchema = z.object({
   path: z.string(),
-  type: z.nativeEnum(MergerSourceType),
-  extent: z
+  type: z.nativeEnum(SourceType),
+  extent: z //this is optional because the merger gets 2 source- input and output. only the input has an extent
     .object({
       minX: z.number(),
       minY: z.number(),
@@ -34,7 +35,7 @@ export const artifactSchema = z.object({
 export const artifactsArraySchema = z.array(artifactSchema);
 
 export const baseFeatureCollectionSchema = z.object({
-  type: z.literal('FeatureCollection'),
+  type: z.string(z.literal('FeatureCollection')),
   features: z.array(featureSchema),
 });
 
@@ -51,7 +52,7 @@ export const featureCollectionSchema = z.custom<FeatureCollection>(
 
 export const fileNamesTemplatesSchema = z.object({
   dataURI: z.string(),
-  metadataURI: z.string(),
+  metadataURI: z.string(), // will be removed with export v2.0.0
 });
 
 export const cleanupDataSchema = z.object({
