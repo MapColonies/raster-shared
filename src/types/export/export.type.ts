@@ -7,7 +7,7 @@ import {
   fileNamesTemplatesSchema,
 } from '../../schemas/export/export.schema';
 
-export type callbackUrls = z.infer<typeof callbackUrlSchema>;
+export type CallbackUrls = z.infer<typeof callbackUrlSchema>;
 export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
 export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
