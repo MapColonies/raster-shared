@@ -1,1 +1,1 @@
-export * from './polygonParts.type';
+export * from './types';

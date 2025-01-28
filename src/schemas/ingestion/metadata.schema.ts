@@ -4,28 +4,29 @@ import { MultiPolygon, Polygon } from 'geojson';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/ingestionConstants';
 import { RasterProductTypes, Transparency } from '../../constants/core/coreConstants';
 
-export const newMetadataSchema = z
+export const baseRasterLayerMetadataSchema = z
   .object({
+    classification: z.string().regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern)),
+  })
+  .describe('baseRasterLayerMetadataSchema');
+
+export const newRasterLayerMetadataSchema = baseRasterLayerMetadataSchema
+  .extend({
     productId: z.string().regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern)),
     productName: z.string().min(1),
     productType: z.nativeEnum(RasterProductTypes),
     srs: z.literal('4326'),
     srsName: z.literal('WGS84GEO'),
-    transparency: z.nativeEnum(Transparency), // mc-models
+    transparency: z.nativeEnum(Transparency),
     region: z.array(z.string().min(1)).min(1),
-    classification: z.string().regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern)),
     producerName: z.string().optional(),
     scale: z.number().min(INGESTION_VALIDATIONS.scale.min).max(INGESTION_VALIDATIONS.scale.max).optional(),
     productSubType: z.string().optional(),
     description: z.string().optional(),
   })
-  .describe('newMetadataSchema');
+  .describe('newRasterLayerMetadataSchema');
 
-export const updateMetadataSchema = z
-  .object({
-    classification: z.string().regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern)),
-  })
-  .describe('updateMetadataSchema');
+export const updateRaterLayerMetadataSchema = baseRasterLayerMetadataSchema.describe('updateRaterLayerMetadataSchema');
 
 export const aggregationMetadataSchema = z
   .object(

@@ -2,21 +2,25 @@ import { z } from 'zod';
 import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/coreConstants';
 import { multiPolygonSchema, polygonSchema } from '../core/geo.schema';
 
-export const newAdditionalParamsSchema = z
+export const baseAdditionalParamsSchema = z
   .object({
     jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
   })
-  .describe('newAdditionalParamsSchema');
+  .describe('baseAdditionalParamsSchema');
 
-export const updateAdditionalParamsSchema = newAdditionalParamsSchema
+export const baseUpdateAdditionalParamsSchema = baseAdditionalParamsSchema
   .extend({
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
     footprint: polygonSchema.or(multiPolygonSchema),
   })
-  .describe('updateAdditionalParamsSchema');
+  .describe('baseUpdateAdditionalParamsSchema');
 
-export const swapUpdateAdditionalParamsSchema = updateAdditionalParamsSchema
+export const newAdditionalParamsSchema = baseAdditionalParamsSchema;
+
+export const updateAdditionalParamsSchema = baseUpdateAdditionalParamsSchema
   .extend({
     displayPath: z.string().uuid(),
   })
-  .describe('swapUpdateAdditionalParamsSchema');
+  .describe('updateAdditionalParamsSchema');
+
+export const swapUpdateAdditionalParamsSchema = baseUpdateAdditionalParamsSchema.describe('swapUpdateAdditionalParamsSchema');

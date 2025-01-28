@@ -17,3 +17,9 @@ export const createTaskResponseSchema = <T>(parametersSchema?: z.ZodType<T>): z.
     resettable: z.boolean(),
   }) as z.ZodType<ITaskResponse<T>>;
 };
+
+export const taskBlockDuplicationParamSchema = z
+  .object({
+    blockDuplication: z.boolean().optional(),
+  })
+  .describe('taskBlockDuplicationParamSchema');

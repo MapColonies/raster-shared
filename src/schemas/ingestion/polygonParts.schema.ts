@@ -83,5 +83,3 @@ export const polygonPartsEntityNameSchema = z
       ),
   })
   .describe('polygonPartsEntityNameSchema');
-
-export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema>;
