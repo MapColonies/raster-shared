@@ -10,15 +10,15 @@ export type RasterLayerMetadata = {
   minResolutionDeg: number;
   rms?: number;
   scale?: number;
-  creationDateUTC: Date;
-  ingestionDate: Date;
+  creationDateUTC?: Date;
+  ingestionDate?: Date;
   minHorizontalAccuracyCE90: number;
   maxHorizontalAccuracyCE90: number;
   region: string[];
   sensors: string[];
   imagingTimeBeginUTC: Date;
   imagingTimeEndUTC: Date;
-  updateDateUTC: Date;
+  updateDateUTC?: Date;
   maxResolutionMeter: number;
   minResolutionMeter: number;
   productSubType?: string;
