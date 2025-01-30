@@ -1,5 +1,5 @@
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
-import { newRasterLayerRequestSchema, updateRaterLayerRequestSchema } from './ingestionRequest.schema';
+import { newRasterLayerRequestSchema, updateRasterLayerRequestSchema } from './ingestionRequest.schema';
 
 export const ingestionNewJobParamsSchema = newRasterLayerRequestSchema
   .extend({
@@ -7,13 +7,13 @@ export const ingestionNewJobParamsSchema = newRasterLayerRequestSchema
   })
   .describe('ingestionNewJobParamsSchema');
 
-export const ingestionUpdateJobParamsSchema = updateRaterLayerRequestSchema
+export const ingestionUpdateJobParamsSchema = updateRasterLayerRequestSchema
   .extend({
     additionalParams: updateAdditionalParamsSchema,
   })
   .describe('ingestionUpdateJobParamsSchema');
 
-export const ingestionSwapUpdateJobParamsSchema = updateRaterLayerRequestSchema
+export const ingestionSwapUpdateJobParamsSchema = updateRasterLayerRequestSchema
   .extend({
     additionalParams: swapUpdateAdditionalParamsSchema,
   })

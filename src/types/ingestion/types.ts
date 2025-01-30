@@ -1,8 +1,8 @@
 import z from 'zod';
 import { inputFilesSchema } from '../../schemas/ingestion/inputFiles.schema';
 import { partSchema, polygonPartsEntityNameSchema } from '../../schemas/ingestion/polygonParts.schema';
-import { aggregationMetadataSchema, newRasterLayerMetadataSchema, updateRaterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
-import { layerDataSchema, newRasterLayerRequestSchema, updateRaterLayerRequestSchema } from '../../schemas/ingestion/ingestionRequest.schema';
+import { aggregationMetadataSchema, newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
+import { layerDataSchema, newRasterLayerRequestSchema, updateRasterLayerRequestSchema } from '../../schemas/ingestion/ingestionRequest.schema';
 import {
   ingestionNewJobParamsSchema,
   ingestionSwapUpdateJobParamsSchema,
@@ -18,7 +18,7 @@ import {
 export type InputFiles = z.infer<typeof inputFilesSchema>;
 export type LayerData = z.infer<typeof layerDataSchema>;
 export type NewRasterLayerMetadata = z.infer<typeof newRasterLayerMetadataSchema>;
-export type UpdateRasterLayerMetadata = z.infer<typeof updateRaterLayerMetadataSchema>;
+export type UpdateRasterLayerMetadata = z.infer<typeof updateRasterLayerMetadataSchema>;
 export type AggregationLayerMetadata = z.infer<typeof aggregationMetadataSchema>;
 // #endregion
 
@@ -29,7 +29,7 @@ export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema
 
 //#region LayerRequests
 export type IngestionNewLayerRequest = z.infer<typeof newRasterLayerRequestSchema>;
-export type IngestionUpdateLayerRequest = z.infer<typeof updateRaterLayerRequestSchema>;
+export type IngestionUpdateLayerRequest = z.infer<typeof updateRasterLayerRequestSchema>;
 //#endregion
 
 //#region IngestionJobParams

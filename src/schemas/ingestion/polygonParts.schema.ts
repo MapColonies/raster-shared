@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
-import { INGESTION_VALIDATIONS } from '../../constants/ingestion/ingestionConstants';
-import { RASTER_PRODUCT_TYPE_LIST } from '../../constants/core/coreConstants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
+import { RASTER_PRODUCT_TYPE_LIST } from '../../constants/core/constants';
 
 export const partSchema = z
   .object({

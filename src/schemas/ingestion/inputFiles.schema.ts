@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { INGESTION_VALIDATIONS } from '../../constants/ingestion/ingestionConstants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 
 export const inputFilesSchema = z
   .object({

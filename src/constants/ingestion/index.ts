@@ -1,1 +1,1 @@
-export * from './ingestionConstants';
+export * from './constants';

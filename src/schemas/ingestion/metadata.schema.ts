@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { z } from 'zod';
 import { MultiPolygon, Polygon } from 'geojson';
-import { INGESTION_VALIDATIONS } from '../../constants/ingestion/ingestionConstants';
-import { RasterProductTypes, Transparency } from '../../constants/core/coreConstants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
+import { RasterProductTypes, Transparency } from '../../constants/core/constants';
 
 export const baseRasterLayerMetadataSchema = z
   .object({
@@ -26,7 +26,7 @@ export const newRasterLayerMetadataSchema = baseRasterLayerMetadataSchema
   })
   .describe('newRasterLayerMetadataSchema');
 
-export const updateRaterLayerMetadataSchema = baseRasterLayerMetadataSchema.describe('updateRaterLayerMetadataSchema');
+export const updateRasterLayerMetadataSchema = baseRasterLayerMetadataSchema.describe('updateRasterLayerMetadataSchema');
 
 export const aggregationMetadataSchema = z
   .object(

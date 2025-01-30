@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/coreConstants';
+import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/constants';
 import { multiPolygonSchema, polygonSchema } from '../core/geo.schema';
 
 export const baseAdditionalParamsSchema = z

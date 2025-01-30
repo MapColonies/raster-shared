@@ -1,7 +1,7 @@
 import z from 'zod';
 import { inputFilesSchema } from './inputFiles.schema';
 import { partSchema } from './polygonParts.schema';
-import { newRasterLayerMetadataSchema, updateRaterLayerMetadataSchema } from './metadata.schema';
+import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
 
 export const layerDataSchema = z.object({
   inputFiles: inputFilesSchema,
@@ -12,6 +12,6 @@ export const newRasterLayerRequestSchema = layerDataSchema.extend({
   metadata: newRasterLayerMetadataSchema,
 });
 
-export const updateRaterLayerRequestSchema = layerDataSchema.extend({
-  metadata: updateRaterLayerMetadataSchema,
+export const updateRasterLayerRequestSchema = layerDataSchema.extend({
+  metadata: updateRasterLayerMetadataSchema,
 });
