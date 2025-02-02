@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
-import { VALIDATIONS } from '../../constants/ingestionConstants';
-import { RASTER_PRODUCT_TYPE_LIST } from '../../constants/coreConstants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
+import { RASTER_PRODUCT_TYPE_LIST } from '../../constants/core/constants';
 
 export const partSchema = z
   .object({
@@ -13,39 +13,39 @@ export const partSchema = z
     imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
     resolutionDegree: z
       .number({ message: 'Resolution degree should be a number' })
-      .min(VALIDATIONS.resolutionDeg.min, {
-        message: `Resolution degree should not be less than ${VALIDATIONS.resolutionDeg.min}`,
+      .min(INGESTION_VALIDATIONS.resolutionDeg.min, {
+        message: `Resolution degree should not be less than ${INGESTION_VALIDATIONS.resolutionDeg.min}`,
       })
-      .max(VALIDATIONS.resolutionDeg.max, {
-        message: `Resolution degree should not be larger than ${VALIDATIONS.resolutionDeg.max}`,
+      .max(INGESTION_VALIDATIONS.resolutionDeg.max, {
+        message: `Resolution degree should not be larger than ${INGESTION_VALIDATIONS.resolutionDeg.max}`,
       }),
     resolutionMeter: z
       .number({ message: 'Resolution meter should be a number' })
-      .min(VALIDATIONS.resolutionMeter.min, {
-        message: `Resolution meter should not be less than ${VALIDATIONS.resolutionMeter.min}`,
+      .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
+        message: `Resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
       })
-      .max(VALIDATIONS.resolutionMeter.max, {
-        message: `Resolution meter should not be larger than ${VALIDATIONS.resolutionMeter.max}`,
+      .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
+        message: `Resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
       }),
     sourceResolutionMeter: z
       .number({ message: 'Source resolution meter should be a number' })
-      .min(VALIDATIONS.resolutionMeter.min, {
-        message: `Source resolution meter should not be less than ${VALIDATIONS.resolutionMeter.min}`,
+      .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
+        message: `Source resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
       })
-      .max(VALIDATIONS.resolutionMeter.max, {
-        message: `Source resolution meter should not be larger than ${VALIDATIONS.resolutionMeter.max}`,
+      .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
+        message: `Source resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
       }),
     horizontalAccuracyCE90: z
       .number({ message: 'Horizontal accuracy CE90 should be a number' })
-      .min(VALIDATIONS.horizontalAccuracyCE90.min, {
-        message: `Horizontal accuracy CE90 should not be less than ${VALIDATIONS.horizontalAccuracyCE90.min}`,
+      .min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min, {
+        message: `Horizontal accuracy CE90 should not be less than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.min}`,
       })
-      .max(VALIDATIONS.horizontalAccuracyCE90.max, {
-        message: `Horizontal accuracy CE90 should not be larger than ${VALIDATIONS.horizontalAccuracyCE90.max}`,
+      .max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max, {
+        message: `Horizontal accuracy CE90 should not be larger than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.max}`,
       }),
     sensors: z
       .array(
-        z.string({ message: 'Sensors should be an array of strings' }).regex(new RegExp(VALIDATIONS.sensor.pattern), {
+        z.string({ message: 'Sensors should be an array of strings' }).regex(new RegExp(INGESTION_VALIDATIONS.sensor.pattern), {
           message: 'Sensors should be an array with items not starting or ending with whitespace characters',
         }),
         { message: 'Sensors should be an array' }
@@ -68,11 +68,13 @@ export const partSchema = z
   })
   .describe('partSchema');
 
+export const partsSchema = z.array(partSchema).describe('partsSchema');
+
 export const polygonPartsEntityNameSchema = z
   .object({
     polygonPartsEntityName: z
       .string()
-      .regex(new RegExp(VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
+      .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
       .refine(
         (value) => {
           return RASTER_PRODUCT_TYPE_LIST.some((type) => value.endsWith(type.toLowerCase()));
@@ -81,5 +83,3 @@ export const polygonPartsEntityNameSchema = z
       ),
   })
   .describe('polygonPartsEntityNameSchema');
-
-export type PolygonPartsEntityName = z.infer<typeof polygonPartsEntityNameSchema>;

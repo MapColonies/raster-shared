@@ -1,9 +1,28 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
-import { ValidationRules } from '../types/core/validation.type';
+import { ValidationRules } from '../../types/core';
 
-export const VALIDATIONS = {
+/* eslint-disable @typescript-eslint/naming-convention */
+export const JobTypes = {
+  Ingestion_New: 'Ingestion_New',
+  Ingestion_Update: 'Ingestion_Update',
+  Ingestion_Swap_Update: 'Ingestion_Swap_Update',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type JobTypes = (typeof JobTypes)[keyof typeof JobTypes];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const TaskTypes = {
+  Init: 'init',
+  Finalize: 'finalize',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type TaskTypes = (typeof TaskTypes)[keyof typeof TaskTypes];
+
+export const INGESTION_VALIDATIONS = {
   boundingBox: {
     pattern: '^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$',
     description: 'Bounding box in the format "minX,minY,maxX,maxY"',

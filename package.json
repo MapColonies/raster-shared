@@ -1,5 +1,5 @@
 {
-  "name": "@map-colonies/ts-npm-package-boilerplate",
+  "name": "@map-colonies/raster-shared",
   "version": "1.0.3",
   "description": "This is template for map colonies typescript packages",
   "main": "./dist/index.js",
@@ -26,17 +26,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MapColonies/ts-npm-package-boilerplate.git"
+    "url": "git+https://github.com/MapColonies/raster-shared.git"
   },
   "author": "MapColonies",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MapColonies/ts-npm-package-boilerplate/issues"
+    "url": "https://github.com/MapColonies/raster-shared/issues"
   },
   "files": [
     "dist/**/*"
   ],
-  "homepage": "https://github.com/MapColonies/ts-npm-package-boilerplate#readme",
+  "homepage": "https://github.com/MapColonies/raster-shared#readme",
   "publishConfig": {
     "access": "public"
   },
@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@map-colonies/mc-priority-queue": "^8.2.1",
+    "@map-colonies/types": "^1.3.5",
     "geojson": "^0.5.0",
     "zod": "^3.24.1"
   }
