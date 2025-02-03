@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/MapColonies/raster-shared/compare/v1.1.1...v1.1.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* createJobResponseSchema internalId as nullable ([#17](https://github.com/MapColonies/raster-shared/issues/17)) ([a46cb57](https://github.com/MapColonies/raster-shared/commit/a46cb57352386479deedb39e22f46c8f65c90eed))
+
 ### [1.1.1](https://github.com/MapColonies/raster-shared/compare/v1.1.0...v1.1.1) (2025-02-02)
 
 ## 1.1.0 (2025-02-02)
