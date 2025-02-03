@@ -23,7 +23,7 @@ export const createJobResponseSchema = <T, P>(
     percentage: z.number(),
     isCleaned: z.boolean(),
     priority: z.number(),
-    internalId: z.string().optional(),
+    internalId: z.string().optional().nullable(),
     producerName: z.string().optional().nullable(),
     productName: z.string().optional(),
     productType: z.string().optional(),
