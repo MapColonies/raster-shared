@@ -1,7 +1,5 @@
 import { RasterProductTypes } from '../../constants';
 
-type LowercaseRasterProductType = Lowercase<RasterProductTypes>;
-
 /**
  * Represents a layer name composed of a resourceId (equivalent to productId) and RasterProductType, joined by a hyphen.
  *
@@ -69,7 +67,7 @@ export type LayerName = `${string}-${RasterProductTypes}`;
  * - All characters are properly lowercase
  * - Parts are properly joined with an underscore
  */
-export type PolygonPartsEntityName = `${Lowercase<string>}_${LowercaseRasterProductType}`;
+export type PolygonPartsEntityName = `${Lowercase<string>}_${Lowercase<RasterProductTypes>}`;
 
 export interface LayerNameFormats {
   polygonPartsEntityName: PolygonPartsEntityName;
