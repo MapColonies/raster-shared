@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import type { Polygon } from 'geojson';
-import { z } from 'zod';
+import { z, ZodType } from 'zod';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 import { RASTER_PRODUCT_TYPE_LIST } from '../../constants/core/constants';
+import { PolygonPartsEntityName } from '../../types/core/layer';
 
 export const partSchema = z
   .object({
@@ -70,16 +71,20 @@ export const partSchema = z
 
 export const partsSchema = z.array(partSchema).describe('partsSchema');
 
+export const polygonPartsEntityPatternSchema = z
+  .string()
+  .toLowerCase()
+  .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
+  .refine(
+    (value) => {
+      return RASTER_PRODUCT_TYPE_LIST.some((type) => value.endsWith(type.toLowerCase()));
+    },
+    { message: 'Polygon parts entity name should end with one of the valid raster product types' }
+  )
+  .describe('polygonPartsEntityPatternSchema') as ZodType<PolygonPartsEntityName>;
+
 export const polygonPartsEntityNameSchema = z
   .object({
-    polygonPartsEntityName: z
-      .string()
-      .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
-      .refine(
-        (value) => {
-          return RASTER_PRODUCT_TYPE_LIST.some((type) => value.endsWith(type.toLowerCase()));
-        },
-        { message: 'Polygon parts entity name should end with one of the valid raster product types' }
-      ),
+    polygonPartsEntityName: polygonPartsEntityPatternSchema,
   })
   .describe('polygonPartsEntityNameSchema');
