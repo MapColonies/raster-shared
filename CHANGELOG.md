@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/MapColonies/raster-shared/compare/v1.1.2...v1.2.0) (2025-02-04)
+
+
+### Features
+
+* add layerFormats types and schemas ([#18](https://github.com/MapColonies/raster-shared/issues/18)) ([4502896](https://github.com/MapColonies/raster-shared/commit/45028969518c394b34f937e7276408fdb8666b0f))
+
 ### [1.1.2](https://github.com/MapColonies/raster-shared/compare/v1.1.1...v1.1.2) (2025-02-03)
 
 
