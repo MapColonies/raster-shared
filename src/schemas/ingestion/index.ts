@@ -5,3 +5,4 @@ export * from './polygonParts.schema';
 export * from './ingestionRequest.schema';
 export * from './ingestionJobParams.schema';
 export * from './ingestionTaskParams.schema';
+export * from './layerNameFormats.schema';
