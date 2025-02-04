@@ -1,6 +1,10 @@
-import { z } from 'zod';
+import { z, ZodType } from 'zod';
 import { IJobResponse, OperationStatus } from '@map-colonies/mc-priority-queue';
+import { INGESTION_VALIDATIONS, RasterProductTypes } from '../../constants';
 import { createTaskResponseSchema } from './task.schema';
+
+export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
+export const resourceIdSchema = z.string().regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern));
 
 export const createJobResponseSchema = <T, P>(
   jobParametersSchema?: z.ZodType<T>,
@@ -10,7 +14,7 @@ export const createJobResponseSchema = <T, P>(
 
   const schema = z.object({
     id: z.string().uuid(),
-    resourceId: z.string(),
+    resourceId: resourceIdSchema,
     version: z.string(),
     type: z.string(),
     description: z.string(),
@@ -26,7 +30,7 @@ export const createJobResponseSchema = <T, P>(
     internalId: z.string().optional().nullable(),
     producerName: z.string().optional().nullable(),
     productName: z.string().optional(),
-    productType: z.string().optional(),
+    productType: rasterProductTypeSchema.optional(),
     taskCount: z.number(),
     completedTasks: z.number(),
     failedTasks: z.number(),
