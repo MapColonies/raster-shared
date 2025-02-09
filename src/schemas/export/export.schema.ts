@@ -1,7 +1,7 @@
 import { FeatureCollection, MultiPolygon, Polygon } from 'geojson';
 import { z } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { ArtifactType, SourceType } from '../../constants/export/constants';
+import { ExportArtifactType } from '../../constants/export/constants';
 
 const featureSchema = z.object({
   type: z.literal('Feature'),
@@ -12,22 +12,9 @@ const featureSchema = z.object({
   }),
 });
 
-export const sourceSchema = z.object({
-  path: z.string(),
-  type: z.nativeEnum(SourceType),
-  extent: z //this is optional because the merger gets 2 source- input and output. only the input has an extent
-    .object({
-      minX: z.number(),
-      minY: z.number(),
-      maxX: z.number(),
-      maxY: z.number(),
-    })
-    .optional(),
-});
-
 export const artifactSchema = z.object({
   name: z.string(),
-  type: z.nativeEnum(ArtifactType),
+  type: z.nativeEnum(ExportArtifactType),
   url: z.string().optional(),
   size: z.number().optional(),
 });
@@ -73,5 +60,5 @@ export const callbackExportDataSchema = z.object({
 });
 
 export const callbackExportResponseSchema = callbackExportDataSchema.extend({
-  status: z.union([z.literal(OperationStatus.IN_PROGRESS), z.literal(OperationStatus.COMPLETED), z.literal(OperationStatus.FAILED)]),
+  status: z.union([z.literal(OperationStatus.COMPLETED), z.literal(OperationStatus.FAILED)]),
 });
