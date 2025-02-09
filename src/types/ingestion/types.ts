@@ -13,6 +13,7 @@ import {
   ingestionSwapUpdateTaskParamsSchema,
   ingestionUpdateFinalizeTaskParamsSchema,
 } from '../../schemas/ingestion/ingestionTaskParams.schema';
+import { polygonPartsEntityPatternSchema } from '../../schemas';
 
 //#region LayerData
 export type InputFiles = z.infer<typeof inputFilesSchema>;
@@ -24,6 +25,7 @@ export type AggregationLayerMetadata = z.infer<typeof aggregationMetadataSchema>
 
 //#region PolygonParts
 export type PolygonPart = z.infer<typeof partSchema>;
+export type PolygonPartsEntityNameObject = z.infer<typeof polygonPartsEntityPatternSchema>;
 //#endregion
 
 //#region LayerRequests

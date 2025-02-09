@@ -8,6 +8,7 @@ export const JobTypes = {
   Ingestion_New: 'Ingestion_New',
   Ingestion_Update: 'Ingestion_Update',
   Ingestion_Swap_Update: 'Ingestion_Swap_Update',
+  Raster_Tiles_Exporter: 'Export',
 } as const;
 /* eslint-enable @typescript-eslint/naming-convention */
 
