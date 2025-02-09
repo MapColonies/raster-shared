@@ -5,7 +5,6 @@ import { rasterProductTypeSchema, resourceIdSchema } from '../core';
 
 export const polygonPartsEntityPatternSchema = z
   .string()
-  .toLowerCase()
   .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
   .refine(
     (value) => {
