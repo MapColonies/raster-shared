@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/MapColonies/raster-shared/compare/v1.2.0...v1.3.0) (2025-02-09)
+
+
+### Features
+
+* add export domain ([#20](https://github.com/MapColonies/raster-shared/issues/20)) ([197dfb8](https://github.com/MapColonies/raster-shared/commit/197dfb82db2b4be50c4c18d63ad8112b33c50d25))
+
 ## [1.2.0](https://github.com/MapColonies/raster-shared/compare/v1.1.2...v1.2.0) (2025-02-04)
 
 
