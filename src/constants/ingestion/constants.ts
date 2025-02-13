@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
+import { zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { ValidationRules } from '../../types/core';
 
 /* eslint-disable @typescript-eslint/naming-convention */

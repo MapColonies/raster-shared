@@ -1,9 +1,9 @@
 import { zoomLevelToResolutionDeg } from '@map-colonies/mc-utils';
-import { ProductType } from '@map-colonies/types';
+import { Domain, ProductType } from '@map-colonies/types';
 import { ValidationRules } from '../../types/core';
 import { pickEnum } from '../../utils/typeUtils';
 
-export const RASTER_DOMAIN = 'Raster';
+export const RASTER_DOMAIN = Domain.RASTER;
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export const RasterProductTypes = pickEnum(ProductType, [
