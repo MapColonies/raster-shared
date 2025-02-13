@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { TileFormatStrategy, TileOutputFormat } from '../../constants';
-import { callbackExportResponseSchema, cleanupDataSchema, featureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
+import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
 
 export const callbackUrlSchema = z.object({
   url: z.string().url(),
@@ -10,7 +10,7 @@ export const callbackUrlsArraySchema = z.array(callbackUrlSchema);
 
 export const exportInputParamsSchema = z.object({
   crs: z.string(z.literal('EPSG:4326')),
-  roi: featureCollectionSchema,
+  roi: roiFeatureCollectionSchema,
   callbackUrls: callbackUrlsArraySchema.optional(),
 });
 

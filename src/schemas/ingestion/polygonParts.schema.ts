@@ -2,6 +2,7 @@
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
+import { CORE_VALIDATIONS } from '../../constants';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
@@ -13,11 +14,11 @@ export const partSchema = z
     imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
     resolutionDegree: z
       .number({ message: 'Resolution degree should be a number' })
-      .min(INGESTION_VALIDATIONS.resolutionDeg.min, {
-        message: `Resolution degree should not be less than ${INGESTION_VALIDATIONS.resolutionDeg.min}`,
+      .min(CORE_VALIDATIONS.resolutionDeg.min, {
+        message: `Resolution degree should not be less than ${CORE_VALIDATIONS.resolutionDeg.min}`,
       })
-      .max(INGESTION_VALIDATIONS.resolutionDeg.max, {
-        message: `Resolution degree should not be larger than ${INGESTION_VALIDATIONS.resolutionDeg.max}`,
+      .max(CORE_VALIDATIONS.resolutionDeg.max, {
+        message: `Resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
       }),
     resolutionMeter: z
       .number({ message: 'Resolution meter should be a number' })
