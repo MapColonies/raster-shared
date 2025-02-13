@@ -1,12 +1,11 @@
 import { z } from 'zod';
+import type { Feature, FeatureCollection, MultiPolygon, Polygon } from 'geojson';
 import { callbackUrlSchema, callbackUrlsArraySchema, exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
-import {
-  callbackExportResponseSchema,
-  cleanupDataSchema,
-  featureCollectionSchema,
-  fileNamesTemplatesSchema,
-} from '../../schemas/export/export.schema';
+import { callbackExportResponseSchema, cleanupDataSchema, fileNamesTemplatesSchema, roiPropertiesSchema } from '../../schemas/export/export.schema';
 
+export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
+export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;
+export type RoiFeatureCollection = FeatureCollection<Polygon | MultiPolygon, RoiProperties>;
 export type CallbackUrls = z.infer<typeof callbackUrlSchema>;
 export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
 export type CleanupData = z.infer<typeof cleanupDataSchema>;
@@ -14,4 +13,3 @@ export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema
 export type LinksDefinition = z.infer<typeof fileNamesTemplatesSchema>;
 export type ExportInputParams = z.infer<typeof exportInputParamsSchema>;
 export type ExportAdditionalParams = z.infer<typeof exportAdditionalParamsSchema>;
-export type ExportFeatureCollection = z.infer<typeof featureCollectionSchema>;

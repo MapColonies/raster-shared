@@ -1,6 +1,9 @@
+import { zoomLevelToResolutionDeg } from '@map-colonies/mc-utils';
 import { ProductType } from '@map-colonies/types';
 import { ValidationRules } from '../../types/core';
 import { pickEnum } from '../../utils/typeUtils';
+
+export const RASTER_DOMAIN = 'Raster';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export const RasterProductTypes = pickEnum(ProductType, [
@@ -35,10 +38,17 @@ export type TileOutputFormat = (typeof TileOutputFormat)[keyof typeof TileOutput
 
 export const TileOutputFormatList = Object.values(TileOutputFormat);
 
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 export const CORE_VALIDATIONS = {
   url: {
     pattern: '^https?://[^\\s/$.?#].[^\\s]*$',
     description: 'URL must start with http:// or https://',
   },
+  resolutionDeg: {
+    min: zoomLevelToResolutionDeg(22) as number,
+    max: zoomLevelToResolutionDeg(0) as number,
+    description: 'Resolution in degrees',
+  },
 } satisfies ValidationRules;
+/* eslint-enable @typescript-eslint/no-magic-numbers */
 /* eslint-enable @typescript-eslint/naming-convention */

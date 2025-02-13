@@ -49,11 +49,6 @@ export const INGESTION_VALIDATIONS = {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
     description: 'Product version in the format "x.y", e.g. "1.0"',
   },
-  resolutionDeg: {
-    min: zoomLevelToResolutionDeg(22) as number,
-    max: zoomLevelToResolutionDeg(0) as number,
-    description: 'Resolution in degrees',
-  },
   resolutionMeter: {
     min: zoomLevelToResolutionMeter(22) as number,
     max: zoomLevelToResolutionMeter(0) as number,
