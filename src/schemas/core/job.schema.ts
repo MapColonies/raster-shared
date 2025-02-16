@@ -1,10 +1,17 @@
 import { z, ZodType } from 'zod';
 import { IJobResponse, OperationStatus } from '@map-colonies/mc-priority-queue';
-import { INGESTION_VALIDATIONS, RasterProductTypes } from '../../constants';
+import { INGESTION_VALIDATIONS, RASTER_DOMAIN, RasterProductTypes } from '../../constants';
 import { createTaskResponseSchema } from './task.schema';
 
 export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
-export const resourceIdSchema = z.string().regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern));
+export const resourceIdSchema = z
+  .string()
+  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern))
+  .describe(INGESTION_VALIDATIONS.productId.description);
+export const versionSchema = z
+  .string()
+  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern))
+  .describe(INGESTION_VALIDATIONS.productVersion.description);
 
 export const createJobResponseSchema = <T, P>(
   jobParametersSchema?: z.ZodType<T>,
@@ -15,7 +22,7 @@ export const createJobResponseSchema = <T, P>(
   const schema = z.object({
     id: z.string().uuid(),
     resourceId: resourceIdSchema,
-    version: z.string(),
+    version: versionSchema,
     type: z.string(),
     description: z.string(),
     parameters: jobParametersSchema ?? z.unknown(),
@@ -24,23 +31,24 @@ export const createJobResponseSchema = <T, P>(
     created: z.string(),
     updated: z.string(),
     status: z.nativeEnum(OperationStatus),
-    percentage: z.number(),
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    percentage: z.number().min(0).max(100),
     isCleaned: z.boolean(),
     priority: z.number(),
     internalId: z.string().optional().nullable(),
     producerName: z.string().optional().nullable(),
     productName: z.string().optional(),
     productType: rasterProductTypeSchema.optional(),
-    taskCount: z.number(),
-    completedTasks: z.number(),
-    failedTasks: z.number(),
-    expiredTasks: z.number(),
-    pendingTasks: z.number(),
-    inProgressTasks: z.number(),
-    abortedTasks: z.number(),
+    taskCount: z.number().int().min(0),
+    completedTasks: z.number().int().min(0),
+    failedTasks: z.number().int().min(0),
+    expiredTasks: z.number().int().min(0),
+    pendingTasks: z.number().int().min(0),
+    inProgressTasks: z.number().int().min(0),
+    abortedTasks: z.number().int().min(0),
     additionalIdentifiers: z.string().optional().nullable(),
     expirationDate: z.date().optional().nullable(),
-    domain: z.string(),
+    domain: z.literal(RASTER_DOMAIN),
   });
 
   return schema as z.ZodType<IJobResponse<T, P>>;

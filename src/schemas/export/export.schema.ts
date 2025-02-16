@@ -1,15 +1,24 @@
-import { FeatureCollection, MultiPolygon, Polygon } from 'geojson';
-import { z } from 'zod';
+import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
 import { ExportArtifactType } from '../../constants/export/constants';
+import { multiPolygonSchema, polygonSchema } from '../core';
+import { CORE_VALIDATIONS } from '../../constants';
+import { RoiFeature, RoiFeatureCollection } from '../../types';
 
-const featureSchema = z.object({
+export const roiPropertiesSchema = z.object({
+  maxResolutionDeg: z.number(),
+  minResolutionDeg: z.number().default(CORE_VALIDATIONS.resolutionDeg.max),
+});
+
+export const featureSchema: ZodType<RoiFeature> = z.object({
   type: z.literal('Feature'),
-  geometry: z.custom<Polygon | MultiPolygon>(),
-  properties: z.object({
-    maxResolutionDeg: z.number(),
-    minResolutionDeg: z.number().optional(),
-  }),
+  geometry: polygonSchema.or(multiPolygonSchema),
+  properties: roiPropertiesSchema as ZodType<RoiFeature['properties']>,
+});
+
+export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = z.object({
+  type: z.literal('FeatureCollection'),
+  features: z.array(featureSchema),
 });
 
 export const artifactSchema = z.object({
@@ -20,22 +29,6 @@ export const artifactSchema = z.object({
 });
 
 export const artifactsArraySchema = z.array(artifactSchema);
-
-export const baseFeatureCollectionSchema = z.object({
-  type: z.string(z.literal('FeatureCollection')),
-  features: z.array(featureSchema),
-});
-
-export const featureCollectionSchema = z.custom<FeatureCollection>(
-  (value) => {
-    // Perform type check (runtime validation)
-    const baseValidation = baseFeatureCollectionSchema.safeParse(value);
-    return baseValidation.success;
-  },
-  {
-    message: 'Invalid FeatureCollection',
-  }
-);
 
 export const fileNamesTemplatesSchema = z.object({
   dataURI: z.string(),
@@ -50,7 +43,7 @@ export const cleanupDataSchema = z.object({
 export const callbackExportDataSchema = z.object({
   recordCatalogId: z.string(),
   jobId: z.string(),
-  roi: featureCollectionSchema,
+  roi: roiFeatureCollectionSchema,
   links: fileNamesTemplatesSchema.optional(),
   expirationTime: z.date().optional(),
   fileSize: z.number().optional(),

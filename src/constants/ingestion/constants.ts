@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import { zoomLevelToResolutionDeg, zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
+import { zoomLevelToResolutionMeter } from '@map-colonies/mc-utils';
 import { ValidationRules } from '../../types/core';
 
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -48,11 +48,6 @@ export const INGESTION_VALIDATIONS = {
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
     description: 'Product version in the format "x.y", e.g. "1.0"',
-  },
-  resolutionDeg: {
-    min: zoomLevelToResolutionDeg(22) as number,
-    max: zoomLevelToResolutionDeg(0) as number,
-    description: 'Resolution in degrees',
   },
   resolutionMeter: {
     min: zoomLevelToResolutionMeter(22) as number,

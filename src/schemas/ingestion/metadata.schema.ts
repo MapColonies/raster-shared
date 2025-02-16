@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import { MultiPolygon, Polygon } from 'geojson';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
-import { Transparency } from '../../constants/core/constants';
+import { CORE_VALIDATIONS, Transparency } from '../../constants/core/constants';
 import { rasterProductTypeSchema, resourceIdSchema } from '../core';
 
 export const baseRasterLayerMetadataSchema = z
@@ -45,11 +45,11 @@ export const aggregationMetadataSchema = z
         }),
       maxResolutionDeg: z
         .number({ message: 'Max resolution degree should be a number' })
-        .min(INGESTION_VALIDATIONS.resolutionDeg.min, {
-          message: `Max resolution degree should not be less than ${INGESTION_VALIDATIONS.resolutionDeg.min}`,
+        .min(CORE_VALIDATIONS.resolutionDeg.min, {
+          message: `Max resolution degree should not be less than ${CORE_VALIDATIONS.resolutionDeg.min}`,
         })
-        .max(INGESTION_VALIDATIONS.resolutionDeg.max, {
-          message: `Max resolution degree should not be larger than ${INGESTION_VALIDATIONS.resolutionDeg.max}`,
+        .max(CORE_VALIDATIONS.resolutionDeg.max, {
+          message: `Max resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
         }),
       maxResolutionMeter: z
         .number({ message: 'Max resolution meter should be a number' })
@@ -69,11 +69,11 @@ export const aggregationMetadataSchema = z
         }),
       minResolutionDeg: z
         .number({ message: 'Min resolution degree should be a number' })
-        .min(INGESTION_VALIDATIONS.resolutionDeg.min, {
-          message: `Min resolution degree should not be less than ${INGESTION_VALIDATIONS.resolutionDeg.min}`,
+        .min(CORE_VALIDATIONS.resolutionDeg.min, {
+          message: `Min resolution degree should not be less than ${CORE_VALIDATIONS.resolutionDeg.min}`,
         })
-        .max(INGESTION_VALIDATIONS.resolutionDeg.max, {
-          message: `Min resolution degree should not be larger than ${INGESTION_VALIDATIONS.resolutionDeg.max}`,
+        .max(CORE_VALIDATIONS.resolutionDeg.max, {
+          message: `Min resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
         }),
       minResolutionMeter: z
         .number({ message: 'Min resolution meter should be a number' })
