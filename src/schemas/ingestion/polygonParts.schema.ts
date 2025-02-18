@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import type { Polygon } from 'geojson';
 import { z } from 'zod';
-import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 import { CORE_VALIDATIONS } from '../../constants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
+import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
@@ -76,3 +77,11 @@ export const polygonPartsEntityNameSchema = z
     polygonPartsEntityName: polygonPartsEntityPatternSchema,
   })
   .describe('polygonPartsEntityNameSchema');
+
+export const polygonPartsPayloadSchema = z.object({
+  productType: rasterProductTypeSchema,
+  productId: resourceIdSchema,
+  catalogId: z.string().uuid(),
+  productVersion: versionSchema,
+  partsData: partSchema.array().min(1),
+});
