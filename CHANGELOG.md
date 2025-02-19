@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/MapColonies/raster-shared/compare/v1.3.1...v1.4.0) (2025-02-19)
+
+
+### Features
+
+* add GeoJSON openapi definitions and schemas ([4e9bed7](https://github.com/MapColonies/raster-shared/commit/4e9bed7db8c7fd620d1050dc51878e798c3d1dd7))
+* add polygonPartsPayloadSchema for ingestion validation ([162d9cb](https://github.com/MapColonies/raster-shared/commit/162d9cbf87560c9f987b9e543f53228c97cf79b1))
+
 ### [1.3.1](https://github.com/MapColonies/raster-shared/compare/v1.3.0...v1.3.1) (2025-02-16)
 
 
