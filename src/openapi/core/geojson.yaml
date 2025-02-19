@@ -1,0 +1,254 @@
+openapi: '3.0.1'
+info:
+  title: GeoJSON definitions
+  version: 1.0.0
+components:
+  schemas:
+    GeometryBase:
+      type: object
+      description: GeoJSON geometry
+      required:
+        - type
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometry-objects
+      properties:
+        type:
+          type: string
+          enum:
+            - Point
+            - LineString
+            - Polygon
+            - MultiPoint
+            - MultiLineString
+            - MultiPolygon
+          description: geometry type
+    Geometry:
+      description: GeoJSON Geometry
+      discriminator:
+        propertyName: type
+      type: object
+      anyOf:
+        - $ref: '#/components/schemas/Point'
+        - $ref: '#/components/schemas/LineString'
+        - $ref: '#/components/schemas/Polygon'
+        - $ref: '#/components/schemas/MultiPoint'
+        - $ref: '#/components/schemas/MultiLineString'
+        - $ref: '#/components/schemas/MultiPolygon'
+    Point2D:
+      type: array
+      maxItems: 2
+      minItems: 2
+      items:
+        type: number
+        minimum: -180
+        maximum: 180
+    Point:
+      type: object
+      description: GeoJSON Point
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id2
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - Point
+        coordinates:
+          $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: Point
+        coordinates: [-180, -90]
+    LineString:
+      type: object
+      description: GeoJSON LineString
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id3
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - LineString
+        coordinates:
+          type: array
+          minItems: 2
+          items:
+            $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: LineString
+        coordinates: [[-180, -90], [180, 90]]
+    Polygon:
+      type: object
+      description: GeoJSON Polygon
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id4
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - Polygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 4
+            items:
+              $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: Polygon
+        coordinates: [[[-180, -90], [180, -90], [180, 90], [-180, 90], [-180, -90]]]
+    MultiPoint:
+      type: object
+      description: GeoJSON MultiPoint
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id5
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiPoint
+        coordinates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: MultiPoint
+        coordinates: [[-180, -90], [180, 90]]
+    MultiLineString:
+      type: object
+      description: GeoJSON MultiLineString
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id6
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiLineString
+        coordinates:
+          type: array
+          items:
+            type: array
+            minItems: 2
+            items:
+              $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: MultiLineString
+        coordinates: [[[-180, -90], [180, 90]], [[-180, 90], [180, 90]]]
+    MultiPolygon:
+      type: object
+      description: GeoJSON MultiPolygon
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#id6
+      required:
+        - type
+        - coordinates
+      properties:
+        type:
+          type: string
+          enum:
+            - MultiPolygon
+        coordinates:
+          type: array
+          items:
+            type: array
+            items:
+              type: array
+              minItems: 4
+              items:
+                $ref: '#/components/schemas/Point2D'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+      example:
+        type: MultiPolygon
+        coordinates: [[[[-180, -90], [0, -90], [0, 90], [-180, 90], [-180, -90]]], [[[0, -90], [180, -90], [180, 90], [0, 90], [0, -90]]]]
+    GeometryCollection:
+      type: object
+      description: GeoJSON GeometryCollection
+      required:
+        - type
+        - geometries
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometrycollection
+      properties:
+        type:
+          type: string
+          enum:
+            - GeometryCollection
+          description: custom properties
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Geometry'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+    BBox:
+      type: array
+      minItems: 4
+      items:
+        type: number
+      example: [-180, -90, 180, 90]
+    Feature:
+      required:
+        - type
+        - properties
+        - geometry
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          oneOf:
+            - type: number
+            - type: string
+        properties:
+          type: object
+          nullable: true
+        geometry:
+          type: object
+          nullable: true
+          oneOf:
+            - $ref: '#/components/schemas/GeometryCollection'
+            - $ref: '#/components/schemas/Geometry'
+        bbox:
+          $ref: '#/components/schemas/BBox'
+    FeatureCollection:
+      type: object
+      description: GeoJSON Feature collection
+      required:
+        - type
+        - features
+      properties:
+        type:
+          type: string
+          enum:
+            - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+        bbox:
+          $ref: '#/components/schemas/BBox'
