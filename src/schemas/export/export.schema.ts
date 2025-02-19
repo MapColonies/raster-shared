@@ -7,7 +7,7 @@ import { RoiFeature, RoiFeatureCollection } from '../../types';
 
 export const roiPropertiesSchema = z.object({
   maxResolutionDeg: z.number(),
-  minResolutionDeg: z.number().optional().default(CORE_VALIDATIONS.resolutionDeg.min),
+  minResolutionDeg: z.number().optional().default(CORE_VALIDATIONS.resolutionDeg.max), //worst resolution
 });
 
 export const featureSchema: ZodType<RoiFeature> = z.object({
