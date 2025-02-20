@@ -1,6 +1,6 @@
 import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { ExportArtifactType, SourceType } from '../../constants/export/constants';
+import { ExportArtifactType } from '../../constants/export/constants';
 import { multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';
 import { RoiFeature, RoiFeatureCollection } from '../../types';
@@ -19,19 +19,6 @@ export const featureSchema: ZodType<RoiFeature> = z.object({
 export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = z.object({
   type: z.literal('FeatureCollection'),
   features: z.array(featureSchema),
-});
-
-export const sourceSchema = z.object({
-  path: z.string(),
-  type: z.nativeEnum(SourceType),
-  extent: z //this is optional because the merger gets 2 source- input and output. only the input has an extent
-    .object({
-      minX: z.number(),
-      minY: z.number(),
-      maxX: z.number(),
-      maxY: z.number(),
-    })
-    .optional(),
 });
 
 export const artifactSchema = z.object({
