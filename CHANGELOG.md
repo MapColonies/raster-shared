@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/MapColonies/raster-shared/compare/v1.3.1...v1.4.0) (2025-02-20)
+
+
+### Features
+
+* add GeoJSON openapi definitions and schemas ([4e9bed7](https://github.com/MapColonies/raster-shared/commit/4e9bed7db8c7fd620d1050dc51878e798c3d1dd7))
+* add polygonPartsPayloadSchema for ingestion validation ([162d9cb](https://github.com/MapColonies/raster-shared/commit/162d9cbf87560c9f987b9e543f53228c97cf79b1))
+
+
+### Bug Fixes
+
+* add export job and task params and fix validations ([c4eee39](https://github.com/MapColonies/raster-shared/commit/c4eee395030c9cbd13b946dc9de22e6cf9507f54))
+* pr changes ([e30e44c](https://github.com/MapColonies/raster-shared/commit/e30e44cff48845a5836f80af562c4f139c69a6aa))
+* remove task params ([2a52aef](https://github.com/MapColonies/raster-shared/commit/2a52aef9cb6de659cd68776192072b8cb21f7b7b))
+* removed source schema ([f01ebf1](https://github.com/MapColonies/raster-shared/commit/f01ebf103d2446858d33b653667dd610054b2ff3))
+
 ### [1.3.1](https://github.com/MapColonies/raster-shared/compare/v1.3.0...v1.3.1) (2025-02-16)
 
 
