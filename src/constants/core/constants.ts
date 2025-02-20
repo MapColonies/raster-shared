@@ -45,8 +45,8 @@ export const CORE_VALIDATIONS = {
     description: 'URL must start with http:// or https://',
   },
   resolutionDeg: {
-    min: zoomLevelToResolutionDeg(22) as number,
-    max: zoomLevelToResolutionDeg(0) as number,
+    min: zoomLevelToResolutionDeg(22) as number, //best resolution
+    max: zoomLevelToResolutionDeg(0) as number, //worst resolution
     description: 'Resolution in degrees',
   },
 } satisfies ValidationRules;
