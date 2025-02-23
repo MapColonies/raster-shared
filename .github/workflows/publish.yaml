@@ -17,6 +17,8 @@ jobs:
         uses: ./.github/actions/init-npm
         with:
           node-version: 20.x
+      - name: Copy resources
+        run: npm run copy
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
