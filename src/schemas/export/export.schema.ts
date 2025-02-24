@@ -1,10 +1,10 @@
 import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
+import { Artifact } from '@map-colonies/export-interfaces';
 import { ExportArtifactType } from '../../constants/export/constants';
 import { multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';
 import { RoiFeature, RoiFeatureCollection } from '../../types';
-import { Artifact } from '@map-colonies/export-interfaces';
 
 export const roiPropertiesSchema = z.object({
   maxResolutionDeg: z.number(),
