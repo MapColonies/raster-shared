@@ -1,5 +1,6 @@
 import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
+import { Artifact } from '@map-colonies/export-interfaces';
 import { ExportArtifactType } from '../../constants/export/constants';
 import { multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';
@@ -21,11 +22,12 @@ export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = z.objec
   features: z.array(featureSchema),
 });
 
-export const artifactSchema = z.object({
+export const artifactSchema: ZodType<Artifact> = z.object({
   name: z.string(),
   type: z.nativeEnum(ExportArtifactType),
-  url: z.string().optional(),
-  size: z.number().optional(),
+  url: z.string(),
+  size: z.number(),
+  sha256: z.string().optional(),
 });
 
 export const artifactsArraySchema = z.array(artifactSchema);
