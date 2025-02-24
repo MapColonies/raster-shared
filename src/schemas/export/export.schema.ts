@@ -4,6 +4,7 @@ import { ExportArtifactType } from '../../constants/export/constants';
 import { multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';
 import { RoiFeature, RoiFeatureCollection } from '../../types';
+import { Artifact } from '@map-colonies/export-interfaces';
 
 export const roiPropertiesSchema = z.object({
   maxResolutionDeg: z.number(),
@@ -21,11 +22,12 @@ export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = z.objec
   features: z.array(featureSchema),
 });
 
-export const artifactSchema = z.object({
+export const artifactSchema: ZodType<Artifact> = z.object({
   name: z.string(),
   type: z.nativeEnum(ExportArtifactType),
-  url: z.string().optional(),
-  size: z.number().optional(),
+  url: z.string(),
+  size: z.number(),
+  sha256: z.string().optional(),
 });
 
 export const artifactsArraySchema = z.array(artifactSchema);
