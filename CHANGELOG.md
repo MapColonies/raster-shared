@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.2](https://github.com/MapColonies/raster-shared/compare/v1.4.1...v1.4.2) (2025-02-24)
+
+
+### Bug Fixes
+
+* export-management integration ([fc3e400](https://github.com/MapColonies/raster-shared/commit/fc3e400d6442f0784b75d84bbac23250eb6bee09))
+* lint ([a0eedb0](https://github.com/MapColonies/raster-shared/commit/a0eedb074d685363cc731f7e86ae70e9ad4321a2))
+
 ### [1.4.1](https://github.com/MapColonies/raster-shared/compare/v1.4.0...v1.4.1) (2025-02-23)
 
 ## [1.4.0](https://github.com/MapColonies/raster-shared/compare/v1.3.1...v1.4.0) (2025-02-20)
