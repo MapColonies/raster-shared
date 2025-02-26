@@ -34,7 +34,6 @@ export const artifactsArraySchema = z.array(artifactSchema);
 
 export const fileNamesTemplatesSchema = z.object({
   dataURI: z.string(),
-  metadataURI: z.string(), // will be removed with export v2.0.0
 });
 
 export const cleanupDataSchema = z.object({
