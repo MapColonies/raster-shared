@@ -37,7 +37,7 @@ export const createJobResponseSchema = <T, P>(
     priority: z.number(),
     internalId: z.string().optional().nullable(),
     producerName: z.string().optional().nullable(),
-    productName: z.string().optional(),
+    productName: z.string().optional().nullable(),
     productType: rasterProductTypeSchema.optional(),
     taskCount: z.number().int().min(0),
     completedTasks: z.number().int().min(0),

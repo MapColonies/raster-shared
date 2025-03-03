@@ -38,8 +38,14 @@ export const fileNamesTemplatesSchema = z.object({
 
 export const cleanupDataSchema = z.object({
   directoryPath: z.string().optional(),
-  cleanupExpirationTimeUTC: z.date().optional(),
+  cleanupExpirationTimeUTC: z
+    .string()
+    .date()
+    .transform((value) => new Date(value))
+    .optional(),
 });
+
+export type CleanupDataSchema = z.infer<typeof cleanupDataSchema>;
 
 export const callbackExportDataSchema = z.object({
   recordCatalogId: z.string(),
