@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/MapColonies/raster-shared/compare/v1.4.4...v1.5.0) (2025-03-04)
+
+
+### Features
+
+* add jobTrackerUrl to export params ([319c75b](https://github.com/MapColonies/raster-shared/commit/319c75be77626d9fc31ba33578418efbda72b1ce))
+
+
+### Bug Fixes
+
+* data zod validation ([2959704](https://github.com/MapColonies/raster-shared/commit/29597045e011cb7546e32555a793b48da99267fc))
+
 ## [1.4.4](https://github.com/MapColonies/raster-shared/compare/v1.4.3...v1.4.4) (2025-03-03)
 
 
