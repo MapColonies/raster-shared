@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { TileFormatStrategy, TileOutputFormat } from '../../constants';
+import { CORE_VALIDATIONS, TileFormatStrategy, TileOutputFormat } from '../../constants';
 import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
 
 export const callbackUrlSchema = z.object({
@@ -21,6 +21,7 @@ export const exportAdditionalParamsSchema = z.object({
   gpkgEstimatedSize: z.number(),
   targetFormat: z.nativeEnum(TileOutputFormat),
   outputFormatStrategy: z.nativeEnum(TileFormatStrategy),
+  jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
 });
 
 export const exportJobParametersSchema = z

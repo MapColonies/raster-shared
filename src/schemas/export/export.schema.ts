@@ -38,11 +38,7 @@ export const fileNamesTemplatesSchema = z.object({
 
 export const cleanupDataSchema = z.object({
   directoryPath: z.string().optional(),
-  cleanupExpirationTimeUTC: z
-    .string()
-    .date()
-    .transform((value) => new Date(value))
-    .optional(),
+  cleanupExpirationTimeUTC: z.coerce.date().optional(),
 });
 
 export type CleanupDataSchema = z.infer<typeof cleanupDataSchema>;
