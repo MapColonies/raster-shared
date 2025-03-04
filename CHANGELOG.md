@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.4](https://github.com/MapColonies/raster-shared/compare/v1.4.3...v1.4.4) (2025-03-03)
+
+
+### Bug Fixes
+
+* job schema, cleanupDataSchema ([#40](https://github.com/MapColonies/raster-shared/issues/40)) ([887c80d](https://github.com/MapColonies/raster-shared/commit/887c80d4c22c0be1b6722ba94cee1218776d0f82))
+
+## [1.4.3](https://github.com/MapColonies/raster-shared/compare/v1.4.2...v1.4.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* remove metadataUri ([730f8df](https://github.com/MapColonies/raster-shared/commit/730f8dfd17155b55bd268627b0e0db8a341e9182))
+
 ## [1.4.2](https://github.com/MapColonies/raster-shared/compare/v1.4.1...v1.4.2) (2025-02-24)
 
 
