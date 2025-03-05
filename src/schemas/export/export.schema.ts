@@ -1,6 +1,6 @@
 import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { Artifact } from '@map-colonies/export-interfaces';
+import { Artifact } from '@map-colonies/types';
 import { ExportArtifactType } from '../../constants/export/constants';
 import { multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';

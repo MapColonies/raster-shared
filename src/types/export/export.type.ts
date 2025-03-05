@@ -20,5 +20,4 @@ export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema
 export type LinksDefinition = z.infer<typeof fileNamesTemplatesSchema>;
 export type ExportInputParams = z.infer<typeof exportInputParamsSchema>;
 export type ExportAdditionalParams = z.infer<typeof exportAdditionalParamsSchema>;
-export type Artifact = z.infer<typeof artifactSchema>;
 export type ArtifactsArray = z.infer<typeof artifactsArraySchema>;
