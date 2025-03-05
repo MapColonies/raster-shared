@@ -3,7 +3,6 @@ import type { Feature, FeatureCollection, MultiPolygon, Polygon } from 'geojson'
 import { callbackUrlSchema, callbackUrlsArraySchema, exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
 import {
   artifactsArraySchema,
-  artifactSchema,
   callbackExportResponseSchema,
   cleanupDataSchema,
   fileNamesTemplatesSchema,
