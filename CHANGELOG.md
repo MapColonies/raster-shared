@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/MapColonies/raster-shared/compare/v1.5.0...v1.6.0) (2025-03-10)
+
+
+### Features
+
+* add entityName to export params ([db9daae](https://github.com/MapColonies/raster-shared/commit/db9daaec84074449397bae4c8f4c1376f2d5a67f))
+* add entityName to export params ([d33da9c](https://github.com/MapColonies/raster-shared/commit/d33da9cf108ea612cc3c56a41a061f13ded01b18))
+
+
+### Bug Fixes
+
+* parse entity name ([d336071](https://github.com/MapColonies/raster-shared/commit/d336071c463b4d82c6ae0537e43ba21b36f4cc9b))
+
 ### [1.5.1](https://github.com/MapColonies/raster-shared/compare/v1.5.0...v1.5.1) (2025-03-05)
 
 ## [1.5.0](https://github.com/MapColonies/raster-shared/compare/v1.4.4...v1.5.0) (2025-03-04)
