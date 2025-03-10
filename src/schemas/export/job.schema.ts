@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileFormatStrategy, TileOutputFormat } from '../../constants';
+import { polygonPartsEntityNameSchema } from '../ingestion';
 import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
 
 export const callbackUrlSchema = z.object({
@@ -14,15 +15,17 @@ export const exportInputParamsSchema = z.object({
   callbackUrls: callbackUrlsArraySchema.optional(),
 });
 
-export const exportAdditionalParamsSchema = z.object({
-  fileNamesTemplates: fileNamesTemplatesSchema,
-  relativeDirectoryPath: z.string(),
-  packageRelativePath: z.string(),
-  gpkgEstimatedSize: z.number(),
-  targetFormat: z.nativeEnum(TileOutputFormat),
-  outputFormatStrategy: z.nativeEnum(TileFormatStrategy),
-  jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
-});
+export const exportAdditionalParamsSchema = z
+  .object({
+    fileNamesTemplates: fileNamesTemplatesSchema,
+    relativeDirectoryPath: z.string(),
+    packageRelativePath: z.string(),
+    gpkgEstimatedSize: z.number(),
+    targetFormat: z.nativeEnum(TileOutputFormat),
+    outputFormatStrategy: z.nativeEnum(TileFormatStrategy),
+    jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
+  })
+  .merge(polygonPartsEntityNameSchema);
 
 export const exportJobParametersSchema = z
   .object({
