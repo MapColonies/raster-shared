@@ -2,18 +2,19 @@ import { OperationStatus } from '@map-colonies/mc-priority-queue';
 import z from 'zod';
 
 export const exportFinalizeTaskParamsSchema = z
-  .object({
-    gpkgModified: z.boolean().optional(),
-    gpkgUploadedToS3: z.boolean().optional(),
-    callbacksSent: z.boolean(),
-    status: z.nativeEnum(OperationStatus).optional(),
-    errorReason: z.string().optional(),
-  })
-  .describe('exportFinalizeTaskParamsSchema')
-  .refine(
-    (data) => !(data.status && !data.errorReason), // Simplified logic: return false if status is set without errorReason
-    {
-      message: 'errorReason is required when status is provided',
-      path: ['errorReason'],
-    }
-  );
+  .discriminatedUnion('status', [
+    // Schema when status is Failed
+    z.object({
+      status: z.literal(OperationStatus.FAILED),
+      callbacksSent: z.boolean(),
+      errorReason: z.string().min(1, 'errorReason is required when status is Failed'),
+    }),
+    // Schema when status is Completed
+    z.object({
+      status: z.literal(OperationStatus.COMPLETED),
+      gpkgModified: z.boolean().optional(),
+      gpkgUploadedToS3: z.boolean().optional(),
+      callbacksSent: z.boolean(),
+    }),
+  ])
+  .describe('exportFinalizeTaskParamsSchema');
