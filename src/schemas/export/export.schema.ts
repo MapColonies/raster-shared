@@ -33,7 +33,7 @@ export const artifactSchema: ZodType<Artifact> = z.object({
 export const artifactsArraySchema = z.array(artifactSchema);
 
 export const fileNamesTemplatesSchema = z.object({
-  dataURI: z.string(),
+  packageName: z.string(),
 });
 
 export const cleanupDataSchema = z.object({
@@ -41,13 +41,15 @@ export const cleanupDataSchema = z.object({
   cleanupExpirationTimeUTC: z.coerce.date().optional(),
 });
 
-export type CleanupDataSchema = z.infer<typeof cleanupDataSchema>;
+export const linksSchema = z.object({
+  dataURI: z.string(),
+});
 
 export const callbackExportDataSchema = z.object({
   recordCatalogId: z.string(),
   jobId: z.string(),
   roi: roiFeatureCollectionSchema,
-  links: fileNamesTemplatesSchema.optional(),
+  links: linksSchema.optional(),
   expirationTime: z.date().optional(),
   fileSize: z.number().optional(),
   errorReason: z.string().optional(),

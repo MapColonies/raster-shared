@@ -12,7 +12,7 @@ import {
 export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
 export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;
 export type RoiFeatureCollection = FeatureCollection<Polygon | MultiPolygon, RoiProperties>;
-export type CallbackUrls = z.infer<typeof callbackUrlSchema>;
+export type CallbackUrl = z.infer<typeof callbackUrlSchema>;
 export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
 export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
