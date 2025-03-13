@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/MapColonies/raster-shared/compare/v1.6.0...v1.7.0) (2025-03-13)
+
+
+### Features
+
+* add failure handling in export ([cd65aca](https://github.com/MapColonies/raster-shared/commit/cd65aca826f00ab586da06d7edcdbb23da8acc9b))
+* add failure handling in export ([f9a18cd](https://github.com/MapColonies/raster-shared/commit/f9a18cd5cf3b3d6132370b9aaa337c99df0dc0cd))
+
+
+### Bug Fixes
+
+* use discriminatedUnion ([5660f38](https://github.com/MapColonies/raster-shared/commit/5660f3820c58c408ba4a072554a7b7a82355d0e7))
+
 ## [1.6.0](https://github.com/MapColonies/raster-shared/compare/v1.5.0...v1.6.0) (2025-03-10)
 
 
