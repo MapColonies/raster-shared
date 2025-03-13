@@ -12,8 +12,8 @@ export const exportFinalizeTaskParamsSchema = z
     // Schema when status is Completed
     z.object({
       status: z.literal(OperationStatus.COMPLETED),
-      gpkgModified: z.boolean().optional(),
-      gpkgUploadedToS3: z.boolean().optional(),
+      gpkgModified: z.boolean(),
+      gpkgUploadedToS3: z.boolean(),
       callbacksSent: z.boolean(),
     }),
   ])
