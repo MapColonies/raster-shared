@@ -6,6 +6,7 @@ import {
   callbackExportResponseSchema,
   cleanupDataSchema,
   fileNamesTemplatesSchema,
+  linksSchema,
   roiPropertiesSchema,
 } from '../../schemas/export/export.schema';
 
@@ -16,7 +17,8 @@ export type CallbackUrl = z.infer<typeof callbackUrlSchema>;
 export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
 export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
-export type LinksDefinition = z.infer<typeof fileNamesTemplatesSchema>;
+export type LinksDefinition = z.infer<typeof linksSchema>;
+export type FileNamesTemplates = z.infer<typeof fileNamesTemplatesSchema>;
 export type ExportInputParams = z.infer<typeof exportInputParamsSchema>;
 export type ExportAdditionalParams = z.infer<typeof exportAdditionalParamsSchema>;
 export type ArtifactsArray = z.infer<typeof artifactsArraySchema>;
