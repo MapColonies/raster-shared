@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/MapColonies/raster-shared/compare/v1.7.3...v1.8.0) (2025-03-18)
+
+
+### Features
+
+* enhance callback export response schema to include IN_PROGRESS status ([#55](https://github.com/MapColonies/raster-shared/issues/55)) ([563efb5](https://github.com/MapColonies/raster-shared/commit/563efb5aa232a305b6b6c60d63371c6c38d95e35))
+
 ### [1.7.3](https://github.com/MapColonies/raster-shared/compare/v1.7.2...v1.7.3) (2025-03-16)
 
 ## [1.7.2](https://github.com/MapColonies/raster-shared/compare/v1.7.1...v1.7.2) (2025-03-13)
