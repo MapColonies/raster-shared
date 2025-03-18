@@ -4,6 +4,7 @@ import { callbackUrlSchema, callbackUrlsArraySchema, exportAdditionalParamsSchem
 import {
   artifactsArraySchema,
   callbackExportResponseSchema,
+  callbacksStatus,
   cleanupDataSchema,
   fileNamesTemplatesSchema,
   linksSchema,
@@ -13,10 +14,13 @@ import {
 export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
 export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;
 export type RoiFeatureCollection = FeatureCollection<Polygon | MultiPolygon, RoiProperties>;
+
 export type CallbackUrl = z.infer<typeof callbackUrlSchema>;
 export type CallbackUrlsTargetArray = z.infer<typeof callbackUrlsArraySchema>;
-export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
+export type CallbacksStatus = z.infer<typeof callbacksStatus>;
+
+export type CleanupData = z.infer<typeof cleanupDataSchema>;
 export type LinksDefinition = z.infer<typeof linksSchema>;
 export type FileNamesTemplates = z.infer<typeof fileNamesTemplatesSchema>;
 export type ExportInputParams = z.infer<typeof exportInputParamsSchema>;

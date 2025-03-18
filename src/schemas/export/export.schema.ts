@@ -57,6 +57,12 @@ export const callbackExportDataSchema = z.object({
   artifacts: artifactsArraySchema.optional(),
 });
 
+export const callbacksStatus = z.union([
+  z.literal(OperationStatus.COMPLETED),
+  z.literal(OperationStatus.FAILED),
+  z.literal(OperationStatus.IN_PROGRESS),
+]);
+
 export const callbackExportResponseSchema = callbackExportDataSchema.extend({
-  status: z.union([z.literal(OperationStatus.COMPLETED), z.literal(OperationStatus.FAILED)]),
+  status: callbacksStatus,
 });
