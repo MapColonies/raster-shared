@@ -20,13 +20,13 @@ components:
         maxResolutionDeg:
           description: Maximum resolution in degrees
           type: number
-          minimum: 3.35276126861572e-7
+          minimum: 1.67638063430786e-7
           maximum: 0.703125
           format: double
         minResolutionDeg:
           description: Minimum resolution in degrees
           type: number
-          minimum: 3.35276126861572e-7
+          minimum: 1.67638063430786e-7
           maximum: 0.703125
           format: double
 
