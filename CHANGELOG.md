@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/MapColonies/raster-shared/compare/v1.8.0...v1.9.0) (2025-03-26)
+
+
+### Features
+
+* add OpenAPI export definitions for GeoJSON features and properties ([0903f79](https://github.com/MapColonies/raster-shared/commit/0903f79f3efaa98c8353fd0f85e9369c93f61ad3))
+* add OpenAPI export definitions for GeoJSON features and properties ([#58](https://github.com/MapColonies/raster-shared/issues/58)) ([642a177](https://github.com/MapColonies/raster-shared/commit/642a17793a55879ef1c9dff1e3171c79fa8c49e6))
+
 ## [1.8.0](https://github.com/MapColonies/raster-shared/compare/v1.7.3...v1.8.0) (2025-03-18)
 
 
