@@ -7,7 +7,6 @@ export const exportFinalizeTaskParamsSchema = z
     z.object({
       status: z.literal(OperationStatus.FAILED),
       callbacksSent: z.boolean(),
-      errorReason: z.string().min(1, 'errorReason is required when status is Failed'),
     }),
     // Schema when status is Completed
     z.object({
