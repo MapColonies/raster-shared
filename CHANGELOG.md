@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.1](https://github.com/MapColonies/raster-shared/compare/v1.9.0...v1.9.1) (2025-03-30)
+
+
+### Bug Fixes
+
+* use zod coerce date to validate date and string date ([#66](https://github.com/MapColonies/raster-shared/issues/66)) ([5ecc01e](https://github.com/MapColonies/raster-shared/commit/5ecc01e7b4bec290f2546e1675f8b1ed8b38b948))
+
 ## [1.9.0](https://github.com/MapColonies/raster-shared/compare/v1.8.0...v1.9.0) (2025-03-26)
 
 
