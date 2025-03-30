@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.2](https://github.com/MapColonies/raster-shared/compare/v1.9.1...v1.9.2) (2025-03-30)
+
+
+### Bug Fixes
+
+* removed unnecessary type import ([ff2b148](https://github.com/MapColonies/raster-shared/commit/ff2b1488de900d68a2b2940599688354729e3ad3))
+* removed unnecessary type import ([d0c3be2](https://github.com/MapColonies/raster-shared/commit/d0c3be2483d722d23c6634d3d68a5058814d0803))
+
 ## [1.9.1](https://github.com/MapColonies/raster-shared/compare/v1.9.0...v1.9.1) (2025-03-30)
 
 
