@@ -50,7 +50,7 @@ export const callbackExportDataSchema = z.object({
   jobId: z.string(),
   roi: roiFeatureCollectionSchema,
   links: linksSchema.optional(),
-  expirationTime: z.date().optional(),
+  expirationTime: z.coerce.date().optional(),
   fileSize: z.number().optional(),
   errorReason: z.string().optional(),
   description: z.string().optional(),
