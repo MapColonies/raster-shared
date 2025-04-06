@@ -51,6 +51,7 @@
     "@map-colonies/tsconfig": "^1.0.0",
     "@swc/core": "^1.7.26",
     "@swc/jest": "^0.2.36",
+    "@types/geojson": "^7946.0.16",
     "@types/jest": "^29.4.0",
     "@types/node": "^14.14.12",
     "commitlint": "^19.6.1",
