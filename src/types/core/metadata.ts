@@ -1,4 +1,4 @@
-import { IMetadataCommonModel, TilesMimeFormat } from '@map-colonies/types';
+import { IMetadataCommonModel, RecordStatus, TilesMimeFormat } from '@map-colonies/types';
 import { TileOutputFormat, Transparency } from '../../constants/core';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
@@ -27,4 +27,5 @@ export type RasterLayerMetadata = {
   transparency: Transparency;
   tileMimeFormat: TilesMimeFormat;
   tileOutputFormat: TileOutputFormat;
+  productStatus: RecordStatus;
 } & IMetadataCommonModel;
