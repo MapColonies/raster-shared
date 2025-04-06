@@ -27,5 +27,5 @@ export type RasterLayerMetadata = {
   transparency: Transparency;
   tileMimeFormat: TilesMimeFormat;
   tileOutputFormat: TileOutputFormat;
-  productStatus: RecordStatus;
+  productStatus?: RecordStatus;
 } & IMetadataCommonModel;
