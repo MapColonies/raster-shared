@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/MapColonies/raster-shared/compare/v1.9.2...v1.10.0) (2025-04-06)
+
+
+
+### Features
+
+* add product status ([b9267ce](https://github.com/MapColonies/raster-shared/commit/b9267ceef8db01db37018e155ce0bbca511228b0))
+* add product status ([b05c94c](https://github.com/MapColonies/raster-shared/commit/b05c94cdc01a9a768d3a05530935988a1c1e1544))
+* add productStatus ([85893b9](https://github.com/MapColonies/raster-shared/commit/85893b9c2342b70d4cdf61ec424a710f46b4cbf9))
+* add productStatus ([0b84cfc](https://github.com/MapColonies/raster-shared/commit/0b84cfc22b3bc5932f4223556db569ef06df93a4))
+
+
+### Bug Fixes
+
+* not mandatory ([ea7586d](https://github.com/MapColonies/raster-shared/commit/ea7586d5bdd22095c9ec2345380dccace04442fe))
+
 ## [1.9.2](https://github.com/MapColonies/raster-shared/compare/v1.9.1...v1.9.2) (2025-03-30)
 
 
