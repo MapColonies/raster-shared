@@ -2,12 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.0.0](https://github.com/MapColonies/raster-shared/compare/v1.9.2...v2.0.0) (2025-04-06)
+## [1.10.0](https://github.com/MapColonies/raster-shared/compare/v1.9.2...v1.10.0) (2025-04-06)
 
 
-### ⚠ BREAKING CHANGES
-
-* add productStatus
 
 ### Features
 
