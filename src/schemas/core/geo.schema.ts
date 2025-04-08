@@ -19,14 +19,7 @@ const firstAndLastPositionsEquality = (positions: Position[]): boolean => {
   const first = positions.at(0);
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   const last = positions.at(-1);
-  return (
-    !!first &&
-    !!last &&
-    first.at(0) === last.at(0) &&
-    first.at(1) === last.at(1) &&
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    ((first.at(2) !== undefined && last.at(2) !== undefined) || first.at(2) === last.at(2))
-  );
+  return first?.length === last?.length && (first?.every((coordinate, index) => coordinate === last?.at(index)) ?? false);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
