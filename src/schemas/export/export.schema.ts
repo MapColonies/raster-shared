@@ -2,25 +2,21 @@ import { z, ZodType } from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
 import { Artifact } from '@map-colonies/types';
 import { ExportArtifactType } from '../../constants/export/constants';
-import { multiPolygonSchema, polygonSchema } from '../core';
+import { featureCollectionSchema, featureSchema, multiPolygonSchema, polygonSchema } from '../core';
 import { CORE_VALIDATIONS } from '../../constants';
-import { RoiFeature, RoiFeatureCollection } from '../../types';
+import type { RoiFeature, RoiFeatureCollection } from '../../types';
 
 export const roiPropertiesSchema = z.object({
   maxResolutionDeg: z.number(),
   minResolutionDeg: z.number().optional().default(CORE_VALIDATIONS.resolutionDeg.max), //worst resolution
 });
 
-export const featureSchema: ZodType<RoiFeature> = z.object({
-  type: z.literal('Feature'),
-  geometry: polygonSchema.or(multiPolygonSchema),
-  properties: roiPropertiesSchema as ZodType<RoiFeature['properties']>,
-});
+export const roiFeatureSchema: ZodType<RoiFeature> = featureSchema(
+  polygonSchema.or(multiPolygonSchema),
+  roiPropertiesSchema as ZodType<RoiFeature['properties']>
+);
 
-export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = z.object({
-  type: z.literal('FeatureCollection'),
-  features: z.array(featureSchema),
-});
+export const roiFeatureCollectionSchema: ZodType<RoiFeatureCollection> = featureCollectionSchema(roiFeatureSchema);
 
 export const artifactSchema: ZodType<Artifact> = z.object({
   name: z.string(),
