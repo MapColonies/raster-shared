@@ -19,7 +19,6 @@ export type InputFiles = z.infer<typeof inputFilesSchema>;
 export type LayerData = z.infer<typeof layerDataSchema>;
 export type NewRasterLayerMetadata = z.infer<typeof newRasterLayerMetadataSchema>;
 export type UpdateRasterLayerMetadata = z.infer<typeof updateRasterLayerMetadataSchema>;
-export type AggregationFeature = z.infer<typeof aggregationFeature>;
 // #endregion
 
 //#region PolygonParts
