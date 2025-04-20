@@ -87,9 +87,9 @@ export const aggregationFeaturePropertiesSchema = z
     message: 'Max resolution meter should be less than or equal to min resolution meter',
   })
   .describe('aggregationLayerMetadataSchema')
-  .or(z.null())
   .describe('aggregationFeaturePropertiesSchema');
 
-export const aggregationFeatureSchema = featureSchema(polygonSchema.or(multiPolygonSchema).or(z.null()), aggregationFeaturePropertiesSchema).describe(
-  'aggregationFeatureSchema'
-);
+export const aggregationFeatureSchema = featureSchema(
+  polygonSchema.or(multiPolygonSchema).or(z.null()),
+  aggregationFeaturePropertiesSchema.or(z.null())
+).describe('aggregationFeatureSchema');

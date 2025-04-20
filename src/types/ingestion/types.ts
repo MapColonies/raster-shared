@@ -1,7 +1,7 @@
 import z from 'zod';
 import { inputFilesSchema } from '../../schemas/ingestion/inputFiles.schema';
 import { partSchema, polygonPartsEntityNameSchema, polygonPartsPayloadSchema } from '../../schemas/ingestion/polygonParts.schema';
-import { aggregationFeature, newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
+import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
 import { layerDataSchema, newRasterLayerRequestSchema, updateRasterLayerRequestSchema } from '../../schemas/ingestion/ingestionRequest.schema';
 import {
   ingestionNewJobParamsSchema,
