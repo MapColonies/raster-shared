@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/MapColonies/raster-shared/compare/v1.10.0...v2.0.0) (2025-04-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* resuse goejson schemas and rename existing schemas
+* add geojson schemas with additional geometry and feature types
+
+### Features
+
+* add geojson schemas with additional geometry and feature types ([6e341f2](https://github.com/MapColonies/raster-shared/commit/6e341f22f701c53a4f2d6b8c862b7c3db28ddd39))
+
+
+* resuse goejson schemas and rename existing schemas ([b829626](https://github.com/MapColonies/raster-shared/commit/b8296266ebf705bd16c03a037e1232d64c1d5146))
+
 ## [1.10.0](https://github.com/MapColonies/raster-shared/compare/v1.9.2...v1.10.0) (2025-04-06)
 
 
