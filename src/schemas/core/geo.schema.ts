@@ -20,17 +20,10 @@ import { firstAndLastPositionsEquality } from '../../utils/geo';
 export const longitudeSchema = z.number().min(-180).max(180);
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 export const latitudeSchema = z.number().min(-90).max(90);
-export const elevationSchema = z.number().safe();
 
-export const positionSchema: ZodType<Position> = z.union([
-  z.tuple([longitudeSchema, latitudeSchema]),
-  z.tuple([longitudeSchema, latitudeSchema, elevationSchema]),
-]);
+export const positionSchema: ZodType<Position> = z.tuple([longitudeSchema, latitudeSchema]);
 
-export const bboxSchema: ZodType<BBox> = z.union([
-  z.tuple([longitudeSchema, latitudeSchema, longitudeSchema, latitudeSchema]),
-  z.tuple([longitudeSchema, latitudeSchema, elevationSchema, longitudeSchema, latitudeSchema, elevationSchema]),
-]);
+export const bboxSchema: ZodType<BBox> = z.tuple([longitudeSchema, latitudeSchema, longitudeSchema, latitudeSchema]);
 
 export const pointSchema: ZodType<Point> = z.object({
   type: z.literal('Point'),
