@@ -54,7 +54,9 @@ export const multiLineStringSchema: ZodType<MultiLineString> = z.object({
 export const polygonSchema: ZodType<Polygon> = z.object({
   type: z.literal('Polygon'),
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-  coordinates: z.array(z.array(positionSchema).min(4).refine(firstAndLastPositionsEquality)).min(1),
+  coordinates: z
+    .array(z.array(positionSchema).min(4).refine(firstAndLastPositionsEquality, { message: 'First and last position are not equivalent' }))
+    .min(1),
   bbox: bboxSchema.optional(),
 });
 
