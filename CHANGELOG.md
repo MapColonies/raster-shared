@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/MapColonies/raster-shared/compare/v2.0.0...v3.0.0) (2025-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* change aggregation response from object to GeoJSON Feature ([#75](https://github.com/MapColonies/raster-shared/issues/75))
+
+### Code Refactoring
+
+* change aggregation response from object to GeoJSON Feature ([#75](https://github.com/MapColonies/raster-shared/issues/75)) ([a16ef4a](https://github.com/MapColonies/raster-shared/commit/a16ef4a200bfc9ccbfd2b5d224195ce61e1f9c2d))
+
 ## [2.0.0](https://github.com/MapColonies/raster-shared/compare/v1.10.0...v2.0.0) (2025-04-20)
 
 
