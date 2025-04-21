@@ -1,7 +1,7 @@
 import z from 'zod';
 import { inputFilesSchema } from '../../schemas/ingestion/inputFiles.schema';
 import { partSchema, polygonPartsEntityNameSchema, polygonPartsPayloadSchema } from '../../schemas/ingestion/polygonParts.schema';
-import { aggregationMetadataSchema, newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
+import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
 import { layerDataSchema, newRasterLayerRequestSchema, updateRasterLayerRequestSchema } from '../../schemas/ingestion/ingestionRequest.schema';
 import {
   ingestionNewJobParamsSchema,
@@ -19,7 +19,6 @@ export type InputFiles = z.infer<typeof inputFilesSchema>;
 export type LayerData = z.infer<typeof layerDataSchema>;
 export type NewRasterLayerMetadata = z.infer<typeof newRasterLayerMetadataSchema>;
 export type UpdateRasterLayerMetadata = z.infer<typeof updateRasterLayerMetadataSchema>;
-export type AggregationLayerMetadata = z.infer<typeof aggregationMetadataSchema>;
 // #endregion
 
 //#region PolygonParts
