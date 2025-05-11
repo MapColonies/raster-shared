@@ -39,6 +39,7 @@ export const cleanupDataSchema = z.object({
 
 export const linksSchema = z.object({
   dataURI: z.string(),
+  metadataURI: z.string(), //TODO: remove metadataURI when we remove metadata json support
 });
 
 export const callbackExportDataSchema = z.object({
@@ -48,6 +49,7 @@ export const callbackExportDataSchema = z.object({
   links: linksSchema.optional(),
   expirationTime: z.coerce.date().optional(),
   fileSize: z.number().optional(),
+  jsonFileData: z.object({ size: z.number().optional(), sha256: z.string().optional() }).optional(), // TODO: remove when we remove metadata json support
   errorReason: z.string().optional(),
   description: z.string().optional(),
   artifacts: artifactsArraySchema.optional(),
