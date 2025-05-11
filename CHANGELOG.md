@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/MapColonies/raster-shared/compare/v3.0.0...v3.1.0) (2025-05-11)
+
+
+### Features
+
+* add metadataURI and jsonFileData to links and callbackExportData schemas ([#80](https://github.com/MapColonies/raster-shared/issues/80)) ([d334ca9](https://github.com/MapColonies/raster-shared/commit/d334ca9ef71b14b52e373c3f49252454892d3ab1))
+
 ## [3.0.0](https://github.com/MapColonies/raster-shared/compare/v2.0.0...v3.0.0) (2025-04-21)
 
 
