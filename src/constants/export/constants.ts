@@ -18,7 +18,7 @@ export const SourceType = {
 export const ExportFinalizeType = {
   Full_Processing: 'FullProcessing',
   Error_Callback: 'ErrorCallback',
-};
+} as const;
 
 export type TileFormatStrategy = (typeof TileFormatStrategy)[keyof typeof TileFormatStrategy];
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
