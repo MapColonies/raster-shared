@@ -15,6 +15,11 @@ export const SourceType = {
   FS: 'FS',
 } as const;
 
+export const ExportFinalizeType = {
+  Full_Processing: 'FullProcessing',
+  Error_Callback: 'ErrorCallback',
+};
+
 export type TileFormatStrategy = (typeof TileFormatStrategy)[keyof typeof TileFormatStrategy];
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
