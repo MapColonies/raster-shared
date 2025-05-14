@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/MapColonies/raster-shared/compare/v3.1.3...v3.1.4) (2025-05-14)
+
+
+### Bug Fixes
+
+* exportFinalizeType add as const ([#84](https://github.com/MapColonies/raster-shared/issues/84)) ([cebeb61](https://github.com/MapColonies/raster-shared/commit/cebeb61bd092201324eddb9a2c1055f98b4574d0))
+
 ### [3.1.3](https://github.com/MapColonies/raster-shared/compare/v3.1.2...v3.1.3) (2025-05-14)
 
 ### [3.1.2](https://github.com/MapColonies/raster-shared/compare/v3.1.1...v3.1.2) (2025-05-14)
