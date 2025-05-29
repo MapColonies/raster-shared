@@ -47,7 +47,7 @@ export const createJobResponseSchema = <T, P>(
     inProgressTasks: z.number().int().min(0),
     abortedTasks: z.number().int().min(0),
     additionalIdentifiers: z.string().optional().nullable(),
-    expirationDate: z.date().optional().nullable(),
+    expirationDate: z.coerce.date().optional().nullable(),
     domain: z.literal(RASTER_DOMAIN),
   });
 
