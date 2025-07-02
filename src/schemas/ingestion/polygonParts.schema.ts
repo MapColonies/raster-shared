@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-import type { Polygon } from 'geojson';
 import { z } from 'zod';
 import { CORE_VALIDATIONS } from '../../constants';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
-import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
+import { featureCollectionSchema, featureSchema, polygonSchema, rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
@@ -63,7 +61,6 @@ export const partSchema = z
         message: 'Cities should be an array',
       })
       .optional(),
-    footprint: z.custom<Polygon>(),
   })
   .refine((part) => part.imagingTimeBeginUTC <= part.imagingTimeEndUTC && part.imagingTimeEndUTC <= new Date(), {
     message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
@@ -78,10 +75,14 @@ export const polygonPartsEntityNameSchema = z
   })
   .describe('polygonPartsEntityNameSchema');
 
+export const polygonPartsFeatureSchema = featureSchema(polygonSchema, partSchema);
+
+export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
+
 export const polygonPartsPayloadSchema = z.object({
   productType: rasterProductTypeSchema,
   productId: resourceIdSchema,
   catalogId: z.string().uuid(),
   productVersion: versionSchema,
-  partsData: partSchema.array().min(1),
+  partsData: polygonPartsFeatureCollectionSchema,
 });

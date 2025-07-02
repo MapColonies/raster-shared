@@ -9,3 +9,7 @@ export const inputFilesSchema = z
       .length(1, { message: 'Number of files should be 1' }),
   })
   .describe('inputFilesSchema');
+
+export const shapefilePathSchema = z
+  .string()
+  .regex(new RegExp(INGESTION_VALIDATIONS.shapefileFilePath.pattern), 'File path must be a valid shapefile path ending with .shp');
