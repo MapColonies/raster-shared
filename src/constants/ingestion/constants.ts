@@ -38,7 +38,8 @@ export const INGESTION_VALIDATIONS = {
   },
   shapefileFilePath: {
     description: 'Valid shapefile file path',
-    pattern: '^(?:[a-zA-Z]:\\|\\\\|(?:/|./|../))?(?:[a-zA-Z0-9_.-]+/)*[a-zA-Z][a-zA-Z0-9_]{0,9}.shp$',
+    // eslint-disable-next-line no-useless-escape
+    pattern: '^(?:\/|\.\/|\.\.\/)?(?:[a-zA-Z0-9_.-]+\/)*[a-zA-Z][a-zA-Z0-9_]*\.shp$',
   },
   horizontalAccuracyCE90: {
     min: 0.01,

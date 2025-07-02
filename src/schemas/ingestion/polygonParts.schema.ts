@@ -75,28 +75,14 @@ export const polygonPartsEntityNameSchema = z
   })
   .describe('polygonPartsEntityNameSchema');
 
-export const ppFeatureSchema = featureSchema(polygonSchema, partSchema);
+export const polygonPartsFeatureSchema = featureSchema(polygonSchema, partSchema);
 
-export const ppFeatureCollectionSchema = featureCollectionSchema(ppFeatureSchema);
-
-export const ppFeatureCollectionMetadataSchema = z
-  .object({
-    chunkIndex: z.number().int().min(0, { message: 'Chunk index must be a non-negative integer' }),
-    featureCount: z.number().int().min(1, { message: 'Feature count must be a positive integer' }),
-  })
-  .describe('ppFeatureCollectionMetadataSchema');
-
-export const partsDataChunkSchema = z
-  .object({
-    featureCollection: ppFeatureCollectionSchema,
-    metadata: ppFeatureCollectionMetadataSchema,
-  })
-  .describe('partsDataSchema');
+export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
 
 export const polygonPartsPayloadSchema = z.object({
   productType: rasterProductTypeSchema,
   productId: resourceIdSchema,
   catalogId: z.string().uuid(),
   productVersion: versionSchema,
-  partsDataChunk: partsDataChunkSchema,
+  partsData: polygonPartsFeatureCollectionSchema,
 });
