@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 import type {
   BBox,
   Feature,
@@ -16,9 +17,8 @@ import type {
 import { z, ZodType, type ZodObject } from 'zod';
 import { firstAndLastPositionsEquality } from '../../utils/geo';
 
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 export const longitudeSchema = z.number().min(-180).max(180);
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
 export const latitudeSchema = z.number().min(-90).max(90);
 
 export const positionSchema: ZodType<Position> = z.tuple([longitudeSchema, latitudeSchema]);
@@ -39,14 +39,14 @@ export const multiPointSchema: ZodType<MultiPoint> = z.object({
 
 export const lineStringSchema: ZodType<LineString> = z.object({
   type: z.literal('LineString'),
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
   coordinates: z.array(positionSchema).min(2),
   bbox: bboxSchema.optional(),
 });
 
 export const multiLineStringSchema: ZodType<MultiLineString> = z.object({
   type: z.literal('MultiLineString'),
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
   coordinates: z.array(z.array(positionSchema).min(2)).min(1),
   bbox: bboxSchema.optional(),
 });
@@ -54,7 +54,7 @@ export const multiLineStringSchema: ZodType<MultiLineString> = z.object({
 export const polygonSchema: ZodType<Polygon> = z.object({
   type: z.literal('Polygon'),
   coordinates: z
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
     .array(z.array(positionSchema).min(4).refine(firstAndLastPositionsEquality, { message: 'First and last position are not equivalent' }))
     .min(1),
   bbox: bboxSchema.optional(),
@@ -62,7 +62,7 @@ export const polygonSchema: ZodType<Polygon> = z.object({
 
 export const multiPolygonSchema: ZodType<MultiPolygon> = z.object({
   type: z.literal('MultiPolygon'),
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+
   coordinates: z.array(z.array(z.array(positionSchema).min(4).refine(firstAndLastPositionsEquality)).min(1)).min(1),
   bbox: bboxSchema.optional(),
 });

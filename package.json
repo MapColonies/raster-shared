@@ -36,6 +36,9 @@
   "bugs": {
     "url": "https://github.com/MapColonies/raster-shared/issues"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "files": [
     "dist/**/*"
   ],
