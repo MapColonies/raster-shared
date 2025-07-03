@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.5](https://github.com/MapColonies/raster-shared/compare/v3.1.4...v3.1.5) (2025-07-03)
+
+
+### Bug Fixes
+
+* include polygonPartsEntityName in baseAdditionalParamsSchema ([#96](https://github.com/MapColonies/raster-shared/issues/96)) ([e82bc5c](https://github.com/MapColonies/raster-shared/commit/e82bc5c4dec08cc269e4305e2285ed91cd46eed4))
+
 ### [3.1.4](https://github.com/MapColonies/raster-shared/compare/v3.1.3...v3.1.4) (2025-05-14)
 
 
