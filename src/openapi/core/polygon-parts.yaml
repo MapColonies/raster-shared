@@ -1,0 +1,11 @@
+openapi: '3.0.1'
+info:
+  title: Polygon parts ingestion properties definitions
+  version: 1.0.0
+components:
+  schemas:
+    PolygonPartsEntityName:
+      type: string
+      description: Polygon parts entity name
+      pattern: ^[a-z][a-z0-9_]{0,61}[a-z0-9]$
+      example: world_orthophoto
