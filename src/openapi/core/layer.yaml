@@ -1,6 +1,6 @@
 openapi: '3.0.1'
 info:
-  title: Ingestion properties definitions
+  title: Layer properties definitions
   version: 1.0.0
 components:
   schemas:
