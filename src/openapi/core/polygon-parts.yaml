@@ -16,6 +16,7 @@ components:
       description: Countries included in the part
     Description:
       type: string
+      description: Free text describing the part
     Id:
       type: string
       format: uuid
