@@ -1,0 +1,15 @@
+openapi: '3.0.1'
+info:
+  title: Core definitions
+  version: 1.0.0
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        stacktrace:
+          type: string
+      required:
+        - message
