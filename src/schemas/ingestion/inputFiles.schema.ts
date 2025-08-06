@@ -6,24 +6,28 @@ export const gpkgFileNameSchema = z
   .regex(new RegExp(INGESTION_VALIDATIONS.fileNames.pattern), 'File name must end with .gpkg')
   .describe('gpkgFileNameSchema');
 
-export const shapefilePathSchema = z
+export const metadataShapefilePathSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.shapefileFilePath.pattern), 'File path must be a valid shapefile path ending with .shp');
+  .regex(
+    new RegExp(INGESTION_VALIDATIONS.metadataShapefileFilePath.pattern),
+    'Metadata shape file path must be a valid shapefile path ending with "/ShapeMetadata.shp"'
+  );
 
-export const filesSchema = z
+export const productShapefilePathSchema = z
+  .string()
+  .regex(
+    new RegExp(INGESTION_VALIDATIONS.productShapefileFilePath.pattern),
+    'Product file path must be a valid shapefile path ending with "/Product.shp"'
+  );
+
+export const inputFilesSchema = z
   .object({
-    gpkgFiles: z
+    gpkgFilesPath: z
       .array(gpkgFileNameSchema, {
         message: 'Files should be an array of .gpkg file names',
       })
       .length(1, { message: 'Number of files should be 1' }),
-    shapeFilePath: shapefilePathSchema,
+    metadataShapefilePath: metadataShapefilePathSchema,
+    productShapefilePath: productShapefilePathSchema,
   })
   .describe('filesSchema');
-
-export const inputFilesSchema = z
-  .object({
-    originDirectory: z.string().min(1, { message: 'Origin directory is required, files should be stored on specific directory' }),
-    files: filesSchema,
-  })
-  .describe('inputFilesSchema');
