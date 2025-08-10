@@ -1,7 +1,12 @@
-import z from 'zod';
 import { IMetadataCommonModel, RecordStatus, TilesMimeFormat } from '@map-colonies/types';
+import z from 'zod';
 import { TileOutputFormat, Transparency } from '../../constants/core';
-import { aggregationFeatureSchema } from '../../schemas';
+import {
+  aggregationEmptyFeatureSchema,
+  aggregationFeatureSchema,
+  aggregationNonSpatialFeatureSchema,
+  aggregationSpatialFeatureSchema,
+} from '../../schemas';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type RasterLayerMetadata = {
@@ -32,4 +37,7 @@ export type RasterLayerMetadata = {
   productStatus?: RecordStatus;
 } & IMetadataCommonModel;
 
+export type AggregationSpatialFeature = z.infer<typeof aggregationSpatialFeatureSchema>;
+export type AggregationNonSpatialFeature = z.infer<typeof aggregationNonSpatialFeatureSchema>;
+export type AggregationEmptyFeature = z.infer<typeof aggregationEmptyFeatureSchema>;
 export type AggregationFeature = z.infer<typeof aggregationFeatureSchema>;
