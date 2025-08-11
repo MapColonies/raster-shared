@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/MapColonies/raster-shared/compare/v3.1.5...v3.2.0) (2025-08-11)
+
+
+### Features
+
+* add openapi schemas ([#98](https://github.com/MapColonies/raster-shared/issues/98)) ([3918af9](https://github.com/MapColonies/raster-shared/commit/3918af917878e882cc93c4f1056e45175674507d))
+* add shapefile validation and update schemas for new ingestion p… ([#103](https://github.com/MapColonies/raster-shared/issues/103)) ([75a3a09](https://github.com/MapColonies/raster-shared/commit/75a3a09ab300af37fcf7c32a3abb9c2fb968b2e1))
+
 ## [3.1.5](https://github.com/MapColonies/raster-shared/compare/v3.1.4...v3.1.5) (2025-07-03)
 
 
