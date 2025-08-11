@@ -36,6 +36,11 @@ export const INGESTION_VALIDATIONS = {
     pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
     description: 'File name must end with .gpkg',
   },
+  shapefileFilePath: {
+    description: 'Valid shapefile file path',
+    // eslint-disable-next-line no-useless-escape
+    pattern: '^(?:\/|\.\/|\.\.\/)?(?:[a-zA-Z0-9_.-]+\/)*[a-zA-Z][a-zA-Z0-9_]*\.shp$',
+  },
   horizontalAccuracyCE90: {
     min: 0.01,
     max: 4000,

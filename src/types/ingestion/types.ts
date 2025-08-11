@@ -1,6 +1,11 @@
 import z from 'zod';
 import { inputFilesSchema } from '../../schemas/ingestion/inputFiles.schema';
-import { partSchema, polygonPartsEntityNameSchema, polygonPartsPayloadSchema } from '../../schemas/ingestion/polygonParts.schema';
+import {
+  polygonPartsEntityNameSchema,
+  polygonPartsPayloadSchema,
+  polygonPartsFeatureCollectionSchema,
+  polygonPartsFeatureSchema,
+} from '../../schemas/ingestion/polygonParts.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
 import { layerDataSchema, newRasterLayerRequestSchema, updateRasterLayerRequestSchema } from '../../schemas/ingestion/ingestionRequest.schema';
 import {
@@ -13,6 +18,7 @@ import {
   ingestionSwapUpdateTaskParamsSchema,
   ingestionUpdateFinalizeTaskParamsSchema,
 } from '../../schemas/ingestion/ingestionTaskParams.schema';
+import { shapefileFeaturePropertiesSchema } from '../../schemas';
 
 //#region LayerData
 export type InputFiles = z.infer<typeof inputFilesSchema>;
@@ -22,9 +28,14 @@ export type UpdateRasterLayerMetadata = z.infer<typeof updateRasterLayerMetadata
 // #endregion
 
 //#region PolygonParts
-export type PolygonPart = z.infer<typeof partSchema>;
+export type PolygonPartsFeature = z.infer<typeof polygonPartsFeatureSchema>;
+export type PolygonPartsFeatureCollection = z.infer<typeof polygonPartsFeatureCollectionSchema>;
 export type PolygonPartsPayload = z.infer<typeof polygonPartsPayloadSchema>;
 export type PolygonPartsEntityNameObject = z.infer<typeof polygonPartsEntityNameSchema>;
+//#endregion
+
+//#region Shapefile
+export type ShapefileFeatureProperties = z.infer<typeof shapefileFeaturePropertiesSchema>;
 //#endregion
 
 //#region LayerRequests
