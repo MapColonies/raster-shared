@@ -1,17 +1,14 @@
-import { z } from 'zod';
-import { CORE_VALIDATIONS } from '../../constants';
-import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
-import { featureCollectionSchema, featureSchema, polygonSchema, rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
-import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
+import z from 'zod';
+import { CORE_VALIDATIONS, INGESTION_VALIDATIONS } from '../../constants';
 
-export const partSchema = z
+export const shapefileFeaturePropertiesSchema = z
   .object({
     sourceId: z.string({ message: 'Source id should be a string' }).optional(),
     sourceName: z.string({ message: 'Source name should be a string' }).min(1, { message: 'Source name should have length of at least 1' }),
-    description: z.string({ message: 'Description should be a string' }).optional(),
-    imagingTimeBeginUTC: z.coerce.date({ message: 'Imaging time begin UTC should be a datetime' }),
-    imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
-    resolutionDegree: z
+    desc: z.string({ message: 'Description should be a string' }).optional(),
+    timeBegin: z.coerce.date({ message: 'Imaging time begin UTC should be a datetime' }),
+    timeEnd: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
+    resDegree: z
       .number({ message: 'Resolution degree should be a number' })
       .min(CORE_VALIDATIONS.resolutionDeg.min, {
         message: `Resolution degree should not be less than ${CORE_VALIDATIONS.resolutionDeg.min}`,
@@ -19,7 +16,7 @@ export const partSchema = z
       .max(CORE_VALIDATIONS.resolutionDeg.max, {
         message: `Resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
       }),
-    resolutionMeter: z
+    resMeter: z
       .number({ message: 'Resolution meter should be a number' })
       .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
         message: `Resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
@@ -27,7 +24,7 @@ export const partSchema = z
       .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
         message: `Resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
       }),
-    sourceResolutionMeter: z
+    sResMeter: z
       .number({ message: 'Source resolution meter should be a number' })
       .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
         message: `Source resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
@@ -35,7 +32,7 @@ export const partSchema = z
       .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
         message: `Source resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
       }),
-    horizontalAccuracyCE90: z
+    horAccCE90: z
       .number({ message: 'Horizontal accuracy CE90 should be a number' })
       .min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min, {
         message: `Horizontal accuracy CE90 should not be less than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.min}`,
@@ -62,27 +59,7 @@ export const partSchema = z
       })
       .optional(),
   })
-  .refine((part) => part.imagingTimeBeginUTC <= part.imagingTimeEndUTC && part.imagingTimeEndUTC <= new Date(), {
+  .refine((part) => part.timeBegin <= part.timeEnd && part.timeEnd <= new Date(), {
     message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
   })
   .describe('partSchema');
-
-export const partsSchema = z.array(partSchema).describe('partsSchema');
-
-export const polygonPartsEntityNameSchema = z
-  .object({
-    polygonPartsEntityName: polygonPartsEntityPatternSchema,
-  })
-  .describe('polygonPartsEntityNameSchema');
-
-export const polygonPartsFeatureSchema = featureSchema(polygonSchema, partSchema);
-
-export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
-
-export const polygonPartsPayloadSchema = z.object({
-  productType: rasterProductTypeSchema,
-  productId: resourceIdSchema,
-  catalogId: z.string().uuid(),
-  productVersion: versionSchema,
-  partsData: polygonPartsFeatureCollectionSchema,
-});
