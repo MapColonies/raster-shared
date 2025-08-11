@@ -18,6 +18,7 @@ import {
   ingestionSwapUpdateTaskParamsSchema,
   ingestionUpdateFinalizeTaskParamsSchema,
 } from '../../schemas/ingestion/ingestionTaskParams.schema';
+import { shapefileFeaturePropertiesSchema } from '../../schemas';
 
 //#region LayerData
 export type InputFiles = z.infer<typeof inputFilesSchema>;
@@ -31,6 +32,10 @@ export type PolygonPartsFeature = z.infer<typeof polygonPartsFeatureSchema>;
 export type PolygonPartsFeatureCollection = z.infer<typeof polygonPartsFeatureCollectionSchema>;
 export type PolygonPartsPayload = z.infer<typeof polygonPartsPayloadSchema>;
 export type PolygonPartsEntityNameObject = z.infer<typeof polygonPartsEntityNameSchema>;
+//#endregion
+
+//#region Shapefile
+export type ShapefileFeatureProperties = z.infer<typeof shapefileFeaturePropertiesSchema>;
 //#endregion
 
 //#region LayerRequests

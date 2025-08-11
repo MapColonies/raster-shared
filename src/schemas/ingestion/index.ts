@@ -6,3 +6,4 @@ export * from './ingestionRequest.schema';
 export * from './ingestionJobParams.schema';
 export * from './ingestionTaskParams.schema';
 export * from './layerNameFormats.schema';
+export * from './shapefile.schema';
