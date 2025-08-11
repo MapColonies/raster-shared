@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/MapColonies/raster-shared/compare/v3.2.0...v3.3.0) (2025-08-11)
+
+
+### Features
+
+* bump version ([10ebd81](https://github.com/MapColonies/raster-shared/commit/10ebd819c944f18b32b88faf423a17f7b6e87c64))
+
 ## [3.2.0](https://github.com/MapColonies/raster-shared/compare/v3.1.5...v3.2.0) (2025-08-11)
 
 
