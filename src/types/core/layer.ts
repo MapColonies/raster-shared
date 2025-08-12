@@ -1,3 +1,4 @@
+import { StringVersion } from '..';
 import { RasterProductTypes } from '../../constants';
 
 /**
@@ -68,6 +69,23 @@ export type LayerName = `${string}-${RasterProductTypes}`;
  * - Parts are properly joined with an underscore
  */
 export type PolygonPartsEntityName = `${Lowercase<string>}_${Lowercase<RasterProductTypes>}`;
+
+/**
+ * Represents the name of a table that stores validation rules for polygon parts.
+ * The table name is constructed using the PolygonPartsEntityName and a StringVersion.
+ *
+ * @example
+ * ```typescript
+ * // Valid examples:
+ * const validTableName: ValidationsTableName = 'building_footprint_orthophoto_1.0_validations_tbl';
+ * const anotherValidTableName: ValidationsTableName = 'water_body_raster_map_2.3_validations_tbl';
+ *
+ * // Invalid examples (will cause type errors):
+ * const invalidTableName: ValidationsTableName = 'buildingFootprint_orthophoto_1.0_validations_tbl'; // CamelCase not allowed
+ * const anotherInvalidTableName: ValidationsTableName = 'building_footprint_unknown_1.0_validations_tbl'; // Invalid product type
+ * ```
+ */
+export type ValidationsTableName = `${PolygonPartsEntityName}_${StringVersion}_validations_tbl`;
 
 export interface LayerNameFormats {
   polygonPartsEntityName: PolygonPartsEntityName;
