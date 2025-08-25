@@ -12,7 +12,7 @@ jobs:
       contents: read
       packages: write # allow GITHUB_TOKEN to publish packages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Init nodejs
         uses: ./.github/actions/init-npm
         with:
