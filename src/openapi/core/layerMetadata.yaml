@@ -1,0 +1,123 @@
+openapi: '3.0.1'
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    ProductId:
+      type: string
+      description: layer's external identifier
+      pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
+      example: BLUE_MARBLE
+    ProductName:
+      type: string
+      description: Layer's external name
+    ProductVersion:
+      type: string
+      pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
+      description: layer's version
+    ProductType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: layer's type might be derived from the first letter
+    ProductSubType:
+      type: string
+      description: Layer's sub type
+    Region:
+      type: array
+      items:
+        type: string
+      description: region of record
+    ProductBBox:
+      type: string
+      pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
+    Srs:
+      type: string
+      enum:
+        - '4326'
+      description: geo system id
+    SrsName:
+      type: string
+      enum:
+        - WGS84GEO
+      description: geo system name
+    Transparency:
+      type: string
+      enum:
+        - TRANSPARENT
+        - OPAQUE
+      description: layer can be transparent or opaque
+    ProducerName:
+      type: string
+      description: creator name default IDFMU
+    Scale:
+      type: integer
+      minimum: 0
+      maximum: 100000000
+    Description:
+      type: string
+      description: layer's description
+    Classification:
+      type: string
+      description: Permitted roles
+      pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
+    Type:
+      type: string
+      description: Layer type raster / 3d / dem
+      enum:
+        - RECORD_RASTER
+    CreationDateUTC:
+      type: string
+      description: Creation date
+      format: date-time
+    IngestionDate:
+      type: string
+      description: Ingestion date
+      format: date-time
+    ImagingTimeBeginUTC:
+      type: string
+      description: Oldest imaging date
+      format: date-time
+    ImagingTimeEndUTC:
+      type: string
+      description: Latest imaging date
+      format: date-time
+    MaxResolutionDeg:
+      type: number
+      minimum: 0.000000167638063430786
+      maximum: 0.703125
+      format: double
+      description: max resolution of layer in degrees/pixel
+    MaxResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: max (rounded) resolution of layer in meters/pixel
+    MinHorizontalAccuracyCE90:
+      type: number
+      minimum: 0.01
+      maximum: 4000
+      format: double
+      description: minimum Horizontal Accuracy
+    Sensors:
+      type: array
+      items:
+        type: string
+      description: Layer sensors list
+    Rms:
+      type: number
+    Footprint:
+      $ref: geojson.yaml#/components/schemas/Geometry
+    ProductBoundingBox:
+      type: string
+      pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
