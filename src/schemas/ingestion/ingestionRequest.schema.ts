@@ -1,7 +1,7 @@
 import z, { late } from 'zod';
+import { callbackUrlsArraySchema } from '../core/callbackUrl.schema';
 import { inputFilesSchema } from './inputFiles.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
-import { callbackUrlsArraySchema } from '../core/callbackUrl.schema';
 
 export const callbackUrlsSchema = z.object({
   callbackUrls: callbackUrlsArraySchema.optional(),
