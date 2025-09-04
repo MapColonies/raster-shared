@@ -11,14 +11,16 @@ export const metadataShapefilePathSchema = z
   .regex(
     new RegExp(INGESTION_VALIDATIONS.metadataShapefileFilePath.pattern),
     'Metadata shape file path must be a valid shapefile path ending with "/ShapeMetadata.shp"'
-  );
+  )
+  .describe('metadataShapefileSchema');
 
 export const productShapefilePathSchema = z
   .string()
   .regex(
     new RegExp(INGESTION_VALIDATIONS.productShapefileFilePath.pattern),
     'Product file path must be a valid shapefile path ending with "/Product.shp"'
-  );
+  )
+  .describe('productShapefilePathSchema');
 
 export const inputFilesSchema = z
   .object({
