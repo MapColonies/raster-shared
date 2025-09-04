@@ -1,4 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["Geoserver", "Mapproxy", "shapefile"]
+  "cSpell.words": ["Geoserver", "Mapproxy"]
 }
