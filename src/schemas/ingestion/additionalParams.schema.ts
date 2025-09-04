@@ -1,10 +1,12 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/constants';
 import { multiPolygonSchema, polygonSchema } from '../core/geo.schema';
+import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const baseAdditionalParamsSchema = z
   .object({
     jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
+    polygonPartsEntityName: polygonPartsEntityPatternSchema.optional(),
   })
   .describe('baseAdditionalParamsSchema');
 

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/MapColonies/raster-shared/compare/v3.2.0...v3.3.0) (2025-08-11)
+
+
+### Features
+
+* bump version ([10ebd81](https://github.com/MapColonies/raster-shared/commit/10ebd819c944f18b32b88faf423a17f7b6e87c64))
+
+## [3.2.0](https://github.com/MapColonies/raster-shared/compare/v3.1.5...v3.2.0) (2025-08-11)
+
+
+### Features
+
+* add openapi schemas ([#98](https://github.com/MapColonies/raster-shared/issues/98)) ([3918af9](https://github.com/MapColonies/raster-shared/commit/3918af917878e882cc93c4f1056e45175674507d))
+
+## [3.1.5](https://github.com/MapColonies/raster-shared/compare/v3.1.4...v3.1.5) (2025-07-03)
+
+
+### Bug Fixes
+
+* include polygonPartsEntityName in baseAdditionalParamsSchema ([#96](https://github.com/MapColonies/raster-shared/issues/96)) ([e82bc5c](https://github.com/MapColonies/raster-shared/commit/e82bc5c4dec08cc269e4305e2285ed91cd46eed4))
+
 ### [3.1.4](https://github.com/MapColonies/raster-shared/compare/v3.1.3...v3.1.4) (2025-05-14)
 
 

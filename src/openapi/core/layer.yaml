@@ -1,0 +1,38 @@
+openapi: '3.0.1'
+info:
+  title: Layer properties definitions
+  version: 1.0.0
+components:
+  schemas:
+    ProductBBox:
+      type: string
+      pattern: >-
+        ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
+    LayerId:
+      type: string
+      format: uuid
+      description: Layer's identifier
+      example: c52d8189-7e07-456a-8c6b-53859523c3e9
+    ProductId:
+      type: string
+      description: Layer's external identifier
+      pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
+      example: BLUE_MARBLE
+    ProductType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: Layer's type might be derived from the first letter
+    ProductVersion:
+      type: string
+      pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
+      description: Layer's version
+      example: 1.23

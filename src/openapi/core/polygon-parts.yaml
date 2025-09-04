@@ -1,0 +1,77 @@
+openapi: '3.0.1'
+info:
+  title: Polygon parts properties definitions
+  version: 1.0.0
+components:
+  schemas:
+    Cities:
+      type: array
+      items:
+        type: string
+      description: Cities included in the part
+    Countries:
+      type: array
+      items:
+        type: string
+      description: Countries included in the part
+    Description:
+      type: string
+      description: Free text describing the part
+    Id:
+      type: string
+      format: uuid
+      example: d56b406d-e5f2-4818-a525-bd996cae60b5
+    HorizontalAccuracyCE90:
+      type: number
+      minimum: 0.01
+      maximum: 4000
+      format: double
+      description: Horizontal accuracy
+    ImagingTimeBeginUTC:
+      type: string
+      description: Oldest imaging date (UTC)
+      format: date-time
+    ImagingTimeEndUTC:
+      type: string
+      description: Latest imaging date (UTC)
+      format: date-time
+    IngestionDateUTC:
+      type: string
+      description: Ingestion date (UTC)
+      format: date-time
+    PolygonPartsEntityName:
+      type: string
+      description: Polygon parts entity name
+      pattern: ^[a-z][a-z0-9_]{0,61}[a-z0-9]$
+      example: world_orthophoto
+    ResolutionDegree:
+      type: number
+      minimum: 1.67638e-7
+      maximum: 0.703125
+      format: double
+      description: Resolution of layer in degrees/pixel
+    ResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: Resolution of layer in meters
+    Sensors:
+      type: array
+      items:
+        type: string
+        pattern: ^(?!\s).+(?<!\s)$
+      minItems: 1
+      description: Layer's sensors list
+    SourceId:
+      type: string
+      description: Layer's external identifier
+    SourceName:
+      type: string
+      description: Layer's external name
+    SourceResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: Resolution of layer in meters

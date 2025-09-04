@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/raster-shared",
-  "version": "3.1.4",
+  "version": "3.3.0",
   "description": "This is template for map colonies typescript packages",
   "main": "./dist/index.js",
   "exports": {
@@ -36,6 +36,9 @@
   "bugs": {
     "url": "https://github.com/MapColonies/raster-shared/issues"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "files": [
     "dist/**/*"
   ],
@@ -63,13 +66,13 @@
     "ts-jest": "^29.0.5",
     "tsc-alias": "^1.8.10",
     "typedoc": "^0.27.6",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "standard-version": "^9.5.0"
   },
   "dependencies": {
     "@map-colonies/mc-priority-queue": "^8.2.1",
     "@map-colonies/types": "^1.4.0",
     "geojson": "^0.5.0",
-    "standard-version": "^9.5.0",
     "zod": "^3.24.1"
   }
 }
