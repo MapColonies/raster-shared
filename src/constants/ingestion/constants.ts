@@ -37,14 +37,14 @@ export const INGESTION_VALIDATIONS = {
     description: 'File name must end with .gpkg',
   },
   metadataShapefileFilePath: {
+    // eslint-disable-next-line no-useless-escape
     pattern: '^((\\/[\\w-]+)*)\\/ShapeMetadata\\.shp$',
     description: 'Valid metadata shapefile file path',
-    // eslint-disable-next-line no-useless-escape
   },
   productShapefileFilePath: {
+    // eslint-disable-next-line no-useless-escape
     pattern: '^((\\/[\\w-]+)*)\\/Product\\.shp$',
     description: 'Valid product shapefile file path',
-    // eslint-disable-next-line no-useless-escape
   },
   horizontalAccuracyCE90: {
     min: 0.01,
