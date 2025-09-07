@@ -1,7 +1,7 @@
 import { zoomLevelToResolutionDeg } from '@map-colonies/mc-utils';
 import { Domain, ProductType } from '@map-colonies/types';
 import { ValidationRules } from '../../types/core';
-import { pickEnum } from '../../utils/type.utils';
+import { pickEnum } from '../../utils/helpers.utils';
 
 export const RASTER_DOMAIN = Domain.RASTER;
 
