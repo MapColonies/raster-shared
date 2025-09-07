@@ -1,7 +1,7 @@
 import { zoomLevelToResolutionDeg } from '@map-colonies/mc-utils';
 import { Domain, ProductType } from '@map-colonies/types';
 import { ValidationRules } from '../../types/core';
-import { pickEnum } from '../../utils/typeUtils';
+import { pickEnum } from '../../utils/type.utils';
 
 export const RASTER_DOMAIN = Domain.RASTER;
 
@@ -35,7 +35,7 @@ export const TileOutputFormat = {
 } as const;
 
 export type TileOutputFormat = (typeof TileOutputFormat)[keyof typeof TileOutputFormat];
-
+/*  */
 export const TileOutputFormatList = Object.values(TileOutputFormat);
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */

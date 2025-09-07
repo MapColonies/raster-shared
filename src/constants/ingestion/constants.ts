@@ -32,7 +32,7 @@ export const INGESTION_VALIDATIONS = {
     pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
     description: 'Classification value between 0 and 100',
   },
-  fileNames: {
+  gpkgfileName: {
     pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
     description: 'File name must end with .gpkg',
   },

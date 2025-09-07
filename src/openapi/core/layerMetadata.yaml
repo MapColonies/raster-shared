@@ -4,6 +4,54 @@ info:
   version: 1.0.0
 components:
   schemas:
+    Classification:
+      type: string
+      description: Permitted roles
+      pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
+    CreationDateUTC:
+      type: string
+      description: Creation date
+      format: date-time
+    Description:
+      type: string
+      description: layer's description
+    Footprint:
+      $ref: geojson.yaml#/components/schemas/Geometry
+    IngestionDate:
+      type: string
+      description: Ingestion date
+      format: date-time
+    ImagingTimeBeginUTC:
+      type: string
+      description: Oldest imaging date
+      format: date-time
+    ImagingTimeEndUTC:
+      type: string
+      description: Latest imaging date
+      format: date-time
+    LayerId:
+      type: string
+      format: uuid
+      description: Layer's identifier
+      example: c52d8189-7e07-456a-8c6b-53859523c3e9
+    MaxResolutionDeg:
+      type: number
+      minimum: 0.000000167638063430786
+      maximum: 0.703125
+      format: double
+      description: max resolution of layer in degrees/pixel
+    MaxResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: max (rounded) resolution of layer in meters/pixel
+    MinHorizontalAccuracyCE90:
+      type: number
+      minimum: 0.01
+      maximum: 4000
+      format: double
+      description: minimum Horizontal Accuracy
     ProductId:
       type: string
       description: layer's external identifier
@@ -32,14 +80,31 @@ components:
     ProductSubType:
       type: string
       description: Layer's sub type
+    ProductBBox:
+      type: string
+      pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
+    ProducerName:
+      type: string
+      description: creator name default IDFMU
+    ProductBoundingBox:
+      type: string
+      pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
     Region:
       type: array
       items:
         type: string
       description: region of record
-    ProductBBox:
-      type: string
-      pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
+    Rms:
+      type: number
+    Sensors:
+      type: array
+      items:
+        type: string
+      description: Layer sensors list
+    Scale:
+      type: integer
+      minimum: 0
+      maximum: 100000000
     Srs:
       type: string
       enum:
@@ -56,68 +121,8 @@ components:
         - TRANSPARENT
         - OPAQUE
       description: layer can be transparent or opaque
-    ProducerName:
-      type: string
-      description: creator name default IDFMU
-    Scale:
-      type: integer
-      minimum: 0
-      maximum: 100000000
-    Description:
-      type: string
-      description: layer's description
-    Classification:
-      type: string
-      description: Permitted roles
-      pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
     Type:
       type: string
       description: Layer type raster / 3d / dem
       enum:
         - RECORD_RASTER
-    CreationDateUTC:
-      type: string
-      description: Creation date
-      format: date-time
-    IngestionDate:
-      type: string
-      description: Ingestion date
-      format: date-time
-    ImagingTimeBeginUTC:
-      type: string
-      description: Oldest imaging date
-      format: date-time
-    ImagingTimeEndUTC:
-      type: string
-      description: Latest imaging date
-      format: date-time
-    MaxResolutionDeg:
-      type: number
-      minimum: 0.000000167638063430786
-      maximum: 0.703125
-      format: double
-      description: max resolution of layer in degrees/pixel
-    MaxResolutionMeter:
-      type: number
-      minimum: 0.0185
-      maximum: 78271.52
-      format: double
-      description: max (rounded) resolution of layer in meters/pixel
-    MinHorizontalAccuracyCE90:
-      type: number
-      minimum: 0.01
-      maximum: 4000
-      format: double
-      description: minimum Horizontal Accuracy
-    Sensors:
-      type: array
-      items:
-        type: string
-      description: Layer sensors list
-    Rms:
-      type: number
-    Footprint:
-      $ref: geojson.yaml#/components/schemas/Geometry
-    ProductBoundingBox:
-      type: string
-      pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"

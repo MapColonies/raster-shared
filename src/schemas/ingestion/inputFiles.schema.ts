@@ -3,7 +3,7 @@ import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 
 export const gpkgFileNameSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.fileNames.pattern), 'File name must end with .gpkg')
+  .regex(new RegExp(INGESTION_VALIDATIONS.gpkgfileName.pattern), 'File name must end with .gpkg')
   .describe('gpkgFileNameSchema');
 
 export const metadataShapefilePathSchema = z
