@@ -15,7 +15,7 @@ import type {
   Position,
 } from 'geojson';
 import { z, ZodType, type ZodObject } from 'zod';
-import { firstAndLastPositionsEquality } from '../../utils/geo';
+import { firstAndLastPositionsEquality } from '../../utils/geo.utils';
 
 export const longitudeSchema = z.number().min(-180).max(180);
 

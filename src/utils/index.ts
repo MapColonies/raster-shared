@@ -1,2 +1,2 @@
 export * from './type.utils';
-export * from './utils';
+export * from './layer.utils';
