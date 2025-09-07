@@ -3,23 +3,21 @@ import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 
 export const gpkgFileNameSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.gpkgfileName.pattern), 'File name must end with .gpkg')
+  .regex(new RegExp(INGESTION_VALIDATIONS.gpkgfileName.pattern), { message: 'File name must end with .gpkg' })
   .describe('gpkgFileNameSchema');
 
 export const metadataShapefilePathSchema = z
   .string()
-  .regex(
-    new RegExp(INGESTION_VALIDATIONS.metadataShapefileFilePath.pattern),
-    'Metadata shape file path must be a valid shapefile path ending with "/ShapeMetadata.shp"'
-  )
+  .regex(new RegExp(INGESTION_VALIDATIONS.metadataShapefileFilePath.pattern), {
+    message: 'Metadata shape file path must be a valid shapefile path ending with "/ShapeMetadata.shp"',
+  })
   .describe('metadataShapefileSchema');
 
 export const productShapefilePathSchema = z
   .string()
-  .regex(
-    new RegExp(INGESTION_VALIDATIONS.productShapefileFilePath.pattern),
-    'Product file path must be a valid shapefile path ending with "/Product.shp"'
-  )
+  .regex(new RegExp(INGESTION_VALIDATIONS.productShapefileFilePath.pattern), {
+    message: 'Product file path must be a valid shapefile path ending with "/Product.shp"',
+  })
   .describe('productShapefilePathSchema');
 
 export const inputFilesSchema = z
@@ -32,4 +30,4 @@ export const inputFilesSchema = z
     metadataShapefilePath: metadataShapefilePathSchema,
     productShapefilePath: productShapefilePathSchema,
   })
-  .describe('filesSchema');
+  .describe('inputFilesSchema');

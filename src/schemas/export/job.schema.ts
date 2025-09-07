@@ -18,7 +18,7 @@ export const exportAdditionalParamsSchema = z
     gpkgEstimatedSize: z.number(),
     targetFormat: z.nativeEnum(TileOutputFormat),
     outputFormatStrategy: z.nativeEnum(TileFormatStrategy),
-    jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
+    jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), { message: 'URL must start with http:// or https://' }),
   })
   .merge(polygonPartsEntityNameSchema);
 

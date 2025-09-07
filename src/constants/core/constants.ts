@@ -35,19 +35,18 @@ export const TileOutputFormat = {
 } as const;
 
 export type TileOutputFormat = (typeof TileOutputFormat)[keyof typeof TileOutputFormat];
-/*  */
+
 export const TileOutputFormatList = Object.values(TileOutputFormat);
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 export const CORE_VALIDATIONS = {
   url: {
     pattern: '^https?://[^\\s/$.?#].[^\\s]*$',
-    description: 'URL must start with http:// or https://',
+    description: 'Valid url string pattern, must start with http(s) protocols',
   },
   resolutionDeg: {
     min: zoomLevelToResolutionDeg(22) as number, //best resolution
     max: zoomLevelToResolutionDeg(0) as number, //worst resolution
-    description: 'Resolution in degrees',
   },
 } satisfies ValidationRules;
 /* eslint-enable @typescript-eslint/no-magic-numbers */

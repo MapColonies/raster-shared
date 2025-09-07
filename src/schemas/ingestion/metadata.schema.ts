@@ -6,7 +6,9 @@ import { rasterProductTypeSchema, resourceIdSchema } from '../core';
 
 export const baseRasterLayerMetadataSchema = z
   .object({
-    classification: z.string().regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern)),
+    classification: z
+      .string()
+      .regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
   })
   .describe('baseRasterLayerMetadataSchema');
 

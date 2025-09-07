@@ -39,17 +39,16 @@ export const INGESTION_VALIDATIONS = {
   metadataShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
     pattern: '^((\\/[\\w-]+)*)\\/ShapeMetadata\\.shp$',
-    description: 'Valid metadata shapefile file path',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
   productShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
     pattern: '^((\\/[\\w-]+)*)\\/Product\\.shp$',
-    description: 'Valid product shapefile file path',
+    description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
     max: 4000,
-    description: 'Horizontal accuracy',
   },
   productId: {
     pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
@@ -62,12 +61,10 @@ export const INGESTION_VALIDATIONS = {
   resolutionMeter: {
     min: zoomLevelToResolutionMeter(22) as number,
     max: zoomLevelToResolutionMeter(0) as number,
-    description: 'Resolution in meters',
   },
   scale: {
     min: 0,
     max: 100000000,
-    description: 'Scale value between 0 and 100,000,000',
   },
   sensor: {
     pattern: '^(?!\\s).+(?<!\\s)$',

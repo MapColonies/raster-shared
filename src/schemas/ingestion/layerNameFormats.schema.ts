@@ -5,7 +5,10 @@ import { rasterProductTypeSchema, resourceIdSchema } from '../core';
 
 export const polygonPartsEntityPatternSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), { message: 'Polygon parts entity name should valid entity name' })
+  .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), {
+    message:
+      'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers, and underscores',
+  })
   .refine(
     (value) => {
       return RASTER_PRODUCT_TYPE_LIST.some((type) => value.endsWith(type.toLowerCase()));
