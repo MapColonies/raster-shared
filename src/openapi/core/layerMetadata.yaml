@@ -115,13 +115,13 @@ components:
       type: array
       items:
         type: string
-        minItems: 1
+      minItems: 1
       description: List of layer's regions
     Sensors:
       type: array
       items:
         type: string
-        minItems: 1
+      minItems: 1
       description: Layer sensors list
     Scale:
       type: integer
