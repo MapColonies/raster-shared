@@ -6,7 +6,7 @@ components:
   schemas:
     Classification:
       type: string
-      description: Permitted roles
+      description: Permitted roles, value must be between 0 and 100
       pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
     CreationDateUTC:
       type: string
@@ -14,7 +14,7 @@ components:
       format: date-time
     Description:
       type: string
-      description: layer's description
+      description: Layer's description
     Footprint:
       $ref: geojson.yaml#/components/schemas/Geometry
     IngestionDate:
@@ -39,23 +39,23 @@ components:
       minimum: 0.000000167638063430786
       maximum: 0.703125
       format: double
-      description: max resolution of layer in degrees/pixel
+      description: Max resolution of layer in degrees/pixel
     MaxResolutionMeter:
       type: number
       minimum: 0.0185
       maximum: 78271.52
       format: double
-      description: max (rounded) resolution of layer in meters/pixel
+      description: Max (rounded) resolution of layer in meters/pixel
     MinHorizontalAccuracyCE90:
       type: number
       minimum: 0.01
       maximum: 4000
       format: double
-      description: minimum Horizontal Accuracy
+      description: Min horizontal accuracy of layer in meters
     ProductId:
       type: string
-      description: layer's external identifier
       pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
+      description: Layer's external identifier, must start with a letter and contain only letters, numbers, and underscores
       example: BLUE_MARBLE
     ProductName:
       type: string
@@ -63,7 +63,7 @@ components:
     ProductVersion:
       type: string
       pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
-      description: layer's version
+      description: Layer's version
     ProductType:
       type: string
       enum:
@@ -76,7 +76,7 @@ components:
         - RasterAidBest
         - RasterVector
         - RasterVectorBest
-      description: layer's type might be derived from the first letter
+      description: Layer's type, list of raster
     ProductSubType:
       type: string
       description: Layer's sub type
@@ -85,7 +85,7 @@ components:
       pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
     ProducerName:
       type: string
-      description: creator name default IDFMU
+      description: Layer's producer name default to 'IDFMU'
     ProductBoundingBox:
       type: string
       pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
@@ -93,7 +93,7 @@ components:
       type: array
       items:
         type: string
-      description: region of record
+      description: List of layer's regions
     Rms:
       type: number
     Sensors:
@@ -109,20 +109,20 @@ components:
       type: string
       enum:
         - '4326'
-      description: geo system id
+      description: Geo-system id
     SrsName:
       type: string
       enum:
         - WGS84GEO
-      description: geo system name
+      description: Geo-system name
     Transparency:
       type: string
       enum:
         - TRANSPARENT
         - OPAQUE
-      description: layer can be transparent or opaque
+      description: Layer transparency - might be 'TRANSPARENT' or 'OPAQUE'
     Type:
       type: string
-      description: Layer type raster / 3d / dem
+      description: Layer's record type, only supports 'RECORD_RASTER'
       enum:
         - RECORD_RASTER
