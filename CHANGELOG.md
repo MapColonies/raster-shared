@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/MapColonies/raster-shared/compare/v3.3.0...v4.0.0) (2025-09-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* add layer metadata schema + adapt core schemas ([#110](https://github.com/MapColonies/raster-shared/issues/110))
+
+### Features
+
+* add layer metadata schema + adapt core schemas ([#110](https://github.com/MapColonies/raster-shared/issues/110)) ([41b65f2](https://github.com/MapColonies/raster-shared/commit/41b65f2885e2753d1587c64e70d4ed63125a8e70))
+
 ## [3.3.0](https://github.com/MapColonies/raster-shared/compare/v3.2.0...v3.3.0) (2025-08-11)
 
 
