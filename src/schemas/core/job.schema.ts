@@ -7,7 +7,7 @@ export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum
 export const resourceIdSchema = z
   .string()
   .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
-    message: 'Product ID must start with a letter and contain only letters, numbers, and underscores',
+    message: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   })
   .describe(INGESTION_VALIDATIONS.productId.description);
 export const versionSchema = z

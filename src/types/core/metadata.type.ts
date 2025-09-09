@@ -10,7 +10,6 @@ export type RasterLayerMetadata = {
   productVersion: string;
   maxResolutionDeg: number;
   minResolutionDeg: number;
-  rms?: number;
   scale?: number;
   creationDateUTC?: Date;
   ingestionDate?: Date;

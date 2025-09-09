@@ -16,7 +16,10 @@ components:
       type: string
       description: Layer's description
     Footprint:
-      $ref: geojson.yaml#/components/schemas/Geometry
+      type: object
+      oneOf:
+        - $ref: '../core/geojson.yaml#/components/schemas/Polygon'
+        - $ref: '../core/geojson.yaml#/components/schemas/MultiPolygon'
     IngestionDate:
       type: string
       description: Ingestion date
@@ -73,7 +76,7 @@ components:
     ProductId:
       type: string
       pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
-      description: Layer's external identifier, must start with a letter and contain only letters, numbers, and underscores
+      description: Layer's external identifier, must start with a letter and contain only letters, numbers and underscores
       example: BLUE_MARBLE
     ProductName:
       type: string
@@ -94,7 +97,7 @@ components:
         - RasterAidBest
         - RasterVector
         - RasterVectorBest
-      description: Layer's type, list of raster
+      description: Layer's type, list of raster product types
     ProductSubType:
       type: string
       description: Layer's sub type
@@ -103,6 +106,7 @@ components:
       pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
     ProducerName:
       type: string
+      default: IDFMU
       description: Layer's producer name default to 'IDFMU'
     ProductBoundingBox:
       type: string
@@ -111,13 +115,13 @@ components:
       type: array
       items:
         type: string
+        minItems: 1
       description: List of layer's regions
-    Rms:
-      type: number
     Sensors:
       type: array
       items:
         type: string
+        minItems: 1
       description: Layer sensors list
     Scale:
       type: integer
@@ -138,7 +142,7 @@ components:
       enum:
         - TRANSPARENT
         - OPAQUE
-      description: Layer transparency - might be 'TRANSPARENT' or 'OPAQUE'
+      description: Layer transparency, might be 'TRANSPARENT' or 'OPAQUE'
     Type:
       type: string
       description: Layer's record type, only supports 'RECORD_RASTER'

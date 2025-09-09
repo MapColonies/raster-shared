@@ -20,7 +20,7 @@ import { RasterProductTypes } from '../../constants';
  * @remarks
  * - The resourceId (equivalent to productId) requirements:
  *   - Must start with a letter
- *   - Can contain only letters, numbers, and underscores
+ *   - Can contain only letters, numbers and underscores
  *   - Maximum length of 38 characters
  *   - Pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
  * - The RasterProductType must be one of these valid raster types:

@@ -52,7 +52,7 @@ export const INGESTION_VALIDATIONS = {
   },
   productId: {
     pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
-    description: 'Product ID must start with a letter and contain only letters, numbers, and underscores',
+    description: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   },
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
@@ -73,6 +73,6 @@ export const INGESTION_VALIDATIONS = {
   polygonPartsEntityName: {
     pattern: '^[a-z][a-z0-9_]{0,61}[a-z0-9]$',
     description:
-      'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers, and underscores',
+      'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   },
 } satisfies ValidationRules;
