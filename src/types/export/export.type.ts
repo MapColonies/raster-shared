@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import type { Feature, FeatureCollection, MultiPolygon, Polygon } from 'geojson';
-import { callbackUrlSchema, callbackUrlsArraySchema, exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
+import { exportAdditionalParamsSchema, exportInputParamsSchema } from '../../schemas/export/job.schema';
 import {
   artifactsArraySchema,
   callbackExportResponseSchema,
@@ -10,6 +10,7 @@ import {
   linksSchema,
   roiPropertiesSchema,
 } from '../../schemas/export/export.schema';
+import { callbackUrlsArraySchema, callbackUrlSchema } from '../../schemas/core/callbackUrl.schema';
 
 export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
 export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;

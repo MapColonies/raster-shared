@@ -1,0 +1,150 @@
+openapi: '3.0.1'
+info:
+  title: Layer metadata definitions
+  version: 1.0.0
+components:
+  schemas:
+    Classification:
+      type: string
+      description: Permitted roles, value must be between 0 and 100
+      pattern: ^[0-9]$|^[1-9][0-9]$|^(100)$
+    CreationDateUTC:
+      type: string
+      description: Creation date
+      format: date-time
+    Description:
+      type: string
+      description: Layer's description
+    Footprint:
+      type: object
+      oneOf:
+        - $ref: '../core/geojson.yaml#/components/schemas/Polygon'
+        - $ref: '../core/geojson.yaml#/components/schemas/MultiPolygon'
+    IngestionDate:
+      type: string
+      description: Ingestion date
+      format: date-time
+    ImagingTimeBeginUTC:
+      type: string
+      description: Oldest imaging date
+      format: date-time
+    ImagingTimeEndUTC:
+      type: string
+      description: Latest imaging date
+      format: date-time
+    LayerId:
+      type: string
+      format: uuid
+      description: Layer's identifier
+      example: c52d8189-7e07-456a-8c6b-53859523c3e9
+    MaxResolutionDeg:
+      type: number
+      minimum: 0.000000167638063430786
+      maximum: 0.703125
+      format: double
+      description: Max resolution of layer in degrees/pixel
+    MinResolutionDeg:
+      type: number
+      minimum: 0.000000167638063430786
+      maximum: 0.703125
+      format: double
+      description: Min resolution of layer in degrees/pixel
+    MaxResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: Max (rounded) resolution of layer in meters/pixel
+    MinResolutionMeter:
+      type: number
+      minimum: 0.0185
+      maximum: 78271.52
+      format: double
+      description: Min (rounded) resolution of layer in meters/pixel
+    MaxHorizontalAccuracyCE90:
+      type: number
+      minimum: 0.01
+      maximum: 4000
+      format: double
+      description: Max horizontal accuracy of layer in meters
+    MinHorizontalAccuracyCE90:
+      type: number
+      minimum: 0.01
+      maximum: 4000
+      format: double
+      description: Min horizontal accuracy of layer in meters
+    ProductId:
+      type: string
+      pattern: ^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$
+      description: Layer's external identifier, must start with a letter and contain only letters, numbers and underscores
+      example: BLUE_MARBLE
+    ProductName:
+      type: string
+      description: Layer's external name
+    ProductVersion:
+      type: string
+      pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
+      description: Layer's version
+    ProductType:
+      type: string
+      enum:
+        - Orthophoto
+        - OrthophotoHistory
+        - OrthophotoBest
+        - RasterMap
+        - RasterMapBest
+        - RasterAid
+        - RasterAidBest
+        - RasterVector
+        - RasterVectorBest
+      description: Layer's type, list of raster product types
+    ProductSubType:
+      type: string
+      description: Layer's sub type
+    ProductBBox:
+      type: string
+      pattern: ^-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?,-?(0|[1-9]\d*)(\.\d*)?$
+    ProducerName:
+      type: string
+      default: IDFMU
+      description: Layer's producer name default to 'IDFMU'
+    ProductBoundingBox:
+      type: string
+      pattern: "^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$"
+    Region:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      description: List of layer's regions
+    Sensors:
+      type: array
+      items:
+        type: string
+      minItems: 1
+      description: Layer sensors list
+    Scale:
+      type: integer
+      minimum: 0
+      maximum: 100000000
+    Srs:
+      type: string
+      enum:
+        - '4326'
+      description: Geo-system id
+    SrsName:
+      type: string
+      enum:
+        - WGS84GEO
+      description: Geo-system name
+    Transparency:
+      type: string
+      enum:
+        - TRANSPARENT
+        - OPAQUE
+      description: Layer transparency, might be 'TRANSPARENT' or 'OPAQUE'
+    Type:
+      type: string
+      description: Layer's record type, only supports 'RECORD_RASTER'
+      enum:
+        - RECORD_RASTER

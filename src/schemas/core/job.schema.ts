@@ -6,11 +6,13 @@ import { createTaskResponseSchema } from './task.schema';
 export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
 export const resourceIdSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern))
+  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
+    message: 'Product ID must start with a letter and contain only letters, numbers and underscores',
+  })
   .describe(INGESTION_VALIDATIONS.productId.description);
 export const versionSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern))
+  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
   .describe(INGESTION_VALIDATIONS.productVersion.description);
 
 export const createJobResponseSchema = <T, P>(

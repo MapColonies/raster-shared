@@ -1,7 +1,7 @@
 import { zoomLevelToResolutionDeg } from '@map-colonies/mc-utils';
 import { Domain, ProductType } from '@map-colonies/types';
 import { ValidationRules } from '../../types/core';
-import { pickEnum } from '../../utils/typeUtils';
+import { pickEnum } from '../../utils/helpers.utils';
 
 export const RASTER_DOMAIN = Domain.RASTER;
 
@@ -42,12 +42,11 @@ export const TileOutputFormatList = Object.values(TileOutputFormat);
 export const CORE_VALIDATIONS = {
   url: {
     pattern: '^https?://[^\\s/$.?#].[^\\s]*$',
-    description: 'URL must start with http:// or https://',
+    description: 'Valid url string pattern, must start with http(s) protocols',
   },
   resolutionDeg: {
     min: zoomLevelToResolutionDeg(22) as number, //best resolution
     max: zoomLevelToResolutionDeg(0) as number, //worst resolution
-    description: 'Resolution in degrees',
   },
 } satisfies ValidationRules;
 /* eslint-enable @typescript-eslint/no-magic-numbers */

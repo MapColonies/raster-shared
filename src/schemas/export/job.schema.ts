@@ -1,13 +1,8 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileFormatStrategy, TileOutputFormat } from '../../constants';
 import { polygonPartsEntityNameSchema } from '../ingestion';
+import { callbackUrlsArraySchema } from '../core/callbackUrl.schema';
 import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
-
-export const callbackUrlSchema = z.object({
-  url: z.string().url(),
-});
-
-export const callbackUrlsArraySchema = z.array(callbackUrlSchema);
 
 export const exportInputParamsSchema = z.object({
   crs: z.string(z.literal('EPSG:4326')),
@@ -23,7 +18,7 @@ export const exportAdditionalParamsSchema = z
     gpkgEstimatedSize: z.number(),
     targetFormat: z.nativeEnum(TileOutputFormat),
     outputFormatStrategy: z.nativeEnum(TileFormatStrategy),
-    jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), CORE_VALIDATIONS.url.description),
+    jobTrackerServiceURL: z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern), { message: 'URL must start with http:// or https://' }),
   })
   .merge(polygonPartsEntityNameSchema);
 

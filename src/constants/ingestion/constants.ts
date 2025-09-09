@@ -32,18 +32,27 @@ export const INGESTION_VALIDATIONS = {
     pattern: '^[0-9]$|^[1-9][0-9]$|^(100)$',
     description: 'Classification value between 0 and 100',
   },
-  fileNames: {
+  gpkgfileName: {
     pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
     description: 'File name must end with .gpkg',
+  },
+  metadataShapefileFilePath: {
+    // eslint-disable-next-line no-useless-escape
+    pattern: '^((\\/[\\w-]+)*)\\/ShapeMetadata\\.shp$',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
+  },
+  productShapefileFilePath: {
+    // eslint-disable-next-line no-useless-escape
+    pattern: '^((\\/[\\w-]+)*)\\/Product\\.shp$',
+    description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
     max: 4000,
-    description: 'Horizontal accuracy',
   },
   productId: {
     pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
-    description: 'Product ID must start with a letter and contain only letters, numbers, and underscores',
+    description: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   },
   productVersion: {
     pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d?))?$',
@@ -52,12 +61,10 @@ export const INGESTION_VALIDATIONS = {
   resolutionMeter: {
     min: zoomLevelToResolutionMeter(22) as number,
     max: zoomLevelToResolutionMeter(0) as number,
-    description: 'Resolution in meters',
   },
   scale: {
     min: 0,
     max: 100000000,
-    description: 'Scale value between 0 and 100,000,000',
   },
   sensor: {
     pattern: '^(?!\\s).+(?<!\\s)$',
@@ -66,6 +73,6 @@ export const INGESTION_VALIDATIONS = {
   polygonPartsEntityName: {
     pattern: '^[a-z][a-z0-9_]{0,61}[a-z0-9]$',
     description:
-      'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers, and underscores',
+      'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   },
 } satisfies ValidationRules;
