@@ -73,6 +73,6 @@
     "@map-colonies/mc-priority-queue": "^8.2.1",
     "@map-colonies/types": "^1.4.0",
     "geojson": "^0.5.0",
-    "zod": "^3.24.1"
+    "zod": "^4.1.8"
   }
 }
