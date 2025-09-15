@@ -49,7 +49,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@map-colonies/eslint-config": "^4.0.0",
+    "@map-colonies/eslint-config": "^6.0.0",
     "@map-colonies/prettier-config": "^0.0.1",
     "@map-colonies/tsconfig": "^1.0.0",
     "@swc/core": "^1.7.26",
