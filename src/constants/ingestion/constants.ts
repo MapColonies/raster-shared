@@ -33,7 +33,7 @@ export const INGESTION_VALIDATIONS = {
     description: 'Classification value between 0 and 100',
   },
   gpkgfileName: {
-    pattern: '^((\\/[\\w-]+)+)\\/([^\\/][א-ת\\.-\\w]+)\\.gpkg$',
+    pattern: '^((\\/[\\w-]+)+)\\/([^\\/][\\wא-ת\\.-]+)\\.gpkg$',
     description: 'Valid gpkg file path, file name must end with .gpkg',
   },
   metadataShapefileFilePath: {
