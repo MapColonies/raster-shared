@@ -8,10 +8,10 @@ import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '.
 export const ingestionResolutionSchema = z
   .number({ message: 'Resolution degree should be a number' })
   .min(CORE_VALIDATIONS.resolutionDeg.min, {
-    message: `Resolution degree should not be less than ${CORE_VALIDATIONS.resolutionDeg.min}`,
+    message: `Resolution degree should not be lower than ${CORE_VALIDATIONS.resolutionDeg.min}`,
   })
   .max(CORE_VALIDATIONS.resolutionDeg.max, {
-    message: `Resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
+    message: `Resolution degree should not be higher than ${CORE_VALIDATIONS.resolutionDeg.max}`,
   });
 
 export const ingestionNewJobParamsSchema = z
