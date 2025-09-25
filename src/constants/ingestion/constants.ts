@@ -33,18 +33,18 @@ export const INGESTION_VALIDATIONS = {
     description: 'Classification value between 0 and 100',
   },
   gpkgfileName: {
-    pattern: '^.+\\.[Gg][Pp][Kk][Gg]$',
-    description: 'File name must end with .gpkg',
+    pattern: '^((\\/[\\w-]+)+)\\/([^\\/][\\wא-ת\\.-]+)\\.gpkg$',
+    description: 'Valid gpkg file path, file name must end with .gpkg',
   },
   metadataShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^((\\/[\\w-]+)*)\\/ShapeMetadata\\.shp$',
-    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
+    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.zip$',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.zip',
   },
   productShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^((\\/[\\w-]+)*)\\/Product\\.shp$',
-    description: 'Valid product shapefile file path, must be end with /Product.shp',
+    pattern: '^(\\/[\\w-]+)+\\/Product\\.zip$',
+    description: 'Valid product shapefile file path, must be end with /Product.zip',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
