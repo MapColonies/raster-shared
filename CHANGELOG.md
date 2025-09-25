@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/MapColonies/raster-shared/compare/v4.0.0...v5.0.0) (2025-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* map layer name ([#116](https://github.com/MapColonies/raster-shared/issues/116))
+* ingestion resolution ([#115](https://github.com/MapColonies/raster-shared/issues/115))
+
+### Features
+
+* ingestion resolution ([#115](https://github.com/MapColonies/raster-shared/issues/115)) ([65624a1](https://github.com/MapColonies/raster-shared/commit/65624a12646ff9107cb2738e452b4d53253ffdd1))
+* map layer name ([#116](https://github.com/MapColonies/raster-shared/issues/116)) ([4aa1d40](https://github.com/MapColonies/raster-shared/commit/4aa1d400e1554a370ae3c9e6e987aa84de0dce41))
+
 ## [4.0.0](https://github.com/MapColonies/raster-shared/compare/v3.3.0...v4.0.0) (2025-09-09)
 
 
