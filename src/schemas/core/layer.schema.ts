@@ -108,9 +108,15 @@ export const rasterLayerCatalogSchema = z
           message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
         }
       )
-      .refine((rasterLayerMetadata) => rasterLayerMetadata.maxHorizontalAccuracyCE90 <= rasterLayerMetadata.minHorizontalAccuracyCE90, {
-        message: 'Max horizontal accuracy CE90 should be less than or equal to min horizontal accuracy CE90',
-      })
+      .refine(
+        (rasterLayerMetadata) =>
+          rasterLayerMetadata.minHorizontalAccuracyCE90 !== undefined
+            ? rasterLayerMetadata.maxHorizontalAccuracyCE90 <= rasterLayerMetadata.minHorizontalAccuracyCE90
+            : true,
+        {
+          message: 'Max horizontal accuracy CE90 should be less than or equal to min horizontal accuracy CE90',
+        }
+      )
       .refine((rasterLayerMetadata) => rasterLayerMetadata.maxResolutionDeg <= rasterLayerMetadata.minResolutionDeg, {
         message: 'Max resolution degree should be less than or equal to min resolution degree',
       })
