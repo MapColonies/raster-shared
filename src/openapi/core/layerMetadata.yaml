@@ -121,6 +121,7 @@ components:
       type: array
       items:
         type: string
+        pattern: ^([^\s]).+([^\\s])$
       minItems: 1
       description: Layer sensors list
     Scale:
