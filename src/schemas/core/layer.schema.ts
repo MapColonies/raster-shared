@@ -29,8 +29,8 @@ export const rasterLayerCatalogSchema = z
             message: `Min resolution degree should not be larger than ${CORE_VALIDATIONS.resolutionDeg.max}`,
           }),
         scale: z.number().min(INGESTION_VALIDATIONS.scale.min).max(INGESTION_VALIDATIONS.scale.max).optional(),
-        creationDateUTC: z.coerce.date().optional(),
-        ingestionDate: z.coerce.date().optional(),
+        creationDateUTC: z.coerce.date(),
+        ingestionDate: z.coerce.date(),
         minHorizontalAccuracyCE90: z
           .number({ message: 'Min horizontal accuracy CE90 should be a number' })
           .min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min, {
@@ -38,7 +38,8 @@ export const rasterLayerCatalogSchema = z
           })
           .max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max, {
             message: `Min horizontal accuracy CE90 should not be larger than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.max}`,
-          }),
+          })
+          .optional(),
         maxHorizontalAccuracyCE90: z
           .number({ message: 'Max horizontal accuracy CE90 should be a number' })
           .min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min, {
@@ -58,7 +59,7 @@ export const rasterLayerCatalogSchema = z
           .min(1, { message: 'Sensors should have an array length of at least 1' }),
         imagingTimeBeginUTC: z.coerce.date({ message: 'Imaging time begin UTC should be a datetime' }),
         imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
-        updateDateUTC: z.coerce.date().optional(),
+        updateDateUTC: z.coerce.date(),
         maxResolutionMeter: z
           .number({ message: 'Max resolution meter should be a number' })
           .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
@@ -80,7 +81,8 @@ export const rasterLayerCatalogSchema = z
           .string({ message: 'Product bounding box should be a string' })
           .regex(new RegExp(INGESTION_VALIDATIONS.boundingBox.pattern), {
             message: 'Product bounding box must be of the shape min_x,min_y,max_x,max_y',
-          }),
+          })
+          .optional(),
         displayPath: z.string().uuid(),
         transparency: z.nativeEnum(Transparency),
         tileMimeFormat: tilesMimeFormatSchema,
@@ -90,10 +92,10 @@ export const rasterLayerCatalogSchema = z
         classification: z
           .string()
           .regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
-        productName: z.string(),
-        description: z.string(),
+        productName: z.string().optional(),
+        description: z.string().optional(),
         srsName: z.literal('WGS84GEO'),
-        producerName: z.string(),
+        producerName: z.string().optional(),
         footprint: polygonSchema.or(multiPolygonSchema),
         productId: resourceIdSchema,
         productType: rasterProductTypeSchema,
