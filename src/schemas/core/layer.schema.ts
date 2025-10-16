@@ -87,7 +87,7 @@ export const rasterLayerCatalogSchema = z
         transparency: z.nativeEnum(Transparency),
         tileMimeFormat: tilesMimeFormatSchema,
         tileOutputFormat: z.nativeEnum(TileOutputFormat),
-        productStatus: z.nativeEnum(RecordStatus).optional(),
+        productStatus: z.nativeEnum(RecordStatus),
         type: z.literal(RecordType.RECORD_RASTER),
         classification: z
           .string()
