@@ -5,7 +5,7 @@ import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from './job.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
 
-export const rasterLayerMetadataSchema = z
+export const rasterLayerCatalogSchema = z
   .object({
     metadata: z
       .object({
@@ -129,4 +129,4 @@ export const rasterLayerMetadataSchema = z
       .optional(),
   })
   .strict()
-  .describe('rasterLayerMetadataSchema');
+  .describe('rasterLayerCatalogSchema');

@@ -1,6 +1,6 @@
 import z from 'zod';
 import type { aggregationFeatureSchema } from '../../schemas';
-import type { rasterLayerMetadataSchema } from '../../schemas/core/metadata.schema';
+import type { rasterLayerCatalogSchema } from '../../schemas/core/layer.schema';
 
-export type RasterLayerMetadata = z.infer<typeof rasterLayerMetadataSchema>;
+export type RasterLayerCatalog = z.infer<typeof rasterLayerCatalogSchema>;
 export type AggregationFeature = z.infer<typeof aggregationFeatureSchema>;
