@@ -7,7 +7,6 @@ import { tilesMimeFormatSchema } from './mime.schema';
 
 export const rasterLayerMetadataSchema = z
   .object({
-    id: z.string().uuid(),
     metadata: z
       .object({
         id: z.string().uuid(),
