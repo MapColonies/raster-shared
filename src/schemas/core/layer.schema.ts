@@ -127,10 +127,10 @@ export const rasterLayerCatalogSchema = z
       .array(
         z
           .object({
+            protocol: z.string(),
+            url: z.string().url(),
             name: z.string().optional(),
             description: z.string().optional(),
-            protocol: z.string().optional(),
-            url: z.string().optional(),
           })
           .strict()
       )
