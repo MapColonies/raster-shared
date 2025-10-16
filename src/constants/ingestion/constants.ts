@@ -67,7 +67,7 @@ export const INGESTION_VALIDATIONS = {
     max: 100000000,
   },
   sensor: {
-    pattern: '^([^\\s]).+([^\\s])$',
+    pattern: '^([^\\s])(.*[^\\s])?$',
     description: 'Sensor name must not start or end with whitespace',
   },
   polygonPartsEntityName: {
