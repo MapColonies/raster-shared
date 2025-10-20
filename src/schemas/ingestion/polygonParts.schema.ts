@@ -6,6 +6,7 @@ import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
   .object({
+    id: z.string().uuid({ message: 'Part id should be a valid uuid' }),
     sourceId: z.string({ message: 'Source id should be a string' }).optional(),
     sourceName: z.string({ message: 'Source name should be a string' }).min(1, { message: 'Source name should have length of at least 1' }),
     description: z.string({ message: 'Description should be a string' }).optional(),
@@ -80,9 +81,9 @@ export const polygonPartsFeatureSchema = featureSchema(polygonSchema, partSchema
 export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
 
 export const polygonPartsPayloadSchema = z.object({
+  jobType: z.string(),
   productType: rasterProductTypeSchema,
   productId: resourceIdSchema,
-  catalogId: z.string().uuid(),
   productVersion: versionSchema,
   partsData: polygonPartsFeatureCollectionSchema,
 });

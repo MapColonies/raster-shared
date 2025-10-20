@@ -14,32 +14,31 @@ export const ingestionResolutionSchema = z
     message: `Resolution degree should not be higher than ${CORE_VALIDATIONS.resolutionDeg.max}`,
   });
 
-export const ingestionNewJobParamsSchema = z
+export const ingestionBaseJobParamsSchema = z
   .object({
-    metadata: newRasterLayerMetadataSchema,
     inputFiles: inputFilesSchema,
     ingestionResolution: ingestionResolutionSchema,
     callbackUrls: callbackUrlsArraySchema.optional(),
+  })
+  .describe('ingestionBaseJobParamsSchema');
+
+export const ingestionNewJobParamsSchema = ingestionBaseJobParamsSchema
+  .extend({
+    metadata: newRasterLayerMetadataSchema,
     additionalParams: newAdditionalParamsSchema,
   })
   .describe('ingestionNewJobParamsSchema');
 
-export const ingestionUpdateJobParamsSchema = z
-  .object({
+export const ingestionUpdateJobParamsSchema = ingestionBaseJobParamsSchema
+  .extend({
     metadata: updateRasterLayerMetadataSchema,
-    inputFiles: inputFilesSchema,
-    ingestionResolution: ingestionResolutionSchema,
-    callbackUrls: callbackUrlsArraySchema.optional(),
     additionalParams: updateAdditionalParamsSchema,
   })
   .describe('ingestionUpdateJobParamsSchema');
 
-export const ingestionSwapUpdateJobParamsSchema = z
-  .object({
+export const ingestionSwapUpdateJobParamsSchema = ingestionBaseJobParamsSchema
+  .extend({
     metadata: updateRasterLayerMetadataSchema,
-    inputFiles: inputFilesSchema,
-    ingestionResolution: ingestionResolutionSchema,
-    callbackUrls: callbackUrlsArraySchema.optional(),
     additionalParams: swapUpdateAdditionalParamsSchema,
   })
-  .describe('ingestionSwapUpdateParamsSchema');
+  .describe('ingestionSwapUpdateJobParamsSchema');
