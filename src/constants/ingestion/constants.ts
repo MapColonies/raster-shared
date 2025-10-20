@@ -38,13 +38,13 @@ export const INGESTION_VALIDATIONS = {
   },
   metadataShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.zip$',
-    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.zip',
+    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.shp$',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
   productShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/Product\\.zip$',
-    description: 'Valid product shapefile file path, must be end with /Product.zip',
+    pattern: '^(\\/[\\w-]+)+\\/Product\\.shp$',
+    description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
@@ -76,3 +76,17 @@ export const INGESTION_VALIDATIONS = {
       'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   },
 } satisfies ValidationRules;
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const ShapefileExtensions = {
+  SHP: '.shp', // Main shapefile containing geometry data
+  SHX: '.shx', // Shape index file for spatial indexing
+  DBF: '.dbf', // Attribute data in dBASE format
+  PRJ: '.prj', // Projection/coordinate system info
+  CPG: '.cpg', // Code page file specifying character encoding
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
+
+export const SHAPEFILE_EXTENSIONS_LIST = Object.values(ShapefileExtensions);
