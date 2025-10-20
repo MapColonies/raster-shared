@@ -76,3 +76,15 @@ export const INGESTION_VALIDATIONS = {
       'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   },
 } satisfies ValidationRules;
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const ShapefileExtensions = {
+  SHP: '.shp', // Main shapefile containing geometry data
+  SHX: '.shx', // Shape index file for spatial indexing
+  DBF: '.dbf', // Attribute data in dBASE format
+  PRJ: '.prj', // Projection/coordinate system info
+  CPG: '.cpg', // Code page file specifying character encoding
+  QMD: '.qmd', // QGIS metadata file (not a standard shapefile extension)
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
