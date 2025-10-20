@@ -38,13 +38,13 @@ export const INGESTION_VALIDATIONS = {
   },
   metadataShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.zip$',
-    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.zip',
+    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.shp$',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
   productShapefileFilePath: {
     // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/Product\\.zip$',
-    description: 'Valid product shapefile file path, must be end with /Product.zip',
+    pattern: '^(\\/[\\w-]+)+\\/Product\\.shp$',
+    description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
