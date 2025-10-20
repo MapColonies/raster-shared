@@ -84,7 +84,6 @@ export const ShapefileExtensions = {
   DBF: '.dbf', // Attribute data in dBASE format
   PRJ: '.prj', // Projection/coordinate system info
   CPG: '.cpg', // Code page file specifying character encoding
-  QMD: '.qmd', // QGIS metadata file (not a standard shapefile extension)
 } as const;
 /* eslint-enable @typescript-eslint/naming-convention */
 export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
