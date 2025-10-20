@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/MapColonies/raster-shared/compare/v5.0.0...v6.0.0) (2025-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* changed metadata + product shapefile extenstion to .shp ([#125](https://github.com/MapColonies/raster-shared/issues/125))
+
+### Features
+
+* changed metadata + product shapefile extenstion to .shp ([#125](https://github.com/MapColonies/raster-shared/issues/125)) ([4d327ed](https://github.com/MapColonies/raster-shared/commit/4d327ed9f97ce83003dd250f0461503dd0431279))
+
 ## [5.0.0](https://github.com/MapColonies/raster-shared/compare/v4.0.0...v5.0.0) (2025-09-25)
 
 
