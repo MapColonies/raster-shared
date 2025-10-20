@@ -86,4 +86,7 @@ export const ShapefileExtensions = {
   CPG: '.cpg', // Code page file specifying character encoding
 } as const;
 /* eslint-enable @typescript-eslint/naming-convention */
+
 export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
+
+export const SHAPEFILE_EXTENSIONS_LIST = Object.values(ShapefileExtensions);
