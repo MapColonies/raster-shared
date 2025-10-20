@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS } from '../../constants';
-import { INGESTION_VALIDATIONS, JobTypes } from '../../constants/ingestion/constants';
+import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 import { featureCollectionSchema, featureSchema, polygonSchema, rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
