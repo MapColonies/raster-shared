@@ -69,12 +69,12 @@ export const rasterLayerCatalogSchema = z
             message: `Max resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
           }),
         minResolutionMeter: z
-          .number({ message: 'Min horizontal accuracy CE90 should be a number' })
-          .min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min, {
-            message: `Min horizontal accuracy CE90 should not be less than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.min}`,
+          .number({ message: 'Min resolution meter should be a number' })
+          .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
+            message: `Min resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
           })
-          .max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max, {
-            message: `Min horizontal accuracy CE90 should not be larger than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.max}`,
+          .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
+            message: `Min resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
           }),
         productSubType: z.string().optional(),
         productBoundingBox: z
