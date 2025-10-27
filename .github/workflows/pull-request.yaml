@@ -47,7 +47,7 @@ jobs:
       - name: Run tests
         run: npm run test
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: Test Reporters ${{ matrix.node }}
           path: ./reports/**
