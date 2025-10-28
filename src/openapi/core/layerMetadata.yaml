@@ -116,6 +116,7 @@ components:
       type: array
       items:
         type: string
+        minLength: 1
       minItems: 1
       description: List of layer's regions
     Sensors:
