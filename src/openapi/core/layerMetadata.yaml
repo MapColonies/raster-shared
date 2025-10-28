@@ -81,6 +81,7 @@ components:
     ProductName:
       type: string
       description: Layer's external name
+      minLength: 1
     ProductVersion:
       type: string
       pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
