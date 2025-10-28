@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/constants';
-import { multiPolygonSchema, polygonSchema } from '../core/geo.schema';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const baseAdditionalParamsSchema = z
@@ -13,7 +12,6 @@ export const baseAdditionalParamsSchema = z
 export const baseUpdateAdditionalParamsSchema = baseAdditionalParamsSchema
   .extend({
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
-    footprint: polygonSchema.or(multiPolygonSchema),
   })
   .describe('baseUpdateAdditionalParamsSchema');
 
