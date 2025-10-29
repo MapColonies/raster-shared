@@ -8,14 +8,14 @@ export const gpkgFileNameSchema = z
 
 export const metadataShapefilePathSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.metadataShapefileFilePath.pattern), {
+  .regex(new RegExp(INGESTION_VALIDATIONS.metadataShapefilePath.pattern), {
     message: 'Metadata shape file path must be a valid shapefile path ending with "/ShapeMetadata.shp"',
   })
   .describe('metadataShapefileSchema');
 
 export const productShapefilePathSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productShapefileFilePath.pattern), {
+  .regex(new RegExp(INGESTION_VALIDATIONS.productShapefilePath.pattern), {
     message: 'Product file path must be a valid shapefile path ending with "/Product.shp"',
   })
   .describe('productShapefilePathSchema');
