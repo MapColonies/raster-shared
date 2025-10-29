@@ -36,12 +36,12 @@ export const INGESTION_VALIDATIONS = {
     pattern: '^((\\/[\\w-]+)+)\\/([^\\/][\\wא-ת\\.-]+)\\.gpkg$',
     description: 'Valid gpkg file path, file name must end with .gpkg',
   },
-  metadataShapefileFilePath: {
+  metadataShapefilePath: {
     // eslint-disable-next-line no-useless-escape
     pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/ShapeMetadata\\.shp$',
     description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
-  productShapefileFilePath: {
+  productShapefilePath: {
     // eslint-disable-next-line no-useless-escape
     pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/Product\\.shp$',
     description: 'Valid product shapefile file path, must be end with /Product.shp',
