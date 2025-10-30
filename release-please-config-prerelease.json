@@ -3,9 +3,9 @@
   "release-type": "node",
   "include-component-in-tag": false,
   "include-v-in-tag": true,
-  "prerelease": true,
   "packages": {
     ".": {
+      "prerelease": true,
       "prerelease-type": "alpha"
     }
   }
