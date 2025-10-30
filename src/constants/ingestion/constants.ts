@@ -33,16 +33,14 @@ export const INGESTION_VALIDATIONS = {
     description: 'Classification value between 0 and 100',
   },
   gpkgfileName: {
-    pattern: '^((\\/[\\w-]+)+)\\/([^\\/][\\wא-ת\\.-]+)\\.gpkg$',
+    pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/[\\wא-ת\\.-]+\\.gpkg$',
     description: 'Valid gpkg file path, file name must end with .gpkg',
   },
   metadataShapefilePath: {
-    // eslint-disable-next-line no-useless-escape
     pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/ShapeMetadata\\.shp$',
     description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
   productShapefilePath: {
-    // eslint-disable-next-line no-useless-escape
     pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/Product\\.shp$',
     description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
