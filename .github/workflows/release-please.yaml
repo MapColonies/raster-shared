@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - alpha
 
 permissions:
   contents: write
@@ -13,7 +14,22 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@v4
+      - id: prerelease
+        name: Determine prerelease flag
+        run: |
+          branch="${GITHUB_REF##*/}"
+          echo "Detected branch: $branch"
+
+          if [ "$branch" = "alpha" ]; then
+            echo "prerelease_type_config=release-please-config-prerelease.json" >> $GITHUB_OUTPUT
+            echo "Running in pre-release mode"
+          else
+            echo "prerelease_type_config=release-please-config.json" >> $GITHUB_OUTPUT
+            echo "Running in stable mode"
+          fi
+      - id: release
+        name: Run release-please
+        uses: googleapis/release-please-action@v4
         with:
           # this assumes that you have created a personal access token
           # (PAT) and configured it as a GitHub action secret named
@@ -22,3 +38,4 @@ jobs:
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
           release-type: node
+          config-file: ${{ steps.prerelease.outputs.prerelease_type_config }}
