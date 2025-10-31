@@ -22,11 +22,20 @@ jobs:
 
           if [ "$branch" = "alpha" ]; then
             echo "prerelease_type_config=release-please-config-alpha.json" >> $GITHUB_OUTPUT
+            echo "release_type=alpha" >> $GITHUB_OUTPUT
             echo "Running in pre-release mode"
           else
             echo "prerelease_type_config=release-please-config.json" >> $GITHUB_OUTPUT
+            echo "release_type=default" >> $GITHUB_OUTPUT
             echo "Running in stable mode"
           fi
+
+      - id : mode
+        name: summary
+        run: |
+          echo "config file: ${{ steps.prerelease.outputs.prerelease_type_config }}"
+          echo "release type: ${{ steps.prerelease.outputs.release_type }}"
+
       - id: release
         name: Run release-please
         uses: googleapis/release-please-action@v4
