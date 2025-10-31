@@ -21,7 +21,7 @@ jobs:
           echo "Detected branch: $branch"
 
           if [ "$branch" = "alpha" ]; then
-            echo "prerelease_type_config=release-please-config-prerelease.json" >> $GITHUB_OUTPUT
+            echo "prerelease_type_config=release-please-config-alpha.json" >> $GITHUB_OUTPUT
             echo "Running in pre-release mode"
           else
             echo "prerelease_type_config=release-please-config.json" >> $GITHUB_OUTPUT
