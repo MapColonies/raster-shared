@@ -6,7 +6,8 @@
       "include-component-in-tag": false,
       "include-v-in-tag": true,
       "prerelease": true,
-      "prerelease-type": "alpha"
+      "prerelease-type": "alpha",
+      "versioning": "prerelease"
     }
   }
 }
