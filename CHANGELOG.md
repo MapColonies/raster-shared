@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v6.0.0...v7.0.0-alpha.1) (2025-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* changed gpkg file path regex pattern ([#133](https://github.com/MapColonies/raster-shared/issues/133))
+* metadata and product ([#132](https://github.com/MapColonies/raster-shared/issues/132))
+* metadata consistency ([#130](https://github.com/MapColonies/raster-shared/issues/130))
+* remove footprint from job parameters ([#129](https://github.com/MapColonies/raster-shared/issues/129))
+
+### Features
+
+* metadata consistency ([#130](https://github.com/MapColonies/raster-shared/issues/130)) ([9003a0d](https://github.com/MapColonies/raster-shared/commit/9003a0d2e9792aa3783eb73c1cbccf62bc2221ee))
+* remove footprint from job parameters ([#129](https://github.com/MapColonies/raster-shared/issues/129)) ([ad56ed8](https://github.com/MapColonies/raster-shared/commit/ad56ed8fdea41a102ee8d79161ca2a165a09ea76))
+
+
+### Bug Fixes
+
+* changed gpkg file path regex pattern ([#133](https://github.com/MapColonies/raster-shared/issues/133)) ([f5da490](https://github.com/MapColonies/raster-shared/commit/f5da490232b15961495bd5575eba80e84f126062))
+* metadata and product ([#132](https://github.com/MapColonies/raster-shared/issues/132)) ([c75b4f1](https://github.com/MapColonies/raster-shared/commit/c75b4f1937259a3b714ecdd24da8916d52b04ab1))
+
+
+### Miscellaneous Chores
+
+* release 7.0.0-alpha.1 ([fb0ac7a](https://github.com/MapColonies/raster-shared/commit/fb0ac7a48ad363d5d3bba65095b5a7182608d97c))
+
 ## [6.0.0](https://github.com/MapColonies/raster-shared/compare/v5.0.0...v6.0.0) (2025-10-20)
 
 
