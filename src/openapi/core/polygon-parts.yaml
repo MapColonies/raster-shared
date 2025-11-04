@@ -39,11 +39,6 @@ components:
       type: string
       description: Ingestion date (UTC)
       format: date-time
-    PolygonPartsEntityName:
-      type: string
-      description: Polygon parts entity name
-      pattern: ^[a-z][a-z0-9_]{0,61}[a-z0-9]$
-      example: world_orthophoto
     ResolutionDegree:
       type: number
       minimum: 1.67638e-7
