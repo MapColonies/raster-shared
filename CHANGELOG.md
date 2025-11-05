@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.0.0-alpha.1...v7.1.0-alpha.1) (2025-11-05)
+
+
+### Features
+
+* add task parameters for validation task ([#137](https://github.com/MapColonies/raster-shared/issues/137)) ([3cf02be](https://github.com/MapColonies/raster-shared/commit/3cf02be9ec0fe001407d3283f7290c6172e48d25))
+* update partSchema to remove UUID validation and add report types ([#136](https://github.com/MapColonies/raster-shared/issues/136)) ([9ed04b8](https://github.com/MapColonies/raster-shared/commit/9ed04b86f61af870bb68724e2d0a2b485e103dfa))
+
 ## [7.0.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v6.0.0...v7.0.0-alpha.1) (2025-11-02)
 
 
