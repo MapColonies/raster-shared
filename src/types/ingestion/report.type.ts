@@ -4,6 +4,6 @@ export interface PolygonPartValidationError {
 }
 export interface PolygonPartsValidationResponseBody {
   parts: PolygonPartValidationError[];
-  smallGeometriesCount: number; // count in this chunk
-  smallHolesCount: number; // count in this chunk
+  smallGeometriesCount: number;
+  smallHolesCount: number;
 }
