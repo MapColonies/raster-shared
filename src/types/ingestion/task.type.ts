@@ -3,7 +3,7 @@ import {
   ingestionNewFinalizeTaskParamsSchema,
   ingestionSwapUpdateTaskParamsSchema,
   ingestionUpdateFinalizeTaskParamsSchema,
-  ingestionValidationTaskParamsSchema,
+  baseIngestionValidationTaskParamsSchema,
 } from '../../schemas';
 
 //#region IngestionFinalizeTaskParams
@@ -12,6 +12,6 @@ export type IngestionUpdateFinalizeTaskParams = z.infer<typeof ingestionUpdateFi
 export type IngestionSwapUpdateFinalizeTaskParams = z.infer<typeof ingestionSwapUpdateTaskParamsSchema>;
 //#endregion
 
-//#region IngestionValidationTaskParams
-export type IngestionValidationTaskParams = z.infer<typeof ingestionValidationTaskParamsSchema>;
+//#region BaseIngestionValidationTaskParams
+export type BaseIngestionValidationTaskParams = z.infer<typeof baseIngestionValidationTaskParamsSchema>;
 //#endregion
