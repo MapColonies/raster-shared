@@ -19,3 +19,9 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
     updatedInMapproxy: z.boolean(),
   })
   .describe('ingestionSwapUpdateTaskParamsSchema');
+
+export const ingestionValidationTaskParamsSchema = z
+  .object({
+    isValid: z.boolean(),
+  })
+  .describe('ingestionValidationTaskParamsSchema');
