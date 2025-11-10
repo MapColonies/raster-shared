@@ -1,7 +1,15 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS } from '../../constants';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
-import { featureCollectionSchema, featureSchema, polygonSchema, rasterProductTypeSchema, resourceIdSchema, versionSchema } from '../core';
+import {
+  featureCollectionSchema,
+  featureSchema,
+  multiPolygonSchema,
+  polygonSchema,
+  rasterProductTypeSchema,
+  resourceIdSchema,
+  versionSchema,
+} from '../core';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
@@ -76,7 +84,7 @@ export const polygonPartsEntityNameSchema = z
   })
   .describe('polygonPartsEntityNameSchema');
 
-export const polygonPartsFeatureSchema = featureSchema(polygonSchema, partSchema);
+export const polygonPartsFeatureSchema = featureSchema(polygonSchema.or(multiPolygonSchema), partSchema);
 
 export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
 
