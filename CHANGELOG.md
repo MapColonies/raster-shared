@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.1.0-alpha.1...v7.2.0-alpha.1) (2025-11-10)
+
+
+### Features
+
+* support multippolygon in polygonPartsFeatureCollectionSchema ([#139](https://github.com/MapColonies/raster-shared/issues/139)) ([4ab4206](https://github.com/MapColonies/raster-shared/commit/4ab4206ba718d148cc2760fca0dc558e7d80abc5))
+
 ## [7.1.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.0.0-alpha.1...v7.1.0-alpha.1) (2025-11-05)
 
 
