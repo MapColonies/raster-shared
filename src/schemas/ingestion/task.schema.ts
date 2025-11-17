@@ -22,6 +22,6 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
 
 export const baseIngestionValidationTaskParamsSchema = z
   .object({
-    isValid: z.boolean(),
+    isValid: z.boolean().optional(),
   })
   .describe('baseIngestionValidationTaskParamsSchema');
