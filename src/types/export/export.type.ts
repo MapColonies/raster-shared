@@ -10,7 +10,7 @@ import {
   linksSchema,
   roiPropertiesSchema,
 } from '../../schemas/export/export.schema';
-import { callbackUrlsArraySchema, callbackUrlSchema } from '../../schemas/core/callbackUrl.schema';
+import { callbackUrlsArraySchema, callbackUrlSchema } from '../../schemas/core/callback.schema';
 
 export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
 export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;

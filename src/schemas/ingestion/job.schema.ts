@@ -1,6 +1,6 @@
 import z from 'zod';
 import { CORE_VALIDATIONS } from '../../constants';
-import { callbackUrlsArraySchema } from '../core/callbackUrl.schema';
+import { callbackUrlsArraySchema } from '../core/callback.schema';
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
 import { inputFilesSchema } from './inputFiles.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
