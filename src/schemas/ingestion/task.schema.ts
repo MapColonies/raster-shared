@@ -20,8 +20,8 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
   })
   .describe('ingestionSwapUpdateTaskParamsSchema');
 
-export const baseIngestionValidationTaskParamsSchema = z
+export const ingestionValidationTaskParamsSchema = z
   .object({
     isValid: z.boolean(),
   })
-  .describe('baseIngestionValidationTaskParamsSchema');
+  .describe('ingestionValidationTaskParamsSchema');
