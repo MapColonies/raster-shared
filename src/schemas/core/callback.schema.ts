@@ -1,6 +1,6 @@
 import z from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { rasterProductTypeSchema, versionSchema } from './job.schema';
+import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from './job.schema';
 
 export const callbackUrlSchema = z.string().url();
 
@@ -19,7 +19,7 @@ export const createCallbackResponseSchema = <T>(dataSchema?: z.ZodType<T>) => {
     taskId: z.string().uuid(),
     jobType: z.string(),
     taskType: z.string(),
-    productId: z.string(),
+    productId: resourceIdSchema,
     productType: rasterProductTypeSchema,
     version: versionSchema,
     status: z.nativeEnum(OperationStatus),
