@@ -7,9 +7,9 @@ export const callbackUrlSchema = z.string().url();
 export const callbackUrlsArraySchema = z.array(callbackUrlSchema);
 
 export const fileMetadataSchema = z.object({
-  name: z.string(),
+  fileName: z.string().min(1),
+  fileSize: z.number().nonnegative(),
   url: callbackUrlSchema,
-  size: z.number(),
 });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

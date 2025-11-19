@@ -5,6 +5,7 @@ import {
   ingestionUpdateFinalizeTaskParamsSchema,
   ingestionValidationTaskParamsSchema,
 } from '../../schemas';
+import { validationAggregatedErrorsSchema } from '../../schemas/ingestion/validationTask.schema';
 
 //#region IngestionFinalizeTaskParams
 export type IngestionNewFinalizeTaskParams = z.infer<typeof ingestionNewFinalizeTaskParamsSchema>;
@@ -14,4 +15,5 @@ export type IngestionSwapUpdateFinalizeTaskParams = z.infer<typeof ingestionSwap
 
 //#region IngestionValidationTaskParams
 export type IngestionValidationTaskParams = z.infer<typeof ingestionValidationTaskParamsSchema>;
+export type ValidationAggregatedErrors = z.infer<typeof validationAggregatedErrorsSchema>;
 //#endregion
