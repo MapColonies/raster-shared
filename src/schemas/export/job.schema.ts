@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileFormatStrategy, TileOutputFormat } from '../../constants';
 import { polygonPartsEntityNameSchema } from '../ingestion';
-import { callbackUrlsArraySchema } from '../core/callbackUrl.schema';
+import { callbackUrlsArraySchema } from '../core/callback.schema';
 import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
 
 export const exportInputParamsSchema = z.object({
