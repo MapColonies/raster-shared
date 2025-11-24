@@ -15,10 +15,14 @@ export const featuresErrorCountSchema = z.object({
   smallGeometries: counterSchema.describe('Number of features containing small geometries'),
 });
 
-export const validationAggregatedErrorsSchema = z.object({
-  errorsCount: featuresErrorCountSchema.describe('Aggregated count of validation errors'),
+export const thresholdsSchema = z.object({
   smallHoles: thresholdCheckSchema.describe('Small holes threshold check result').extend({
     count: counterSchema,
   }),
   smallGeometries: thresholdCheckSchema.describe('Small geometries threshold check result'),
+});
+
+export const validationAggregatedErrorsSchema = z.object({
+  errorsCount: featuresErrorCountSchema.describe('Aggregated count of validation errors'),
+  thresholds: thresholdsSchema.describe('Threshold check results'),
 });
