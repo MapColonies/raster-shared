@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.2.0-alpha.1...v7.3.0-alpha.1) (2025-11-24)
+
+
+### Features
+
+* add validation error types and update report type to use them ([#145](https://github.com/MapColonies/raster-shared/issues/145)) ([942ac1a](https://github.com/MapColonies/raster-shared/commit/942ac1a88fa6e2cfc54720bfec82606f225523ea))
+* adding valdiation aggreagted errors schemas+type ([#144](https://github.com/MapColonies/raster-shared/issues/144)) ([3b7b819](https://github.com/MapColonies/raster-shared/commit/3b7b819b25da90abb908c64c77260490f503a006))
+* callback schemas and types ([#142](https://github.com/MapColonies/raster-shared/issues/142)) ([ffd5b62](https://github.com/MapColonies/raster-shared/commit/ffd5b625d2a107fc5e64ce83da11e91983f04bd4))
+
 ## [7.2.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.1.0-alpha.1...v7.2.0-alpha.1) (2025-11-10)
 
 
