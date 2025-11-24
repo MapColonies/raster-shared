@@ -6,3 +6,4 @@ export * from './job.schema';
 export * from './task.schema';
 export * from './layerNameFormats.schema';
 export * from './callback.schema';
+export * from './validationTask.schema';

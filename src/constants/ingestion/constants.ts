@@ -88,3 +88,16 @@ export const ShapefileExtensions = {
 export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
 
 export const SHAPEFILE_EXTENSIONS_LIST = Object.values(ShapefileExtensions);
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const ValidationErrorType = {
+  GEOMETRY_VALIDITY: 'Geometry_Validity',
+  VERTICES: 'Vertices',
+  METADATA: 'Metadata',
+  SMALL_GEOMETRY: 'Small_Geometry',
+  SMALL_HOLES: 'Small_Holes',
+  RESOLUTION: 'Resolution',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type ValidationErrorType = (typeof ValidationErrorType)[keyof typeof ValidationErrorType];
