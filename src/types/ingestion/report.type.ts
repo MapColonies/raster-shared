@@ -11,6 +11,5 @@ export interface PolygonPartValidationError {
 }
 export interface PolygonPartsChunkValidationResult {
   parts: PolygonPartValidationError[];
-  smallGeometriesCount: number;
   smallHolesCount: number;
 }
