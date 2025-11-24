@@ -4,7 +4,6 @@ export const counterSchema = z.number().min(0).describe('A non-negative integer 
 
 export const thresholdCheckSchema = z.object({
   exceeded: z.boolean().describe('Indicates if the threshold has been exceeded'),
-  count: counterSchema,
 });
 
 export const featuresErrorCountSchema = z.object({
@@ -12,10 +11,14 @@ export const featuresErrorCountSchema = z.object({
   vertices: counterSchema.describe('Number of features exceeding the maximum allowed vertices'),
   metadata: counterSchema.describe('Number of features with invalid or missing metadata'),
   resolution: counterSchema.describe('Number of features not matching the required resolution'),
+  smallHoles: counterSchema.describe('Number of features containing small holes'),
+  smallGeometries: counterSchema.describe('Number of features containing small geometries'),
 });
 
 export const validationAggregatedErrorsSchema = z.object({
   errorsCount: featuresErrorCountSchema.describe('Aggregated count of validation errors'),
-  smallHoles: thresholdCheckSchema.describe('Small holes threshold check result'),
+  smallHoles: thresholdCheckSchema.describe('Small holes threshold check result').extend({
+    count: counterSchema,
+  }),
   smallGeometries: thresholdCheckSchema.describe('Small geometries threshold check result'),
 });
