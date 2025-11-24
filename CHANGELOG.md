@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.5.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.4.0-alpha.1...v7.5.0-alpha.1) (2025-11-24)
+
+
+### Features
+
+* bump version v7.4.0-alpha.1 ([#148](https://github.com/MapColonies/raster-shared/issues/148)) ([97e8e09](https://github.com/MapColonies/raster-shared/commit/97e8e094c03ee8deb362c060bdc8b2b214bd4179))
+
 ## [7.3.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.2.0-alpha.1...v7.3.0-alpha.1) (2025-11-24)
 
 
