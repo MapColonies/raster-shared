@@ -91,6 +91,7 @@ export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polyg
 export const polygonPartsPayloadSchema = z.object({
   jobType: z.string(),
   productType: rasterProductTypeSchema,
+  catalogId: z.string().uuid({ message: 'Catalog ID should be a valid UUID' }),
   productId: resourceIdSchema,
   productVersion: versionSchema,
   partsData: polygonPartsFeatureCollectionSchema,
