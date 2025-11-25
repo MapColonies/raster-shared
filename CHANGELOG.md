@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.5.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.5.0-alpha.1...v7.5.1-alpha.1) (2025-11-25)
+
+
+### Bug Fixes
+
+* catalogId field with UUID validation to polygonPartsPayloadSchema ([#150](https://github.com/MapColonies/raster-shared/issues/150)) ([3635d3b](https://github.com/MapColonies/raster-shared/commit/3635d3bfa120ae1a0cdf29d2eabc63ecc41fbc52))
+
 ## [7.5.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.4.0-alpha.1...v7.5.0-alpha.1) (2025-11-24)
 
 
