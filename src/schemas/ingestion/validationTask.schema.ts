@@ -13,6 +13,7 @@ export const featuresErrorCountSchema = z.object({
   resolution: counterSchema.describe('Number of features not matching the required resolution'),
   smallHoles: counterSchema.describe('Number of features containing small holes'),
   smallGeometries: counterSchema.describe('Number of features containing small geometries'),
+  unknown: counterSchema.describe('Number of features with unknown errors'),
 });
 
 export const thresholdsSchema = z.object({
