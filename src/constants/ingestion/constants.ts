@@ -97,6 +97,7 @@ export const ValidationErrorType = {
   SMALL_GEOMETRY: 'Small_Geometry',
   SMALL_HOLES: 'Small_Holes',
   RESOLUTION: 'Resolution',
+  UNKNOWN: 'Unknown',
 } as const;
 /* eslint-enable @typescript-eslint/naming-convention */
 
