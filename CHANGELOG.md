@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.5.2-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.5.1-alpha.1...v7.5.2-alpha.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* add unknown error and count it ([#152](https://github.com/MapColonies/raster-shared/issues/152)) ([86d5504](https://github.com/MapColonies/raster-shared/commit/86d5504d60dcb183d81d7048fb244446e3e6a7ae))
+
 ## [7.5.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.5.0-alpha.1...v7.5.1-alpha.1) (2025-11-25)
 
 
