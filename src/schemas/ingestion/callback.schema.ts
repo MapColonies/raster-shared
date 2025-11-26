@@ -1,5 +1,5 @@
 import z from 'zod';
-import { fileMetadataSchema } from '../core';
+import { fileMetadataSchema } from '../core/';
 
 //#region Validation
 

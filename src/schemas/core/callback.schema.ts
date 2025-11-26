@@ -2,16 +2,6 @@ import z from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
 import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from './job.schema';
 
-export const callbackUrlSchema = z.string().url();
-
-export const callbackUrlsArraySchema = z.array(callbackUrlSchema);
-
-export const fileMetadataSchema = z.object({
-  fileName: z.string().min(1),
-  fileSize: z.number().nonnegative(),
-  url: callbackUrlSchema,
-});
-
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createCallbackResponseSchema = <T>(dataSchema?: z.ZodType<T>) => {
   return z.object({

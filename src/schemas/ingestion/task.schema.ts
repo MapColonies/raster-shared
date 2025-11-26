@@ -1,4 +1,5 @@
 import z from 'zod';
+import { fileMetadataSchema } from '../core';
 
 export const ingestionNewFinalizeTaskParamsSchema = z
   .object({
@@ -22,6 +23,7 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
 
 export const ingestionValidationTaskParamsSchema = z
   .object({
+    links: fileMetadataSchema.optional(),
     isValid: z.boolean(),
   })
   .describe('ingestionValidationTaskParamsSchema');
