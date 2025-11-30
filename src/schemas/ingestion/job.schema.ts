@@ -1,6 +1,6 @@
 import z from 'zod';
 import { CORE_VALIDATIONS } from '../../constants';
-import { callbackUrlsArraySchema } from '../core/callback.schema';
+import { urlsArraySchema } from '../core';
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
 import { inputFilesSchema } from './inputFiles.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
@@ -18,7 +18,7 @@ export const ingestionBaseJobParamsSchema = z
   .object({
     inputFiles: inputFilesSchema,
     ingestionResolution: ingestionResolutionSchema,
-    callbackUrls: callbackUrlsArraySchema.optional(),
+    callbackUrls: urlsArraySchema.optional(),
   })
   .describe('ingestionBaseJobParamsSchema');
 

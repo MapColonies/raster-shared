@@ -1,13 +1,13 @@
 import { z } from 'zod';
 import { CORE_VALIDATIONS, TileFormatStrategy, TileOutputFormat } from '../../constants';
 import { polygonPartsEntityNameSchema } from '../ingestion';
-import { callbackUrlsArraySchema } from '../core/callback.schema';
+import { urlsArraySchema } from '../core';
 import { callbackExportResponseSchema, cleanupDataSchema, roiFeatureCollectionSchema, fileNamesTemplatesSchema } from './export.schema';
 
 export const exportInputParamsSchema = z.object({
   crs: z.string(z.literal('EPSG:4326')),
   roi: roiFeatureCollectionSchema,
-  callbackUrls: callbackUrlsArraySchema.optional(),
+  callbackUrls: urlsArraySchema.optional(),
 });
 
 export const exportAdditionalParamsSchema = z
