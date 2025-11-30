@@ -1,11 +1,6 @@
 import z from 'zod';
+import { CORE_VALIDATIONS } from '../../constants';
 
-export const urlSchema = z.string().url();
+export const urlSchema = z.string().regex(new RegExp(CORE_VALIDATIONS.url.pattern));
 
 export const urlsArraySchema = z.array(urlSchema);
-
-export const fileMetadataSchema = z.object({
-  fileName: z.string().min(1),
-  fileSize: z.number().nonnegative(),
-  url: urlSchema,
-});

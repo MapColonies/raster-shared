@@ -10,14 +10,11 @@ import {
   linksSchema,
   roiPropertiesSchema,
 } from '../../schemas/export/export.schema';
-import { urlsArraySchema, urlSchema } from '../../schemas/core';
 
 export type RoiProperties = z.infer<typeof roiPropertiesSchema>;
 export type RoiFeature = Feature<Polygon | MultiPolygon, RoiProperties>;
 export type RoiFeatureCollection = FeatureCollection<Polygon | MultiPolygon, RoiProperties>;
 
-export type CallbackUrl = z.infer<typeof urlSchema>;
-export type CallbackUrlsTargetArray = z.infer<typeof urlsArraySchema>;
 export type CallbackExportResponse = z.infer<typeof callbackExportResponseSchema>;
 export type CallbacksStatus = z.infer<typeof callbacksStatus>;
 
