@@ -23,7 +23,7 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
 
 export const ingestionValidationTaskParamsSchema = z
   .object({
-    report: fileMetadataSchema.optional(),
+    link: fileMetadataSchema.optional(),
     isValid: z.boolean(),
   })
   .describe('ingestionValidationTaskParamsSchema');
