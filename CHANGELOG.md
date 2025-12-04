@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.6.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.6.0-alpha.1...v7.6.1-alpha.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* correct field name from "link" to "report" in ingestionValidationTaskParamsSchema ([452bb75](https://github.com/MapColonies/raster-shared/commit/452bb751f821dc3060cb02cdf2cdf7039dd807c5))
+* update field name from "link" to "report" in ingestionValidationTaskParamsSchema ([#157](https://github.com/MapColonies/raster-shared/issues/157)) ([2246508](https://github.com/MapColonies/raster-shared/commit/2246508050b4ea3e5be511d96bb421805e2649a3))
+
 ## [7.6.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.5.2-alpha.1...v7.6.0-alpha.1) (2025-11-30)
 
 
