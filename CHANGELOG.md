@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.7.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.6.1-alpha.1...v7.7.0-alpha.1) (2025-12-07)
+
+
+### Features
+
+* add checksum schema and integrate into ingestion validation schema ([#158](https://github.com/MapColonies/raster-shared/issues/158)) ([df34204](https://github.com/MapColonies/raster-shared/commit/df342048a896facb572136caaad102e0e7aa5154))
+
 ## [7.6.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.6.0-alpha.1...v7.6.1-alpha.1) (2025-12-04)
 
 
