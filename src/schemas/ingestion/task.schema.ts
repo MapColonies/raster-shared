@@ -1,5 +1,5 @@
 import z from 'zod';
-import { fileMetadataSchema } from '../core';
+import { checksumSchema, fileMetadataSchema } from '../core';
 
 export const ingestionNewFinalizeTaskParamsSchema = z
   .object({
@@ -23,7 +23,8 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
 
 export const ingestionValidationTaskParamsSchema = z
   .object({
+    checksums: z.array(checksumSchema),
+    isValid: z.boolean().optional(),
     report: fileMetadataSchema.optional(),
-    isValid: z.boolean(),
   })
   .describe('ingestionValidationTaskParamsSchema');

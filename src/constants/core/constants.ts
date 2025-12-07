@@ -51,3 +51,6 @@ export const CORE_VALIDATIONS = {
 } satisfies ValidationRules;
 /* eslint-enable @typescript-eslint/no-magic-numbers */
 /* eslint-enable @typescript-eslint/naming-convention */
+
+export const HASH_ALGORITHMS = ['XXH64'] as const;
+export type HashAlgorithm = (typeof HASH_ALGORITHMS)[number];
