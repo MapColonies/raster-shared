@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.7.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.7.0-alpha.1...v7.7.1-alpha.1) (2025-12-08)
+
+
+### Bug Fixes
+
+* update data schema type to allow undefined in createCallbackResponseSchema ([#160](https://github.com/MapColonies/raster-shared/issues/160)) ([ca33c59](https://github.com/MapColonies/raster-shared/commit/ca33c59093da8090f69fce5756b870c31ad47763))
+
 ## [7.7.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.6.1-alpha.1...v7.7.0-alpha.1) (2025-12-07)
 
 
