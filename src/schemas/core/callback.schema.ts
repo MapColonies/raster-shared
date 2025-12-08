@@ -17,6 +17,6 @@ export const createCallbackResponseSchema = <T>(dataSchema?: z.ZodType<T>) => {
     progress: z.number().min(0).max(100).optional(),
     message: z.string().optional(),
     error: z.string().optional(),
-    data: dataSchema ?? z.unknown(),
+    data: dataSchema as z.ZodType<T> | z.ZodUndefined,
   });
 };
