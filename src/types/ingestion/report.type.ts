@@ -1,4 +1,6 @@
+import z from 'zod';
 import { ValidationErrorType } from '../../constants';
+import { validationReportSchema } from '../../schemas';
 
 export type PolygonPartValidationErrorsType = Pick<
   typeof ValidationErrorType,
@@ -13,3 +15,5 @@ export interface PolygonPartsChunkValidationResult {
   parts: PolygonPartValidationError[];
   smallHolesCount: number;
 }
+
+export type ValidationReport = z.infer<typeof validationReportSchema>;

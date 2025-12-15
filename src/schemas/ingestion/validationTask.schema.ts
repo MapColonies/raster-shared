@@ -1,4 +1,5 @@
 import z from 'zod';
+import { fileMetadataSchema } from '../core';
 
 export const counterSchema = z.number().min(0).describe('A non-negative integer counter');
 
@@ -27,3 +28,9 @@ export const validationAggregatedErrorsSchema = z.object({
   errorsCount: featuresErrorCountSchema.describe('Aggregated count of validation errors'),
   thresholds: thresholdsSchema.describe('Threshold check results'),
 });
+
+export const validationReportSchema = fileMetadataSchema
+  .extend({
+    path: z.string().optional().describe('Path to the validation report file FS location'),
+  })
+  .describe('validationReportSchema');
