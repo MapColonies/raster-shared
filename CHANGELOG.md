@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.8.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.7.1-alpha.1...v7.8.0-alpha.1) (2025-12-15)
+
+
+### Features
+
+* add path to validation-report ([#162](https://github.com/MapColonies/raster-shared/issues/162)) ([86cd643](https://github.com/MapColonies/raster-shared/commit/86cd643b81435e32c05fbe847bb624d699c22e37))
+
 ## [7.7.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.7.0-alpha.1...v7.7.1-alpha.1) (2025-12-08)
 
 
