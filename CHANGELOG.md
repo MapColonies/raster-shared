@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.9.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.8.0-alpha.1...v7.9.0-alpha.1) (2025-12-30)
+
+
+### Features
+
+* add product schema ([#164](https://github.com/MapColonies/raster-shared/issues/164)) ([2dbdd2a](https://github.com/MapColonies/raster-shared/commit/2dbdd2a411b89f5dda6af71cd2d4fa9ef6d1450b))
+
 ## [7.8.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.7.1-alpha.1...v7.8.0-alpha.1) (2025-12-15)
 
 
