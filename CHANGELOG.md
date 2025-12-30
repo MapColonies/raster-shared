@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.9.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.9.0-alpha.1...v7.9.1-alpha.1) (2025-12-30)
+
+
+### Bug Fixes
+
+* ensure newline at end of publish workflow file ([#169](https://github.com/MapColonies/raster-shared/issues/169)) ([b916274](https://github.com/MapColonies/raster-shared/commit/b916274e81027a8b172b2b243813eb2e7c17f92a))
+
 ## [7.9.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.8.0-alpha.1...v7.9.0-alpha.1) (2025-12-30)
 
 
