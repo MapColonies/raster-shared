@@ -15,3 +15,4 @@ jobs:
       - name: Init nodejs
         uses: ./.github/actions/init-npm
       - run: npm publish --access public
+      
