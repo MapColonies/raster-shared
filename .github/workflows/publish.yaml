@@ -1,24 +1,17 @@
-name: publish
-
 on:
   workflow_dispatch:
-  release: 
+  release:
     types: [published]
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Init nodejs
         uses: ./.github/actions/init-npm
-        with:
-          node-version: 20.x
-      - name: Copy resources
-        run: npm run copy
-      - uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
