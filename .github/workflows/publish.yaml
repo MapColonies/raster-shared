@@ -25,7 +25,7 @@ jobs:
       - name: Publish to npm
         run: |
           if [ "${{ steps.package-info.outputs.branch }}" == "alpha" ]; then
-            npm publish --access public --tag "${{ steps.package-info.outputs.version }}"
+            npm publish --access public --tag alpha"
           else
             npm publish --access public
-          fi
+            fi
