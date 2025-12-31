@@ -15,4 +15,17 @@ jobs:
       - name: Init nodejs
         uses: ./.github/actions/init-npm
       - run: npm install -g npm
-      - run: npm publish --access public
+      - name: Get package version and branch
+        id: package-info
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          BRANCH=${GITHUB_REF#refs/heads/}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+      - name: Publish to npm
+        run: |
+          if [ "${{ steps.package-info.outputs.branch }}" == "alpha" ]; then
+            npm publish --access public --tag "${{ steps.package-info.outputs.version }}"
+          else
+            npm publish --access public
+          fi
