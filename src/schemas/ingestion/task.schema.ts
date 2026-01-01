@@ -4,6 +4,7 @@ import { validationReportSchema } from './validationTask.schema';
 
 export const ingestionNewFinalizeTaskParamsSchema = z
   .object({
+    processParts: z.boolean(),
     insertedToMapproxy: z.boolean(),
     insertedToCatalog: z.boolean(),
     insertedToGeoServer: z.boolean(),
@@ -12,6 +13,7 @@ export const ingestionNewFinalizeTaskParamsSchema = z
 
 export const ingestionUpdateFinalizeTaskParamsSchema = z
   .object({
+    processParts: z.boolean(),
     updatedInCatalog: z.boolean(),
   })
   .describe('ingestionUpdateFinalizeTaskParamsSchema');
