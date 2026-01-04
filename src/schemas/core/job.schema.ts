@@ -3,7 +3,11 @@ import { IJobResponse, OperationStatus } from '@map-colonies/mc-priority-queue';
 import { INGESTION_VALIDATIONS, RASTER_DOMAIN, RasterProductTypes } from '../../constants';
 import { createTaskResponseSchema } from './task.schema';
 
-export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
+// PostgreSQL table name limit: 63 chars (productID: 37 + separator: 1 + productType: 17 + suffix: 8)
+const productTypeMaxLength = 17;
+export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z
+  .nativeEnum(RasterProductTypes)
+  .refine((productTypeValue) => productTypeValue.length <= productTypeMaxLength, { message: 'Product type must be at most 17 characters' });
 export const resourceIdSchema = z
   .string()
   .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
