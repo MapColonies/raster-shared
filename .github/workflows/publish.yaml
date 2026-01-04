@@ -24,8 +24,8 @@ jobs:
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
       - name: Publish to npm
         run: |
-          if [ "${{ steps.package-info.outputs.branch }}" == "alpha" ]; then
-            npm publish --access public --tag alpha
-          else
-            npm publish --access public
-            fi
+          if [ "${{ github.ref_name }}" == "alpha" ]; then
+                npm publish --access public --tag alpha
+                else
+                npm publish --access public
+                fi
