@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.10.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v7.9.1-alpha.1...v7.10.0-alpha.0) (2026-01-04)
+
+
+### Features
+
+* added process parts stage within ingestion finalize task params (MAPCO-9392) ([#171](https://github.com/MapColonies/raster-shared/issues/171)) ([154ff03](https://github.com/MapColonies/raster-shared/commit/154ff03c0eed1f189566440aea78668423313f83))
+
 ## [7.9.1-alpha.1](https://github.com/MapColonies/raster-shared/compare/v7.9.0-alpha.1...v7.9.1-alpha.1) (2025-12-30)
 
 
