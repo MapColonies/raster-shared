@@ -6,3 +6,4 @@ export * from './aggregation.schema';
 export * from './callback.schema';
 export * from './link.schema';
 export * from './file.schema';
+export * from './domainInstance.schema';

@@ -54,3 +54,11 @@ export const CORE_VALIDATIONS = {
 
 export const HASH_ALGORITHMS = ['XXH64'] as const;
 export type HashAlgorithm = (typeof HASH_ALGORITHMS)[number];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const DomainInstanceType = {
+  Ingestion: 'ingestion',
+  Export: 'export',
+} as const;
+export type DomainInstanceType = (typeof DomainInstanceType)[keyof typeof DomainInstanceType];
+/* eslint-enable @typescript-eslint/naming-convention */
