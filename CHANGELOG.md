@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.10.1](https://github.com/MapColonies/raster-shared/compare/v7.10.0...v7.10.1) (2026-01-19)
+
 ## [7.10.0](https://github.com/MapColonies/raster-shared/compare/v7.10.0-alpha.2...v7.10.0) (2026-01-19)
 
 ## [7.10.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v7.10.0-alpha.1...v7.10.0-alpha.2) (2026-01-04)
