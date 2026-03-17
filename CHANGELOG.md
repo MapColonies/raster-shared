@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.10.2](https://github.com/MapColonies/raster-shared/compare/v7.10.1...v7.10.2) (2026-03-17)
+
+
+### Bug Fixes
+
+* mc-priority-queue dep version(MAPCO-10003) ([#179](https://github.com/MapColonies/raster-shared/issues/179)) ([cf92b8a](https://github.com/MapColonies/raster-shared/commit/cf92b8a70c296735e50b3cc87167b58434498eba))
+
 ### [7.10.1](https://github.com/MapColonies/raster-shared/compare/v7.10.0...v7.10.1) (2026-01-19)
 
 ## [7.10.0](https://github.com/MapColonies/raster-shared/compare/v7.10.0-alpha.2...v7.10.0) (2026-01-19)
