@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.11.0](https://github.com/MapColonies/raster-shared/compare/v7.10.2...v7.11.0) (2026-04-19)
+
+
+### Features
+
+* add optional errors summary to ingestion validation schema ([#180](https://github.com/MapColonies/raster-shared/issues/180)) ([5b6f644](https://github.com/MapColonies/raster-shared/commit/5b6f644d0ff2cc7fff26ee6e26f5337b0e1eeb56))
+
 ## [7.10.2](https://github.com/MapColonies/raster-shared/compare/v7.10.1...v7.10.2) (2026-03-17)
 
 
