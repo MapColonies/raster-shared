@@ -18,7 +18,7 @@ export type PolygonPartValidationErrorItem =
 
 export interface PolygonPartValidationError {
   id: string;
-  errors: PolygonPartValidationErrorsType[];
+  errors: PolygonPartValidationErrorItem[];
 }
 export interface PolygonPartsChunkValidationResult {
   parts: PolygonPartValidationError[];
