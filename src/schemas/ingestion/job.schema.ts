@@ -1,9 +1,11 @@
 import z from 'zod';
-import { CORE_VALIDATIONS } from '../../constants';
+import { CORE_VALIDATIONS, JobTypes } from '../../constants';
 import { urlsArraySchema } from '../core';
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
 import { inputFilesSchema } from './inputFiles.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
+
+export const ingestionJobTypeSchema = z.enum([JobTypes.Ingestion_New, JobTypes.Ingestion_Swap_Update, JobTypes.Ingestion_Update]);
 
 export const ingestionResolutionSchema = z
   .number({ message: 'Resolution degree should be a number' })
