@@ -7,14 +7,14 @@ export type PolygonPartValidationErrorsType = Pick<
   'RESOLUTION' | 'GEOMETRY_VALIDITY' | 'SMALL_GEOMETRY' | 'SMALL_HOLES' | 'UNKNOWN'
 >[keyof Pick<typeof ValidationErrorType, 'GEOMETRY_VALIDITY' | 'RESOLUTION' | 'SMALL_GEOMETRY' | 'SMALL_HOLES' | 'UNKNOWN'>];
 
-export type PolygonPartValidationResolutionErrorItem = {
+export interface PolygonPartValidationResolutionErrorItem {
   code: (typeof ValidationErrorType)['RESOLUTION'];
   isExceeded: boolean;
-};
+}
 
-export type PolygonPartValidationGeneralErrorItem = {
+export interface PolygonPartValidationGeneralErrorItem {
   code: Exclude<PolygonPartValidationErrorsType, (typeof ValidationErrorType)['RESOLUTION']>;
-};
+}
 
 export type PolygonPartValidationErrorItem = PolygonPartValidationResolutionErrorItem | PolygonPartValidationGeneralErrorItem;
 
