@@ -10,6 +10,7 @@ import {
   resourceIdSchema,
   versionSchema,
 } from '../core';
+import { ingestionJobTypeSchema } from './job.schema';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
 
 export const partSchema = z
@@ -89,7 +90,7 @@ export const polygonPartsFeatureSchema = featureSchema(polygonSchema.or(multiPol
 export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polygonPartsFeatureSchema);
 
 export const polygonPartsPayloadSchema = z.object({
-  jobType: z.string(),
+  jobType: ingestionJobTypeSchema,
   productType: rasterProductTypeSchema,
   catalogId: z.string().uuid({ message: 'Catalog ID should be a valid UUID' }),
   productId: resourceIdSchema,
