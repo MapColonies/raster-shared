@@ -25,8 +25,15 @@ jobs:
       - name: Publish to npm
         run: |
           echo "is pre-release: ${{ github.event.release.prerelease }}"
-          if [[ "${{ github.event.release.prerelease }}" == "true" ]] && [[ "${{ github.ref_name }}" == "${{ steps.package-info.outputs.version }}" ]]; then
-            echo "publishing prerelease with alpha tag"
+          echo "publish triggered on: ${{ github.ref_type }}"
+          if [[ "${{ github.ref_type }}" == "tag" ]] &&
+            [[ "${{ github.event.release.prerelease }}" == "true" ]] &&
+            [[ "${{ github.ref_name }}" == "${{ steps.package-info.outputs.version }}" ]]; then
+            echo "publishing prerelease with alpha tag from tag"
+            # npm publish --access public --tag alpha
+          elif [[ "${{ github.ref_type }}" == "branch" ]] &&
+            [[ "${{ github.ref_name }}" == *"alpha"* ]]; then
+            echo "publishing prerelease with alpha tag from branch"
             # npm publish --access public --tag alpha
           else
             echo "publishing standard release"
