@@ -9,18 +9,11 @@ export const TileFormatStrategy = {
   MIXED: 'mixed',
 } as const;
 
-export const SourceType = {
-  S3: 'S3',
-  GPKG: 'GPKG',
-  FS: 'FS',
-} as const;
-
 export const ExportFinalizeType = {
   Full_Processing: 'FullProcessing',
   Error_Callback: 'ErrorCallback',
 } as const;
 
 export type TileFormatStrategy = (typeof TileFormatStrategy)[keyof typeof TileFormatStrategy];
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 export type ExportFinalizeType = (typeof ExportFinalizeType)[keyof typeof ExportFinalizeType];
 /* eslint-disable @typescript-eslint/naming-convention */
