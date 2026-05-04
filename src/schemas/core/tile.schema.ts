@@ -19,7 +19,7 @@ export const tilesDeletionParamsBaseSchema = z.object({
 });
 
 export const s3TilesDeletionParamsSchema = tilesDeletionParamsBaseSchema.extend({
-  provider: z.literal(SourceType.S3),
+  sourceProvider: z.literal(SourceType.S3),
 });
 
 export const fsTilesDeletionParamsSchema = tilesDeletionParamsBaseSchema.extend({
