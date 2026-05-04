@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v8.0.0-alpha.0...v8.1.0-alpha.0) (2026-05-04)
+
+
+### Features
+
+* add tile deletion schemas and types, refactor source type ([#191](https://github.com/MapColonies/raster-shared/issues/191)) ([c87c428](https://github.com/MapColonies/raster-shared/commit/c87c428efdd98ced15972e6d487d6bb4acce95e9))
+
 ## [8.0.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v7.10.2...v8.0.0-alpha.0) (2026-04-29)
 
 
