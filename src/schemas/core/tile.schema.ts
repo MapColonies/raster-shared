@@ -26,4 +26,4 @@ export const fsTilesDeletionParamsSchema = tilesDeletionParamsBaseSchema.extend(
   sourceProvider: z.literal(SourceType.FS),
 });
 
-export const tilesDeletionParamsSchema = z.discriminatedUnion('provider', [s3TilesDeletionParamsSchema, fsTilesDeletionParamsSchema]);
+export const tilesDeletionParamsSchema = z.discriminatedUnion('sourceProvider', [s3TilesDeletionParamsSchema, fsTilesDeletionParamsSchema]);
