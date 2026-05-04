@@ -54,3 +54,15 @@ export const CORE_VALIDATIONS = {
 
 export const HASH_ALGORITHMS = ['XXH64'] as const;
 export type HashAlgorithm = (typeof HASH_ALGORITHMS)[number];
+
+export const MAX_ZOOM_LEVEL = 22;
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const SourceType = {
+  S3: 'S3',
+  GPKG: 'GPKG',
+  FS: 'FS',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
