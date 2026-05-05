@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.0...v8.1.0-alpha.1) (2026-05-05)
+
+
+### Features
+
+* add polygon parts schema and types for intersection api ([#193](https://github.com/MapColonies/raster-shared/issues/193)) ([440f0c5](https://github.com/MapColonies/raster-shared/commit/440f0c52714a559747be55da3eadf76459dfdc3d))
+
 ## [8.1.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v8.0.0-alpha.0...v8.1.0-alpha.0) (2026-05-04)
 
 
