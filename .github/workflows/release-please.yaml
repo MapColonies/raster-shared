@@ -46,6 +46,5 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
-          release-type: node
           target-branch: ${{ github.ref_name }}
           config-file: ${{ steps.prerelease.outputs.prerelease_type_config }}
