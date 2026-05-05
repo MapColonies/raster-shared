@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.1...v8.1.0-alpha.2) (2026-05-05)
+
+
+### Features
+
+* add tile schema and type exports to core index files ([#197](https://github.com/MapColonies/raster-shared/issues/197)) ([921db4d](https://github.com/MapColonies/raster-shared/commit/921db4dbd25f0c3dc04e08c460b6544bad562ef1))
+
 ## [8.1.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.0...v8.1.0-alpha.1) (2026-05-05)
 
 
