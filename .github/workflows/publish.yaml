@@ -28,7 +28,7 @@ jobs:
           echo "publish triggered on: ${{ github.ref_type }}"
           if ([[ "${{ github.ref_type }}" == "tag" ]] &&
             [[ "${{ github.event.release.prerelease }}" == "true" ]] &&
-            [[ "${{ github.ref_name }}" == "${{ steps.package-info.outputs.version }}" ]]) ||
+            [[ "${{ github.ref_name }}" == "v${{ steps.package-info.outputs.version }}" ]]) ||
             ([[ "${{ github.ref_type }}" == "branch" ]] &&
             [[ "${{ github.ref_name }}" == "alpha" ]]); then
             echo "publishing prerelease with alpha tag from ${{ github.ref_type }}"
