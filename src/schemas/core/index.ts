@@ -7,3 +7,4 @@ export * from './callback.schema';
 export * from './link.schema';
 export * from './file.schema';
 export * from './polygonParts.schema';
+export * from './tile.schema';
