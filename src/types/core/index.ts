@@ -7,3 +7,4 @@ export * from './link.type';
 export * from './file.type';
 export * from './callback.type';
 export * from './polygonParts.type';
+export * from './tile.type';
