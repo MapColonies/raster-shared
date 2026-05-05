@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
+
+
+### Bug Fixes
+
+* simplify file extension handling in tilesDeletionParamsBaseSchema ([#199](https://github.com/MapColonies/raster-shared/issues/199)) ([383ac19](https://github.com/MapColonies/raster-shared/commit/383ac1988824947cd6ae3c8cb4402a881b0124c9))
+
 ## [8.1.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.1...v8.1.0-alpha.2) (2026-05-05)
 
 
