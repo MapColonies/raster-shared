@@ -12,10 +12,7 @@ export const tileRangeSchema = z.object({
 export const tilesDeletionParamsBaseSchema = z.object({
   tilesPath: z.string().min(1), // Base path for the tiles to be deleted
   ranges: z.array(tileRangeSchema).min(1), // Array of tile ranges to be deleted
-  fileExtension: z
-    .literal(TileOutputFormat.PNG)
-    .transform((val) => val.toLowerCase())
-    .or(z.literal(TileOutputFormat.JPEG).transform((val) => val.toLowerCase())), // File extension of the tiles (e.g., 'png', 'jpeg')
+  fileExtension: z.literal(TileOutputFormat.PNG.toLowerCase()).or(z.literal(TileOutputFormat.JPEG.toLowerCase())), // File extension of the tiles (e.g., 'png', 'jpeg')
 });
 
 export const s3TilesDeletionParamsSchema = tilesDeletionParamsBaseSchema.extend({
