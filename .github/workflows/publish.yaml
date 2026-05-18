@@ -24,8 +24,16 @@ jobs:
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
       - name: Publish to npm
         run: |
-          if [ "${{ github.ref_name }}" == "alpha" ]; then
-                npm publish --access public --tag alpha
-                else
-                npm publish --access public
-                fi
+          echo "is pre-release: ${{ github.event.release.prerelease }}"
+          echo "publish triggered on: ${{ github.ref_type }}"
+          if ([[ "${{ github.ref_type }}" == "tag" ]] &&
+            [[ "${{ github.event.release.prerelease }}" == "true" ]] &&
+            [[ "${{ github.ref_name }}" == "v${{ steps.package-info.outputs.version }}" ]]) ||
+            ([[ "${{ github.ref_type }}" == "branch" ]] &&
+            [[ "${{ github.ref_name }}" == "alpha" ]]); then
+            echo "publishing prerelease with alpha tag from ${{ github.ref_type }}"
+            npm publish --access public --tag alpha
+          else
+            echo "publishing standard release"
+            npm publish --access public
+          fi

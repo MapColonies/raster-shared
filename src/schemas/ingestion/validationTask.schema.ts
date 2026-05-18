@@ -22,6 +22,7 @@ export const thresholdsSchema = z.object({
     count: counterSchema,
   }),
   smallGeometries: thresholdCheckSchema.describe('Small geometries threshold check result'),
+  resolution: thresholdCheckSchema.describe('Resolution threshold check result'),
 });
 
 export const validationAggregatedErrorsSchema = z.object({

@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
+
+
+### Bug Fixes
+
+* simplify file extension handling in tilesDeletionParamsBaseSchema ([#199](https://github.com/MapColonies/raster-shared/issues/199)) ([383ac19](https://github.com/MapColonies/raster-shared/commit/383ac1988824947cd6ae3c8cb4402a881b0124c9))
+
+## [8.1.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.1...v8.1.0-alpha.2) (2026-05-05)
+
+
+### Features
+
+* add tile schema and type exports to core index files ([#197](https://github.com/MapColonies/raster-shared/issues/197)) ([921db4d](https://github.com/MapColonies/raster-shared/commit/921db4dbd25f0c3dc04e08c460b6544bad562ef1))
+
+## [8.1.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.0...v8.1.0-alpha.1) (2026-05-05)
+
+
+### Features
+
+* add polygon parts schema and types for intersection api ([#193](https://github.com/MapColonies/raster-shared/issues/193)) ([440f0c5](https://github.com/MapColonies/raster-shared/commit/440f0c52714a559747be55da3eadf76459dfdc3d))
+
+## [8.1.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v8.0.0-alpha.0...v8.1.0-alpha.0) (2026-05-04)
+
+
+### Features
+
+* add tile deletion schemas and types, refactor source type ([#191](https://github.com/MapColonies/raster-shared/issues/191)) ([c87c428](https://github.com/MapColonies/raster-shared/commit/c87c428efdd98ced15972e6d487d6bb4acce95e9))
+
+## [8.0.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v7.10.2...v8.0.0-alpha.0) (2026-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* change polygon part validation error to new format (MAPCO-10506) ([#183](https://github.com/MapColonies/raster-shared/issues/183))
+
+### Features
+
+* add optional errors summary to ingestion validation schema ([#180](https://github.com/MapColonies/raster-shared/issues/180)) ([5b6f644](https://github.com/MapColonies/raster-shared/commit/5b6f644d0ff2cc7fff26ee6e26f5337b0e1eeb56))
+* add resolution threshold check to thresholds schema ([4f6ef36](https://github.com/MapColonies/raster-shared/commit/4f6ef366cd25b1c4668371e7bb0f59d63148d9b6))
+* update package ([61e08f4](https://github.com/MapColonies/raster-shared/commit/61e08f4785b32f66fa4fed485d9507306dcf4598))
+
+
+### Bug Fixes
+
+* bump version ([e726f0d](https://github.com/MapColonies/raster-shared/commit/e726f0dc061e058131ebda051cc11907de1f6d97))
+* package json version ([b72678f](https://github.com/MapColonies/raster-shared/commit/b72678f558cef73468084e313cb654666775634b))
+
+
+### Code Refactoring
+
+* change polygon part validation error to new format (MAPCO-10506) ([#183](https://github.com/MapColonies/raster-shared/issues/183)) ([2587722](https://github.com/MapColonies/raster-shared/commit/2587722796704dce3bef9b84228835c6c852a7cd))
+* set release-please initial version ([#186](https://github.com/MapColonies/raster-shared/issues/186)) ([3769756](https://github.com/MapColonies/raster-shared/commit/3769756998f8c903730c1d0dde249a45083a4b95))
+
 ## [7.10.2](https://github.com/MapColonies/raster-shared/compare/v7.10.1...v7.10.2) (2026-03-17)
 
 
