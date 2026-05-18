@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/MapColonies/raster-shared/compare/v7.10.2...v8.1.0) (2026-05-18)
+
+
+### Features
+
+* add optional errors summary to ingestion validation schema ([#180](https://github.com/MapColonies/raster-shared/issues/180)) ([5b6f644](https://github.com/MapColonies/raster-shared/commit/5b6f644d0ff2cc7fff26ee6e26f5337b0e1eeb56))
+* added raster shared types and values for lower resolution feature support ([#203](https://github.com/MapColonies/raster-shared/issues/203)) ([04090f0](https://github.com/MapColonies/raster-shared/commit/04090f012c2116b3de687ec5e84ecb5900cee4c3))
+
+
+* release 8.1.0 ([0eb47c3](https://github.com/MapColonies/raster-shared/commit/0eb47c348d4a79d9b4234900b1548d5a9c4e2e2c))
+* update release version to 8.1.0 ([#205](https://github.com/MapColonies/raster-shared/issues/205)) ([3b60a4f](https://github.com/MapColonies/raster-shared/commit/3b60a4fa326add0b9ce70ca1af0a0e2d19f86ba8))
+
 ## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
 
 
