@@ -49,7 +49,7 @@ export const INGESTION_VALIDATIONS = {
     max: 4000,
   },
   productId: {
-    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
+    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,36}$',
     description: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   },
   productVersion: {
