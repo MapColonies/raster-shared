@@ -17,7 +17,7 @@ components:
       description: Layer's description
     Keywords:
       type: string
-      description: The keywords of the product
+      description: Layer's keywords
     Footprint:
       type: object
       oneOf:
