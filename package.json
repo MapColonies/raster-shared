@@ -1,6 +1,6 @@
 {
   "name": "@map-colonies/raster-shared",
-  "version": "8.1.0-alpha.3",
+  "version": "8.3.0-alpha.0",
   "description": "This is template for map colonies typescript packages",
   "main": "./dist/index.js",
   "exports": {
