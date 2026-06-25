@@ -66,3 +66,12 @@ export const SourceType = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const InstanceType = {
+  INGESTION: 'ingestion',
+  EXPORT: 'export',
+} as const;
+
+export type InstanceType = (typeof InstanceType)[keyof typeof InstanceType];
+/* eslint-enable @typescript-eslint/naming-convention */
