@@ -6,8 +6,9 @@ export const sourceProviderSchema = z.union([z.literal(SourceType.S3), z.literal
 export const deleteTaskParamsSchema = z
   .object({
     deleteFromCatalog: z.boolean().default(false),
-    deleteFromGeoserver: z.boolean().default(false),
     deleteFromMapproxy: z.boolean().default(false),
+    deleteFromGeoserver: z.boolean().default(false),
+    deletePolygonParts: z.boolean().default(false),
   })
   .describe('deleteTaskParamsSchema');
 
