@@ -7,7 +7,7 @@ export type DeletionJobTypes = (typeof DeletionJobTypes)[keyof typeof DeletionJo
 
 export const DeletionTaskTypes = {
   Delete: 'delete',
-  LayerTilesDeletion: 'full-layer-tiles-deletion',
+  LayerTilesDeletion: 'tiles-deletion',
   ArtifactsDeletion: 'artifacts-deletion',
 } as const;
 

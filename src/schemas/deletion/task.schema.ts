@@ -12,16 +12,19 @@ export const deleteTaskParamsSchema = z
   })
   .describe('deleteTaskParamsSchema');
 
-export const layerTilesDeletionParamsSchema = z
-  .object({
+export const deletionParamsBaseSchema = z.object({
+  sourceProvider: sourceProviderSchema,
+  bucket: z.string().optional(),
+});
+
+export const layerTilesDeletionParamsSchema = deletionParamsBaseSchema
+  .extend({
     catalogId: z.string().uuid(),
-    sourceProvider: sourceProviderSchema,
   })
   .describe('layerTilesDeletionParamsSchema');
 
-export const artifactsDeletionParamsSchema = z
-  .object({
-    sourceProvider: sourceProviderSchema,
+export const artifactsDeletionParamsSchema = deletionParamsBaseSchema
+  .extend({
     paths: z.array(z.string().min(1)).min(1), // explicit thumbnail/legend object keys (s3) or file paths (fs)
   })
   .describe('artifactsDeletionParamsSchema');
