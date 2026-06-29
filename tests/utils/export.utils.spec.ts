@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention -- assertions intentionally use snake_case export column names */
 import { EXPORT_COLUMN_NAME_OVERRIDES, convertKeysToExportColumns, toExportColumnName } from '../../src/utils/export.utils';
 
 describe('export-name converter', () => {
