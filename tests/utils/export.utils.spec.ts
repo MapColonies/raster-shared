@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention -- assertions intentionally use snake_case export column names */
 import { EXPORT_COLUMN_NAME_OVERRIDES, convertKeysToExportColumns, toExportColumnName } from '../../src/utils/export.utils';
 
 describe('export-name converter', () => {
@@ -49,6 +48,7 @@ describe('export-name converter', () => {
       };
 
       // toEqual (not toStrictEqual): the result intentionally has a null prototype for safety.
+      /* eslint-disable @typescript-eslint/naming-convention -- snake_case keys are the expected export column names */
       expect(convertKeysToExportColumns(input)).toEqual({
         id: 'abc',
         source_name: 'src',
@@ -57,6 +57,7 @@ describe('export-name converter', () => {
         resolution_deg: 0.5,
         sensors: ['a', 'b'],
       });
+      /* eslint-enable @typescript-eslint/naming-convention */
     });
 
     it('preserves null values (used for fixed-schema columns)', () => {
