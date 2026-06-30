@@ -15,6 +15,9 @@ components:
     Description:
       type: string
       description: Layer's description
+    Keywords:
+      type: string
+      description: Layer's keywords
     Footprint:
       type: object
       oneOf:
