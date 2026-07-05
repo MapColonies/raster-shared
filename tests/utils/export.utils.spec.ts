@@ -1,7 +1,7 @@
-import { EXPORT_COLUMN_NAME_OVERRIDES, convertKeysToExportColumns } from '../../src/utils/export.utils';
+import { convertKeysToGpkgColumns } from '../../src/utils/export.utils';
 
 describe('export-name converter', () => {
-  describe('convertKeysToExportColumns', () => {
+  describe('convertKeysToGpkgColumns', () => {
     it('renames camelCase keys to snake_case export columns, applying overrides and preserving values', () => {
       const input = {
         id: 'abc', // single-word key is unchanged
@@ -17,7 +17,7 @@ describe('export-name converter', () => {
 
       // toEqual (not toStrictEqual): the result intentionally has a null prototype for safety.
       /* eslint-disable @typescript-eslint/naming-convention -- snake_case keys are the expected export column names */
-      expect(convertKeysToExportColumns(input)).toEqual({
+      expect(convertKeysToGpkgColumns(input)).toEqual({
         id: 'abc',
         sensors: ['a', 'b'],
         source_name: 'src',
@@ -32,17 +32,11 @@ describe('export-name converter', () => {
     });
 
     it('preserves null values (used for fixed-schema columns)', () => {
-      expect(convertKeysToExportColumns({ description: null, cities: null })).toEqual({ description: null, cities: null });
+      expect(convertKeysToGpkgColumns({ description: null, cities: null })).toEqual({ description: null, cities: null });
     });
 
     it('returns an object with no prototype to avoid prototype-chain writes', () => {
-      expect(Object.getPrototypeOf(convertKeysToExportColumns({ sourceName: 'x' }))).toBeNull();
-    });
-  });
-
-  describe('override table', () => {
-    it('declares resolutionDegree -> resolution_deg as its single entry', () => {
-      expect(EXPORT_COLUMN_NAME_OVERRIDES).toStrictEqual({ resolutionDegree: 'resolution_deg' });
+      expect(Object.getPrototypeOf(convertKeysToGpkgColumns({ sourceName: 'x' }))).toBeNull();
     });
   });
 });
