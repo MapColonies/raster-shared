@@ -8,3 +8,4 @@ export * from './file.type';
 export * from './callback.type';
 export * from './polygonParts.type';
 export * from './tile.type';
+export * from './storage.type';

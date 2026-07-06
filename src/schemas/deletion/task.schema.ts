@@ -12,19 +12,21 @@ export const deleteTaskParamsSchema = z
   })
   .describe('deleteTaskParamsSchema');
 
-export const deletionParamsBaseSchema = z.object({
-  sourceProvider: sourceProviderSchema,
-  bucket: z.string().optional(),
+export const fsStorageSchema = z.object({
+  sourceProvider: z.literal(SourceType.FS),
 });
 
-export const layerTilesDeletionParamsSchema = deletionParamsBaseSchema
-  .extend({
-    catalogId: z.string().uuid(),
-  })
-  .describe('layerTilesDeletionParamsSchema');
+export const s3StorageSchema = z.object({
+  sourceProvider: z.literal(SourceType.S3),
+  bucket: z.string().min(1),
+});
 
-export const artifactsDeletionParamsSchema = deletionParamsBaseSchema
-  .extend({
-    paths: z.array(z.string().min(1)).min(1), // explicit thumbnail/legend object keys (s3) or file paths (fs)
-  })
-  .describe('artifactsDeletionParamsSchema');
+export const storageSchema = z.discriminatedUnion('sourceProvider', [fsStorageSchema, s3StorageSchema]);
+
+export const deleteStoredResourcesParamsBaseSchema = z.object({
+  paths: z.array(z.string().min(1)).min(1),
+});
+
+export const deleteStoredResourcesParamsSchema = deleteStoredResourcesParamsBaseSchema
+  .and(storageSchema)
+  .describe('deleteStoredResourcesParamsSchema');
