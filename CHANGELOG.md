@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.3.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.0...v8.3.0-alpha.1) (2026-07-07)
+
+
+### Features
+
+* add keywords field to base raster layer metadata schema (MAPCO-8284) ([#208](https://github.com/MapColonies/raster-shared/issues/208)) ([74cd66c](https://github.com/MapColonies/raster-shared/commit/74cd66c9ea23e6e1b57615dd70288e5cf38f79bf))
+* add layer deletion schemas, types and constants (MAPCO-7285) ([#210](https://github.com/MapColonies/raster-shared/issues/210)) ([8d50c52](https://github.com/MapColonies/raster-shared/commit/8d50c52d45a0012b00ccfaca4381e3e5bfdf51e2))
+* handle resource deletion ([#213](https://github.com/MapColonies/raster-shared/issues/213)) ([0249907](https://github.com/MapColonies/raster-shared/commit/0249907f87803ae1b1c8b274d66506d7d6fc3474))
+
 ## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
 
 
