@@ -2,6 +2,140 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.0...v8.1.0) (2026-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* change polygon part validation error to new format (MAPCO-10506) ([#183](https://github.com/MapColonies/raster-shared/issues/183))
+* changed gpkg file path regex pattern ([#133](https://github.com/MapColonies/raster-shared/issues/133))
+* metadata and product ([#132](https://github.com/MapColonies/raster-shared/issues/132))
+* metadata consistency ([#130](https://github.com/MapColonies/raster-shared/issues/130))
+* remove footprint from job parameters ([#129](https://github.com/MapColonies/raster-shared/issues/129))
+* changed metadata + product shapefile extenstion to .shp ([#125](https://github.com/MapColonies/raster-shared/issues/125))
+* map layer name ([#116](https://github.com/MapColonies/raster-shared/issues/116))
+* ingestion resolution ([#115](https://github.com/MapColonies/raster-shared/issues/115))
+* add layer metadata schema + adapt core schemas ([#110](https://github.com/MapColonies/raster-shared/issues/110))
+* change aggregation response from object to GeoJSON Feature ([#75](https://github.com/MapColonies/raster-shared/issues/75))
+* resuse goejson schemas and rename existing schemas
+* add geojson schemas with additional geometry and feature types
+* add productStatus
+
+### Features
+
+* add checksum schema and integrate into ingestion validation schema ([#158](https://github.com/MapColonies/raster-shared/issues/158)) ([df34204](https://github.com/MapColonies/raster-shared/commit/df342048a896facb572136caaad102e0e7aa5154))
+* add entityName to export params ([db9daae](https://github.com/MapColonies/raster-shared/commit/db9daaec84074449397bae4c8f4c1376f2d5a67f))
+* add entityName to export params ([d33da9c](https://github.com/MapColonies/raster-shared/commit/d33da9cf108ea612cc3c56a41a061f13ded01b18))
+* add export domain ([#20](https://github.com/MapColonies/raster-shared/issues/20)) ([197dfb8](https://github.com/MapColonies/raster-shared/commit/197dfb82db2b4be50c4c18d63ad8112b33c50d25))
+* add failure handling in export ([cd65aca](https://github.com/MapColonies/raster-shared/commit/cd65aca826f00ab586da06d7edcdbb23da8acc9b))
+* add failure handling in export ([f9a18cd](https://github.com/MapColonies/raster-shared/commit/f9a18cd5cf3b3d6132370b9aaa337c99df0dc0cd))
+* add GeoJSON openapi definitions and schemas ([ffdbb45](https://github.com/MapColonies/raster-shared/commit/ffdbb452b45202df3a92d08325a29e3848e429af))
+* add GeoJSON openapi definitions and schemas ([4e9bed7](https://github.com/MapColonies/raster-shared/commit/4e9bed7db8c7fd620d1050dc51878e798c3d1dd7))
+* add geojson schemas with additional geometry and feature types ([6e341f2](https://github.com/MapColonies/raster-shared/commit/6e341f22f701c53a4f2d6b8c862b7c3db28ddd39))
+* Add job tracker to export params ([0275a2a](https://github.com/MapColonies/raster-shared/commit/0275a2a0d20b00a82e7658aa331c8e9bc49c2833))
+* add jobTrackerUrl to export params ([319c75b](https://github.com/MapColonies/raster-shared/commit/319c75be77626d9fc31ba33578418efbda72b1ce))
+* add keywords field to base raster layer metadata schema (MAPCO-8284) ([#208](https://github.com/MapColonies/raster-shared/issues/208)) ([74cd66c](https://github.com/MapColonies/raster-shared/commit/74cd66c9ea23e6e1b57615dd70288e5cf38f79bf))
+* add layer deletion schemas, types and constants (MAPCO-7285) ([#210](https://github.com/MapColonies/raster-shared/issues/210)) ([8d50c52](https://github.com/MapColonies/raster-shared/commit/8d50c52d45a0012b00ccfaca4381e3e5bfdf51e2))
+* add layer metadata schema + adapt core schemas ([#110](https://github.com/MapColonies/raster-shared/issues/110)) ([41b65f2](https://github.com/MapColonies/raster-shared/commit/41b65f2885e2753d1587c64e70d4ed63125a8e70))
+* add layerFormats types and schemas ([#18](https://github.com/MapColonies/raster-shared/issues/18)) ([4502896](https://github.com/MapColonies/raster-shared/commit/45028969518c394b34f937e7276408fdb8666b0f))
+* add metadataURI and jsonFileData to links and callbackExportData schemas ([#80](https://github.com/MapColonies/raster-shared/issues/80)) ([d334ca9](https://github.com/MapColonies/raster-shared/commit/d334ca9ef71b14b52e373c3f49252454892d3ab1))
+* add mime type zod schema ([ebee2eb](https://github.com/MapColonies/raster-shared/commit/ebee2ebb6dc75a8245d74c8cad14be93722951c1))
+* add OpenAPI export definitions for GeoJSON features and properties ([0903f79](https://github.com/MapColonies/raster-shared/commit/0903f79f3efaa98c8353fd0f85e9369c93f61ad3))
+* add OpenAPI export definitions for GeoJSON features and properties ([#58](https://github.com/MapColonies/raster-shared/issues/58)) ([642a177](https://github.com/MapColonies/raster-shared/commit/642a17793a55879ef1c9dff1e3171c79fa8c49e6))
+* add openapi schemas ([#98](https://github.com/MapColonies/raster-shared/issues/98)) ([3918af9](https://github.com/MapColonies/raster-shared/commit/3918af917878e882cc93c4f1056e45175674507d))
+* add optional errors summary to ingestion validation schema ([#180](https://github.com/MapColonies/raster-shared/issues/180)) ([5b6f644](https://github.com/MapColonies/raster-shared/commit/5b6f644d0ff2cc7fff26ee6e26f5337b0e1eeb56))
+* add path to validation-report ([#162](https://github.com/MapColonies/raster-shared/issues/162)) ([86cd643](https://github.com/MapColonies/raster-shared/commit/86cd643b81435e32c05fbe847bb624d699c22e37))
+* add polygon parts schema and types for intersection api ([#193](https://github.com/MapColonies/raster-shared/issues/193)) ([440f0c5](https://github.com/MapColonies/raster-shared/commit/440f0c52714a559747be55da3eadf76459dfdc3d))
+* add polygonPartsPayloadSchema for ingestion validation ([7d68510](https://github.com/MapColonies/raster-shared/commit/7d685104e8e4ab59d106c51f3a9bca685784cf83))
+* add polygonPartsPayloadSchema for ingestion validation ([162d9cb](https://github.com/MapColonies/raster-shared/commit/162d9cbf87560c9f987b9e543f53228c97cf79b1))
+* add product schema ([#164](https://github.com/MapColonies/raster-shared/issues/164)) ([2dbdd2a](https://github.com/MapColonies/raster-shared/commit/2dbdd2a411b89f5dda6af71cd2d4fa9ef6d1450b))
+* add product status ([b9267ce](https://github.com/MapColonies/raster-shared/commit/b9267ceef8db01db37018e155ce0bbca511228b0))
+* add product status ([b05c94c](https://github.com/MapColonies/raster-shared/commit/b05c94cdc01a9a768d3a05530935988a1c1e1544))
+* add productStatus ([85893b9](https://github.com/MapColonies/raster-shared/commit/85893b9c2342b70d4cdf61ec424a710f46b4cbf9))
+* add productStatus ([0b84cfc](https://github.com/MapColonies/raster-shared/commit/0b84cfc22b3bc5932f4223556db569ef06df93a4))
+* add resolution threshold check to thresholds schema ([4f6ef36](https://github.com/MapColonies/raster-shared/commit/4f6ef366cd25b1c4668371e7bb0f59d63148d9b6))
+* add task parameters for validation task ([#137](https://github.com/MapColonies/raster-shared/issues/137)) ([3cf02be](https://github.com/MapColonies/raster-shared/commit/3cf02be9ec0fe001407d3283f7290c6172e48d25))
+* add tile deletion schemas and types, refactor source type ([#191](https://github.com/MapColonies/raster-shared/issues/191)) ([c87c428](https://github.com/MapColonies/raster-shared/commit/c87c428efdd98ced15972e6d487d6bb4acce95e9))
+* add tile schema and type exports to core index files ([#197](https://github.com/MapColonies/raster-shared/issues/197)) ([921db4d](https://github.com/MapColonies/raster-shared/commit/921db4dbd25f0c3dc04e08c460b6544bad562ef1))
+* add validation error types and update report type to use them ([#145](https://github.com/MapColonies/raster-shared/issues/145)) ([942ac1a](https://github.com/MapColonies/raster-shared/commit/942ac1a88fa6e2cfc54720bfec82606f225523ea))
+* added process parts stage within ingestion finalize task params (MAPCO-9392) ([#171](https://github.com/MapColonies/raster-shared/issues/171)) ([154ff03](https://github.com/MapColonies/raster-shared/commit/154ff03c0eed1f189566440aea78668423313f83))
+* added raster shared types and values for lower resolution feature support ([#203](https://github.com/MapColonies/raster-shared/issues/203)) ([04090f0](https://github.com/MapColonies/raster-shared/commit/04090f012c2116b3de687ec5e84ecb5900cee4c3))
+* adding InstanceType(MAPCO-9571) ([#207](https://github.com/MapColonies/raster-shared/issues/207)) ([b1639f2](https://github.com/MapColonies/raster-shared/commit/b1639f275adda8f3ad59e0179a040e5a2e0a1b7c))
+* adding valdiation aggreagted errors schemas+type ([#144](https://github.com/MapColonies/raster-shared/issues/144)) ([3b7b819](https://github.com/MapColonies/raster-shared/commit/3b7b819b25da90abb908c64c77260490f503a006))
+* apply "links" to validation parameters ([#154](https://github.com/MapColonies/raster-shared/issues/154)) ([815e741](https://github.com/MapColonies/raster-shared/commit/815e741359d5aae3257376880cc468c8e8f4b079))
+* bump version ([10ebd81](https://github.com/MapColonies/raster-shared/commit/10ebd819c944f18b32b88faf423a17f7b6e87c64))
+* bump version v7.4.0-alpha.1 ([#148](https://github.com/MapColonies/raster-shared/issues/148)) ([97e8e09](https://github.com/MapColonies/raster-shared/commit/97e8e094c03ee8deb362c060bdc8b2b214bd4179))
+* callback schemas and types ([#142](https://github.com/MapColonies/raster-shared/issues/142)) ([ffd5b62](https://github.com/MapColonies/raster-shared/commit/ffd5b625d2a107fc5e64ce83da11e91983f04bd4))
+* changed metadata + product shapefile extenstion to .shp ([#125](https://github.com/MapColonies/raster-shared/issues/125)) ([4d327ed](https://github.com/MapColonies/raster-shared/commit/4d327ed9f97ce83003dd250f0461503dd0431279))
+* enhance callback export response schema to include IN_PROGRESS status ([#55](https://github.com/MapColonies/raster-shared/issues/55)) ([563efb5](https://github.com/MapColonies/raster-shared/commit/563efb5aa232a305b6b6c60d63371c6c38d95e35))
+* first core and ingestion zod scheam and infered types ([fd3a7f4](https://github.com/MapColonies/raster-shared/commit/fd3a7f4bed77125c048b4499601600bc8f655042))
+* handle resource deletion ([#213](https://github.com/MapColonies/raster-shared/issues/213)) ([0249907](https://github.com/MapColonies/raster-shared/commit/0249907f87803ae1b1c8b274d66506d7d6fc3474))
+* ingestion resolution ([#115](https://github.com/MapColonies/raster-shared/issues/115)) ([65624a1](https://github.com/MapColonies/raster-shared/commit/65624a12646ff9107cb2738e452b4d53253ffdd1))
+* map layer name ([#116](https://github.com/MapColonies/raster-shared/issues/116)) ([4aa1d40](https://github.com/MapColonies/raster-shared/commit/4aa1d400e1554a370ae3c9e6e987aa84de0dce41))
+* metadata consistency ([#130](https://github.com/MapColonies/raster-shared/issues/130)) ([9003a0d](https://github.com/MapColonies/raster-shared/commit/9003a0d2e9792aa3783eb73c1cbccf62bc2221ee))
+* remove footprint from job parameters ([#129](https://github.com/MapColonies/raster-shared/issues/129)) ([ad56ed8](https://github.com/MapColonies/raster-shared/commit/ad56ed8fdea41a102ee8d79161ca2a165a09ea76))
+* remove metadataUri ([bd5102b](https://github.com/MapColonies/raster-shared/commit/bd5102b84ab993a1be5c0f2ab1b72d8c125b59f9))
+* support multippolygon in polygonPartsFeatureCollectionSchema ([#139](https://github.com/MapColonies/raster-shared/issues/139)) ([4ab4206](https://github.com/MapColonies/raster-shared/commit/4ab4206ba718d148cc2760fca0dc558e7d80abc5))
+* update package ([61e08f4](https://github.com/MapColonies/raster-shared/commit/61e08f4785b32f66fa4fed485d9507306dcf4598))
+* update partSchema to remove UUID validation and add report types ([#136](https://github.com/MapColonies/raster-shared/issues/136)) ([9ed04b8](https://github.com/MapColonies/raster-shared/commit/9ed04b86f61af870bb68724e2d0a2b485e103dfa))
+* zod schemas, types and consts used in the overseeer and now shared ([d759bf7](https://github.com/MapColonies/raster-shared/commit/d759bf7c61ceae28ecb91e237813a6d54d054e96))
+* zod schemas, types and consts used in the overseeer and now shared ([35e4f23](https://github.com/MapColonies/raster-shared/commit/35e4f2356e2577d1777455eaf479b5528942ac84))
+
+
+### Bug Fixes
+
+* add export job and task params and fix validations ([74896b3](https://github.com/MapColonies/raster-shared/commit/74896b37e3624f1c00e9aaa0d728ec7ec564b7cf))
+* add export job and task params and fix validations ([c4eee39](https://github.com/MapColonies/raster-shared/commit/c4eee395030c9cbd13b946dc9de22e6cf9507f54))
+* add unknown error and count it ([#152](https://github.com/MapColonies/raster-shared/issues/152)) ([86d5504](https://github.com/MapColonies/raster-shared/commit/86d5504d60dcb183d81d7048fb244446e3e6a7ae))
+* bump version ([e726f0d](https://github.com/MapColonies/raster-shared/commit/e726f0dc061e058131ebda051cc11907de1f6d97))
+* catalogId field with UUID validation to polygonPartsPayloadSchema ([#150](https://github.com/MapColonies/raster-shared/issues/150)) ([3635d3b](https://github.com/MapColonies/raster-shared/commit/3635d3bfa120ae1a0cdf29d2eabc63ecc41fbc52))
+* changed gpkg file path regex pattern ([#133](https://github.com/MapColonies/raster-shared/issues/133)) ([f5da490](https://github.com/MapColonies/raster-shared/commit/f5da490232b15961495bd5575eba80e84f126062))
+* correct field name from "link" to "report" in ingestionValidationTaskParamsSchema ([452bb75](https://github.com/MapColonies/raster-shared/commit/452bb751f821dc3060cb02cdf2cdf7039dd807c5))
+* createJobResponseSchema internalId as nullable ([#17](https://github.com/MapColonies/raster-shared/issues/17)) ([a46cb57](https://github.com/MapColonies/raster-shared/commit/a46cb57352386479deedb39e22f46c8f65c90eed))
+* data zod validation ([2959704](https://github.com/MapColonies/raster-shared/commit/29597045e011cb7546e32555a793b48da99267fc))
+* ensure newline at end of publish workflow file ([#169](https://github.com/MapColonies/raster-shared/issues/169)) ([b916274](https://github.com/MapColonies/raster-shared/commit/b916274e81027a8b172b2b243813eb2e7c17f92a))
+* export-management integration ([fc3e400](https://github.com/MapColonies/raster-shared/commit/fc3e400d6442f0784b75d84bbac23250eb6bee09))
+* exportFinalizeType add as const ([#84](https://github.com/MapColonies/raster-shared/issues/84)) ([cebeb61](https://github.com/MapColonies/raster-shared/commit/cebeb61bd092201324eddb9a2c1055f98b4574d0))
+* include polygonPartsEntityName in baseAdditionalParamsSchema ([#96](https://github.com/MapColonies/raster-shared/issues/96)) ([e82bc5c](https://github.com/MapColonies/raster-shared/commit/e82bc5c4dec08cc269e4305e2285ed91cd46eed4))
+* Integrate export management ([772345d](https://github.com/MapColonies/raster-shared/commit/772345d418bfd49eddf7eb1c206c3a7277fb3429))
+* job schema, cleanupDataSchema ([#40](https://github.com/MapColonies/raster-shared/issues/40)) ([887c80d](https://github.com/MapColonies/raster-shared/commit/887c80d4c22c0be1b6722ba94cee1218776d0f82))
+* lint ([a0eedb0](https://github.com/MapColonies/raster-shared/commit/a0eedb074d685363cc731f7e86ae70e9ad4321a2))
+* make gpkgModified and gpkgUploadedToS3 required in exportFinalizeTaskParamsSchema ([#51](https://github.com/MapColonies/raster-shared/issues/51)) ([17c0b24](https://github.com/MapColonies/raster-shared/commit/17c0b245dc5efc1ac81f2dd9c9ccb6a891e2f90a))
+* mc-priority-queue dep version(MAPCO-10003) ([#179](https://github.com/MapColonies/raster-shared/issues/179)) ([cf92b8a](https://github.com/MapColonies/raster-shared/commit/cf92b8a70c296735e50b3cc87167b58434498eba))
+* metadata and product ([#132](https://github.com/MapColonies/raster-shared/issues/132)) ([c75b4f1](https://github.com/MapColonies/raster-shared/commit/c75b4f1937259a3b714ecdd24da8916d52b04ab1))
+* not mandatory ([ea7586d](https://github.com/MapColonies/raster-shared/commit/ea7586d5bdd22095c9ec2345380dccace04442fe))
+* package json version ([b72678f](https://github.com/MapColonies/raster-shared/commit/b72678f558cef73468084e313cb654666775634b))
+* parse entity name ([d336071](https://github.com/MapColonies/raster-shared/commit/d336071c463b4d82c6ae0537e43ba21b36f4cc9b))
+* pr changes ([e30e44c](https://github.com/MapColonies/raster-shared/commit/e30e44cff48845a5836f80af562c4f139c69a6aa))
+* remove metadataUri ([730f8df](https://github.com/MapColonies/raster-shared/commit/730f8dfd17155b55bd268627b0e0db8a341e9182))
+* remove task params ([2a52aef](https://github.com/MapColonies/raster-shared/commit/2a52aef9cb6de659cd68776192072b8cb21f7b7b))
+* removed source schema ([f01ebf1](https://github.com/MapColonies/raster-shared/commit/f01ebf103d2446858d33b653667dd610054b2ff3))
+* removed unnecessary type import ([ff2b148](https://github.com/MapColonies/raster-shared/commit/ff2b1488de900d68a2b2940599688354729e3ad3))
+* removed unnecessary type import ([d0c3be2](https://github.com/MapColonies/raster-shared/commit/d0c3be2483d722d23c6634d3d68a5058814d0803))
+* simplify file extension handling in tilesDeletionParamsBaseSchema ([#199](https://github.com/MapColonies/raster-shared/issues/199)) ([383ac19](https://github.com/MapColonies/raster-shared/commit/383ac1988824947cd6ae3c8cb4402a881b0124c9))
+* tighten validations, modify export schemas ([#23](https://github.com/MapColonies/raster-shared/issues/23)) ([8a831e0](https://github.com/MapColonies/raster-shared/commit/8a831e0d3e7416a6fe72ca60026f4592fd00b905))
+* typo ([0842a36](https://github.com/MapColonies/raster-shared/commit/0842a36cbc09ec32db621c9093edd09f5a18c448))
+* update data schema type to allow undefined in createCallbackResponseSchema ([#160](https://github.com/MapColonies/raster-shared/issues/160)) ([ca33c59](https://github.com/MapColonies/raster-shared/commit/ca33c59093da8090f69fce5756b870c31ad47763))
+* update field name from "link" to "report" in ingestionValidationTaskParamsSchema ([#157](https://github.com/MapColonies/raster-shared/issues/157)) ([2246508](https://github.com/MapColonies/raster-shared/commit/2246508050b4ea3e5be511d96bb421805e2649a3))
+* update productId pattern ([#201](https://github.com/MapColonies/raster-shared/issues/201)) ([be9953e](https://github.com/MapColonies/raster-shared/commit/be9953e07bd87d637a9fa03f5ec52d111d7d1999))
+* use discriminatedUnion ([5660f38](https://github.com/MapColonies/raster-shared/commit/5660f3820c58c408ba4a072554a7b7a82355d0e7))
+* use zod coerce date to validate date and string date ([#66](https://github.com/MapColonies/raster-shared/issues/66)) ([5ecc01e](https://github.com/MapColonies/raster-shared/commit/5ecc01e7b4bec290f2546e1675f8b1ed8b38b948))
+
+
+### Miscellaneous Chores
+
+* release 7.0.0-alpha.1 ([fb0ac7a](https://github.com/MapColonies/raster-shared/commit/fb0ac7a48ad363d5d3bba65095b5a7182608d97c))
+* release 8.1.0 ([0eb47c3](https://github.com/MapColonies/raster-shared/commit/0eb47c348d4a79d9b4234900b1548d5a9c4e2e2c))
+* update release version to 8.1.0 ([#205](https://github.com/MapColonies/raster-shared/issues/205)) ([3b60a4f](https://github.com/MapColonies/raster-shared/commit/3b60a4fa326add0b9ce70ca1af0a0e2d19f86ba8))
+
+
+### Code Refactoring
+
+* change aggregation response from object to GeoJSON Feature ([#75](https://github.com/MapColonies/raster-shared/issues/75)) ([a16ef4a](https://github.com/MapColonies/raster-shared/commit/a16ef4a200bfc9ccbfd2b5d224195ce61e1f9c2d))
+* change polygon part validation error to new format (MAPCO-10506) ([#183](https://github.com/MapColonies/raster-shared/issues/183)) ([2587722](https://github.com/MapColonies/raster-shared/commit/2587722796704dce3bef9b84228835c6c852a7cd))
+* resuse goejson schemas and rename existing schemas ([b829626](https://github.com/MapColonies/raster-shared/commit/b8296266ebf705bd16c03a037e1232d64c1d5146))
+* set release-please initial version ([#186](https://github.com/MapColonies/raster-shared/issues/186)) ([3769756](https://github.com/MapColonies/raster-shared/commit/3769756998f8c903730c1d0dde249a45083a4b95))
+
 ## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
 
 
