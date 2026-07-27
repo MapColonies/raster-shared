@@ -3,6 +3,7 @@ import { SourceType } from '../../constants/core/constants';
 
 export const fsStorageSchema = z.object({
   storageProvider: z.literal(SourceType.FS),
+  subPath: z.string().min(1),
 });
 
 export const s3StorageSchema = z.object({
