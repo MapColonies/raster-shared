@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.3.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.1...v8.3.0-alpha.2) (2026-07-27)
+
+
+### Features
+
+* add subpath field to fsStorageSchema ([#216](https://github.com/MapColonies/raster-shared/issues/216)) ([c832749](https://github.com/MapColonies/raster-shared/commit/c832749354c6e4b73fc3cc22cf3584e0ee5daec3))
+
 ## [8.3.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.0...v8.3.0-alpha.1) (2026-07-07)
 
 
