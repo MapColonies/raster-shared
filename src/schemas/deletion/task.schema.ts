@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { StorageProvider } from '../../constants/core/constants';
 import { fsStorageSchema, redisStorageSchema, s3StorageSchema } from '../core/storage.schema';
 import { tilePyramidSchema, tileRangesSchema } from '../core/tile.schema';
 
@@ -23,16 +22,9 @@ export const deleteTaskParamsSchema = z
 //#endregion DeleteTaskParams
 
 //#region TilesDeletionParams
-export const s3TilesDeletionParamsSchema = s3StorageSchema.merge(tilePyramidSchema).merge(tileRangesSchema);
+export const s3TilesDeletionParamsSchema = s3StorageSchema.merge(tilePyramidSchema);
 
-// Unlike the other providers this does NOT extend fsStorageSchema: tile deletion
-// locates tiles by `tilesPath`, not by the layer's `subPath`.
-export const fsTilesDeletionParamsSchema = z
-  .object({
-    storageProvider: z.literal(StorageProvider.FS),
-  })
-  .merge(tilePyramidSchema)
-  .merge(tileRangesSchema);
+export const fsTilesDeletionParamsSchema = fsStorageSchema.merge(tilePyramidSchema);
 
 export const redisTilesDeletionParamsSchema = redisDeletionBaseSchema.merge(tileRangesSchema).strict(); // Reject path-store fields outright: a prefix store has no tilesPath
 
@@ -42,7 +34,7 @@ export const tilesDeletionParamsSchema = z
 //#endregion TilesDeletionParams
 
 //#region DeleteStoredResourcesParams
-/** Paths to delete recursively. Meaningful only for path-based stores. */
+/** Paths to delete recursively. */
 export const resourcePathsSchema = z.object({
   paths: z.array(z.string().min(1)).min(1),
 });
