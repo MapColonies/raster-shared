@@ -3,6 +3,14 @@ import { StorageProvider } from '../../constants/core/constants';
 import { fsStorageSchema, redisStorageSchema, s3StorageSchema } from '../core/storage.schema';
 import { tilePyramidSchema, tileRangesSchema } from '../core/tile.schema';
 
+/**
+ * Shared by every Redis deletion shape: the key prefix that locates the entries, plus an
+ * optional wait for a mapproxy reload to settle before the keys are removed.
+ */
+const redisDeletionBaseSchema = redisStorageSchema.extend({
+  delaySeconds: z.number().int().nonnegative().optional(),
+});
+
 //#region DeleteTaskParams
 export const deleteTaskParamsSchema = z
   .object({
@@ -26,12 +34,7 @@ export const fsTilesDeletionParamsSchema = z
   .merge(tilePyramidSchema)
   .merge(tileRangesSchema);
 
-export const redisTilesDeletionParamsSchema = redisStorageSchema
-  .extend({
-    delaySeconds: z.number().int().nonnegative().optional(), // Seconds to wait before deleting(mapproxy reload delay)
-  })
-  .merge(tileRangesSchema)
-  .strict(); // Reject path-store fields outright: a prefix store has no tilesPath
+export const redisTilesDeletionParamsSchema = redisDeletionBaseSchema.merge(tileRangesSchema).strict(); // Reject path-store fields outright: a prefix store has no tilesPath
 
 export const tilesDeletionParamsSchema = z.discriminatedUnion('storageProvider', [
   s3TilesDeletionParamsSchema,
@@ -52,11 +55,7 @@ export const fsDeleteStoredResourcesParamsSchema = fsStorageSchema.merge(resourc
 
 // The prefix IS the locator for a key-value store, so `paths` is meaningless here
 // and is rejected outright rather than silently stripped.
-export const redisDeleteStoredResourcesParamsSchema = redisStorageSchema
-  .extend({
-    delaySeconds: z.number().int().nonnegative().optional(), // Seconds to wait before deleting
-  })
-  .strict();
+export const redisDeleteStoredResourcesParamsSchema = redisDeletionBaseSchema.strict();
 
 export const deleteStoredResourcesParamsSchema = z
   .discriminatedUnion('storageProvider', [
