@@ -14,7 +14,9 @@ export const tileRangesSchema = z.object({
 });
 
 /** Fields that only make sense for path-based tile stores. */
-export const tilePyramidSchema = z.object({
-  tilesPath: z.string().min(1), // Base path for the tiles to be deleted
+export const tilesInfoSchema = z.object({
+  tilesRelativePath: z.string().min(1), // Base path for the tiles to be deleted
   fileExtension: z.literal(TileOutputFormat.PNG.toLowerCase()).or(z.literal(TileOutputFormat.JPEG.toLowerCase())), // e.g. 'png', 'jpeg'
 });
+
+export const tilePyramidSchema = tileRangesSchema.merge(tilesInfoSchema).describe('tilePyramidSchema');
