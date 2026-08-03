@@ -9,6 +9,7 @@ export const baseRasterLayerMetadataSchema = z
     classification: z
       .string()
       .regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
+    keywords: z.string().optional(),
   })
   .describe('baseRasterLayerMetadataSchema');
 

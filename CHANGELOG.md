@@ -2,17 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [8.1.0](https://github.com/MapColonies/raster-shared/compare/v7.10.2...v8.1.0) (2026-05-18)
+## [8.3.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.1...v8.3.0-alpha.2) (2026-07-27)
 
 
 ### Features
 
-* add optional errors summary to ingestion validation schema ([#180](https://github.com/MapColonies/raster-shared/issues/180)) ([5b6f644](https://github.com/MapColonies/raster-shared/commit/5b6f644d0ff2cc7fff26ee6e26f5337b0e1eeb56))
-* added raster shared types and values for lower resolution feature support ([#203](https://github.com/MapColonies/raster-shared/issues/203)) ([04090f0](https://github.com/MapColonies/raster-shared/commit/04090f012c2116b3de687ec5e84ecb5900cee4c3))
+* add subpath field to fsStorageSchema ([#216](https://github.com/MapColonies/raster-shared/issues/216)) ([c832749](https://github.com/MapColonies/raster-shared/commit/c832749354c6e4b73fc3cc22cf3584e0ee5daec3))
+
+## [8.3.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.0...v8.3.0-alpha.1) (2026-07-07)
 
 
-* release 8.1.0 ([0eb47c3](https://github.com/MapColonies/raster-shared/commit/0eb47c348d4a79d9b4234900b1548d5a9c4e2e2c))
-* update release version to 8.1.0 ([#205](https://github.com/MapColonies/raster-shared/issues/205)) ([3b60a4f](https://github.com/MapColonies/raster-shared/commit/3b60a4fa326add0b9ce70ca1af0a0e2d19f86ba8))
+### Features
+
+* add keywords field to base raster layer metadata schema (MAPCO-8284) ([#208](https://github.com/MapColonies/raster-shared/issues/208)) ([74cd66c](https://github.com/MapColonies/raster-shared/commit/74cd66c9ea23e6e1b57615dd70288e5cf38f79bf))
+* add layer deletion schemas, types and constants (MAPCO-7285) ([#210](https://github.com/MapColonies/raster-shared/issues/210)) ([8d50c52](https://github.com/MapColonies/raster-shared/commit/8d50c52d45a0012b00ccfaca4381e3e5bfdf51e2))
+* handle resource deletion ([#213](https://github.com/MapColonies/raster-shared/issues/213)) ([0249907](https://github.com/MapColonies/raster-shared/commit/0249907f87803ae1b1c8b274d66506d7d6fc3474))
 
 ## [8.1.0-alpha.3](https://github.com/MapColonies/raster-shared/compare/v8.1.0-alpha.2...v8.1.0-alpha.3) (2026-05-05)
 

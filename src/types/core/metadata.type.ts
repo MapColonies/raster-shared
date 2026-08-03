@@ -24,6 +24,7 @@ export type RasterLayerMetadata = {
   minResolutionMeter: number;
   productSubType?: string;
   productBoundingBox?: string;
+  keywords?: string;
   displayPath: string;
   transparency: Transparency;
   tileMimeFormat: TilesMimeFormat;
