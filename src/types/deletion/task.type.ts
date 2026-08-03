@@ -29,7 +29,3 @@ export type S3DeleteStoredResourcesParams = z.infer<typeof s3DeleteStoredResourc
 export type FsDeleteStoredResourcesParams = z.infer<typeof fsDeleteStoredResourcesParamsSchema>;
 export type RedisDeleteStoredResourcesParams = z.infer<typeof redisDeleteStoredResourcesParamsSchema>;
 //#endregion DeleteStoredResourcesParams
-
-//#region CacheDeletionParams
-export type RedisCacheDeletionParams = z.infer<typeof redisCacheDeletionParamsSchema>;
-//#endregion CacheDeletionParams

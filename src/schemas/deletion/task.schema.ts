@@ -55,16 +55,3 @@ export const deleteStoredResourcesParamsSchema = z
   ])
   .describe('deleteStoredResourcesParamsSchema');
 //#endregion DeleteStoredResourcesParams
-
-//#region CacheDeletionParams
-/**
- * Params of the single `cache-deletion` task. The two shapes are told apart by their
- * fields rather than by the task type: `ranges` present means range-based deletion,
- * `prefix` alone means a whole-layer wipe. Both members are `.strict()`, so at most
- * one can ever match — `ranges` is required on the first and rejected as an unknown
- * key by the second.
- */
-export const redisCacheDeletionParamsSchema = z
-  .union([redisTilesDeletionParamsSchema, redisDeleteStoredResourcesParamsSchema])
-  .describe('redisCacheDeletionParamsSchema');
-//#endregion CacheDeletionParams
