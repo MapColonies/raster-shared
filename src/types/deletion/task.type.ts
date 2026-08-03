@@ -4,7 +4,6 @@ import {
   deleteTaskParamsSchema,
   fsDeleteStoredResourcesParamsSchema,
   fsTilesDeletionParamsSchema,
-  redisCacheDeletionParamsSchema,
   redisDeleteStoredResourcesParamsSchema,
   redisTilesDeletionParamsSchema,
   s3DeleteStoredResourcesParamsSchema,
