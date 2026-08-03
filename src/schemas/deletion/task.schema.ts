@@ -36,11 +36,9 @@ export const fsTilesDeletionParamsSchema = z
 
 export const redisTilesDeletionParamsSchema = redisDeletionBaseSchema.merge(tileRangesSchema).strict(); // Reject path-store fields outright: a prefix store has no tilesPath
 
-export const tilesDeletionParamsSchema = z.discriminatedUnion('storageProvider', [
-  s3TilesDeletionParamsSchema,
-  fsTilesDeletionParamsSchema,
-  redisTilesDeletionParamsSchema,
-]);
+export const tilesDeletionParamsSchema = z
+  .discriminatedUnion('storageProvider', [s3TilesDeletionParamsSchema, fsTilesDeletionParamsSchema, redisTilesDeletionParamsSchema])
+  .describe('tilesDeletionParamsSchema');
 //#endregion TilesDeletionParams
 
 //#region DeleteStoredResourcesParams
