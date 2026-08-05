@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export const DeletionJobTypes = {
   Delete_Layer: 'Delete_Layer',
-  Cache_Deletion: 'Cache_Deletion',
+  Delete_Cache: 'Delete_Cache',
 } as const;
 
 export type DeletionJobTypes = (typeof DeletionJobTypes)[keyof typeof DeletionJobTypes];
