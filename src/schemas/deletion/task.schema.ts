@@ -34,7 +34,6 @@ export const tilesDeletionParamsSchema = z
 //#endregion TilesDeletionParams
 
 //#region DeleteStoredResourcesParams
-/** Paths to delete recursively. */
 export const resourcePathsSchema = z.object({
   paths: z.array(z.string().min(1)).min(1),
 });
