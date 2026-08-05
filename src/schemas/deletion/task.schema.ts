@@ -22,11 +22,11 @@ export const deleteTaskParamsSchema = z
 //#endregion DeleteTaskParams
 
 //#region TilesDeletionParams
-export const s3TilesDeletionParamsSchema = s3StorageSchema.merge(tilePyramidSchema);
+export const s3TilesDeletionParamsSchema = s3StorageSchema.merge(tilePyramidSchema).strict();
 
-export const fsTilesDeletionParamsSchema = fsStorageSchema.merge(tilePyramidSchema);
+export const fsTilesDeletionParamsSchema = fsStorageSchema.merge(tilePyramidSchema).strict();
 
-export const redisTilesDeletionParamsSchema = redisDeletionBaseSchema.merge(tileRangesSchema).strict(); // Reject path-store fields outright: a prefix store has no tilesPath
+export const redisTilesDeletionParamsSchema = redisDeletionBaseSchema.merge(tileRangesSchema).strict();
 
 export const tilesDeletionParamsSchema = z
   .discriminatedUnion('storageProvider', [s3TilesDeletionParamsSchema, fsTilesDeletionParamsSchema, redisTilesDeletionParamsSchema])
