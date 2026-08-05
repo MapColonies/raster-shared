@@ -19,7 +19,6 @@ jobs:
         uses: ./.github/actions/init-npm
         with:
           node-version: ${{ matrix.node }}
-
       - name: Run TS Project linters
         uses: wearerequired/lint-action@v2
         with:
