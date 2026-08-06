@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.2...v9.0.0-alpha.2) (2026-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* consolidate storage schemas and add Redis provider (MAPCO-11262) ([#218](https://github.com/MapColonies/raster-shared/issues/218))
+
+### Features
+
+* consolidate storage schemas and add Redis provider (MAPCO-11262) ([#218](https://github.com/MapColonies/raster-shared/issues/218)) ([c0f972a](https://github.com/MapColonies/raster-shared/commit/c0f972a5c42da250f4e2281806b110332de588b5))
+
 ## [8.3.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.1...v8.3.0-alpha.2) (2026-07-27)
 
 
