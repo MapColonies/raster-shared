@@ -42,8 +42,7 @@ export const s3DeleteStoredResourcesParamsSchema = s3StorageSchema.merge(resourc
 
 export const fsDeleteStoredResourcesParamsSchema = fsStorageSchema.merge(resourcePathsSchema);
 
-// The prefix IS the locator for a key-value store, so `paths` is meaningless here
-// and is rejected outright rather than silently stripped.
+// The prefix IS the locator for a key-value store.
 export const redisDeleteStoredResourcesParamsSchema = redisDeletionBaseSchema.strict();
 
 export const deleteStoredResourcesParamsSchema = z
