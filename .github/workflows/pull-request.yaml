@@ -14,12 +14,10 @@ jobs:
     steps:
       - name: Check out TS Project Git repository
         uses: actions/checkout@v4
-
       - name: Init nodejs
         uses: ./.github/actions/init-npm
         with:
           node-version: ${{ matrix.node }}
-
       - name: Run TS Project linters
         uses: wearerequired/lint-action@v2
         with:
@@ -40,14 +38,47 @@ jobs:
     steps:
       - name: Check out TS Project Git repository
         uses: actions/checkout@v4
-
       - name: Init nodejs
         uses: ./.github/actions/init-npm
-
       - name: Run tests
         run: npm run test
-
       - uses: actions/upload-artifact@v4
         with:
           name: Test Reporters ${{ matrix.node }}
           path: ./reports/**
+
+  upload_package:
+    needs: [eslint, tests]
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out TS Project Git repository
+        uses: actions/checkout@v6
+      - name: Init nodejs
+        uses: ./.github/actions/init-npm
+      - name: Pack the package
+        run: npm pack
+      - name: get properties
+        id: json_properties
+        uses: ActionsTools/read-json-action@main
+        with:
+          file_path: 'package.json'
+      - uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az storage blob upload --name raster-shared-${{ github.sha }}.tgz --account-name ghatmpstorage --container-name=npm-packages --file map-colonies-raster-shared-${{steps.json_properties.outputs.version}}.tgz --sas-token "${{ secrets.SAS_TOKEN }}"
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Hi it is me, your friendly bot helper! :wave:
+            I've packed this commit for you :blush:
+            You can install it like this:
+            ```json
+            {
+              "dependencies": {
+                  "@map-colonies/raster-shared": "https://ghatmpstorage.blob.core.windows.net/npm-packages/raster-shared-${{ github.sha }}.tgz"
+              }
+            }
+            ```
+            The link will expire in a week :hourglass:
