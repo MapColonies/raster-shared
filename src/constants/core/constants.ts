@@ -18,6 +18,8 @@ export const RasterProductTypes = pickEnum(ProductType, [
   'RASTER_VECTOR_BEST',
 ]);
 
+export const GEODETIC_GRIDS: readonly string[] = ['WorldCRS84'];
+
 export type RasterProductTypes = (typeof RasterProductTypes)[keyof typeof RasterProductTypes];
 
 export const RASTER_PRODUCT_TYPE_LIST = Object.values(RasterProductTypes);
