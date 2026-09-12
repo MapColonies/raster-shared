@@ -1,0 +1,13 @@
+openapi: '3.0.1'
+info:
+  title: Ingestion definitions
+  version: 1.0.0
+components:
+  schemas:
+    JobType:
+      type: string
+      enum:
+        - Ingestion_New
+        - Ingestion_Update
+        - Ingestion_Swap_Update
+      description: Job type for processing
