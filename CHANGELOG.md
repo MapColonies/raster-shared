@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/MapColonies/raster-shared/compare/v8.3.0...v9.0.0) (2026-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* release 9.0.0 ([#228](https://github.com/MapColonies/raster-shared/issues/228))
+
+### Features
+
+* release 9.0.0 ([#228](https://github.com/MapColonies/raster-shared/issues/228)) ([60a4c7c](https://github.com/MapColonies/raster-shared/commit/60a4c7c1b8367ac54b8a76f22d8138e66dcd3904))
+
 ## [8.3.0](https://github.com/MapColonies/raster-shared/compare/v8.2.0...v8.3.0) (2026-08-03)
 
 
