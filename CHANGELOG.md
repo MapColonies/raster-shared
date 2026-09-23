@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v9.0.0-alpha.1...v9.0.0-alpha.2) (2026-09-23)
+
+
+### Features
+
+* add cache-deletion job params schema (MAPCO-11779) ([#225](https://github.com/MapColonies/raster-shared/issues/225)) ([720c24f](https://github.com/MapColonies/raster-shared/commit/720c24f20d328af82adaa35b207818687e94091b))
+
 ## [9.0.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v9.0.0-alpha.0...v9.0.0-alpha.1) (2026-09-03)
 
 
