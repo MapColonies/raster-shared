@@ -1,4 +1,6 @@
 import z from 'zod';
-import { deleteLayerJobParamsSchema } from '../../schemas/deletion/job.schema';
+import { cacheDeletionJobParamsSchema, deleteLayerJobParamsSchema } from '../../schemas/deletion/job.schema';
 
 export type DeleteLayerJobParams = z.infer<typeof deleteLayerJobParamsSchema>;
+
+export type CacheDeletionJobParams = z.infer<typeof cacheDeletionJobParamsSchema>;
