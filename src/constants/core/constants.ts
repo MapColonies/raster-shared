@@ -18,6 +18,8 @@ export const RasterProductTypes = pickEnum(ProductType, [
   'RASTER_VECTOR_BEST',
 ]);
 
+export const GEODETIC_GRIDS: readonly string[] = ['WorldCRS84'];
+
 export type RasterProductTypes = (typeof RasterProductTypes)[keyof typeof RasterProductTypes];
 
 export const RASTER_PRODUCT_TYPE_LIST = Object.values(RasterProductTypes);
@@ -66,6 +68,15 @@ export const SourceType = {
 /* eslint-enable @typescript-eslint/naming-convention */
 
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const StorageProvider = {
+  ...pickEnum(SourceType, ['FS', 'S3']),
+  REDIS: 'REDIS',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type StorageProvider = (typeof StorageProvider)[keyof typeof StorageProvider];
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export const InstanceType = {

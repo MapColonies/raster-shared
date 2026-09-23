@@ -1,5 +1,5 @@
 import { ArtifactRasterType } from '@map-colonies/types';
-import { pickEnum } from '../../utils';
+import { pickEnum } from '../../utils/helpers.utils';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 export const ExportArtifactType = pickEnum(ArtifactRasterType, ['GPKG', 'METADATA']);

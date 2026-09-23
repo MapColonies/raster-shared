@@ -1,14 +1,34 @@
 import { z } from 'zod';
-import { SourceType } from '../../constants/core/constants';
+import { StorageProvider } from '../../constants/core/constants';
 
-export const fsStorageSchema = z.object({
-  storageProvider: z.literal(SourceType.FS),
-  subPath: z.string().min(1),
-});
-
-export const s3StorageSchema = z.object({
-  storageProvider: z.literal(SourceType.S3),
+export const s3BucketSchema = z.object({
   bucket: z.string().min(1),
 });
 
-export const storageSchema = z.discriminatedUnion('storageProvider', [fsStorageSchema, s3StorageSchema]);
+export const redisPrefixSchema = z.object({
+  prefix: z.string().min(1), // Full Redis key prefix, e.g. `myLayer-redis_WorldCRS84`
+});
+
+export const fsSubPathSchema = z.object({
+  subPath: z.string().min(1),
+});
+
+export const fsStorageSchema = z
+  .object({
+    storageProvider: z.literal(StorageProvider.FS),
+  })
+  .merge(fsSubPathSchema);
+
+export const s3StorageSchema = z
+  .object({
+    storageProvider: z.literal(StorageProvider.S3),
+  })
+  .merge(s3BucketSchema);
+
+export const redisStorageSchema = z
+  .object({
+    storageProvider: z.literal(StorageProvider.REDIS),
+  })
+  .merge(redisPrefixSchema);
+
+export const storageSchema = z.discriminatedUnion('storageProvider', [fsStorageSchema, s3StorageSchema, redisStorageSchema]);
