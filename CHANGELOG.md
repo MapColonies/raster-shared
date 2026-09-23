@@ -2,21 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [9.0.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v9.0.0-alpha.1...v9.0.0-alpha.2) (2026-09-23)
-
-
-### Features
-
-* add cache-deletion job params schema (MAPCO-11779) ([#225](https://github.com/MapColonies/raster-shared/issues/225)) ([720c24f](https://github.com/MapColonies/raster-shared/commit/720c24f20d328af82adaa35b207818687e94091b))
-
-## [9.0.0-alpha.1](https://github.com/MapColonies/raster-shared/compare/v9.0.0-alpha.0...v9.0.0-alpha.1) (2026-09-03)
-
-
-### Features
-
-* support cache deletion parameters for swap and update ([#223](https://github.com/MapColonies/raster-shared/issues/223)) ([5395ed7](https://github.com/MapColonies/raster-shared/commit/5395ed7b0589f216e1ae61a09d04bc4eeae630d9))
-
-## [9.0.0-alpha.0](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.2...v9.0.0-alpha.0) (2026-08-06)
+## [9.0.0-alpha](https://github.com/MapColonies/raster-shared/compare/v8.3.0...v9.0.0-alpha) (2026-09-23)
 
 
 ### ⚠ BREAKING CHANGES
@@ -25,7 +11,19 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* add cache-deletion job params schema (MAPCO-11779) ([#225](https://github.com/MapColonies/raster-shared/issues/225)) ([720c24f](https://github.com/MapColonies/raster-shared/commit/720c24f20d328af82adaa35b207818687e94091b))
 * consolidate storage schemas and add Redis provider (MAPCO-11262) ([#218](https://github.com/MapColonies/raster-shared/issues/218)) ([c0f972a](https://github.com/MapColonies/raster-shared/commit/c0f972a5c42da250f4e2281806b110332de588b5))
+* support cache deletion parameters for swap and update ([#223](https://github.com/MapColonies/raster-shared/issues/223)) ([5395ed7](https://github.com/MapColonies/raster-shared/commit/5395ed7b0589f216e1ae61a09d04bc4eeae630d9))
+
+## [8.3.0](https://github.com/MapColonies/raster-shared/compare/v8.2.0...v8.3.0) (2026-08-03)
+
+
+### Features
+
+* add keywords field to base raster layer metadata schema (MAPCO-8284) ([#208](https://github.com/MapColonies/raster-shared/issues/208)) ([74cd66c](https://github.com/MapColonies/raster-shared/commit/74cd66c9ea23e6e1b57615dd70288e5cf38f79bf))
+* add layer deletion schemas, types and constants (MAPCO-7285) ([#210](https://github.com/MapColonies/raster-shared/issues/210)) ([8d50c52](https://github.com/MapColonies/raster-shared/commit/8d50c52d45a0012b00ccfaca4381e3e5bfdf51e2))
+* add subpath field to fsStorageSchema ([#216](https://github.com/MapColonies/raster-shared/issues/216)) ([c832749](https://github.com/MapColonies/raster-shared/commit/c832749354c6e4b73fc3cc22cf3584e0ee5daec3))
+* handle resource deletion ([#213](https://github.com/MapColonies/raster-shared/issues/213)) ([0249907](https://github.com/MapColonies/raster-shared/commit/0249907f87803ae1b1c8b274d66506d7d6fc3474))
 
 ## [8.3.0-alpha.2](https://github.com/MapColonies/raster-shared/compare/v8.3.0-alpha.1...v8.3.0-alpha.2) (2026-07-27)
 
