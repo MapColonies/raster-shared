@@ -1,9 +1,26 @@
 import { RecordStatus, RecordType } from '@map-colonies/types';
-import z from 'zod';
-import { CORE_VALIDATIONS, INGESTION_VALIDATIONS, TileOutputFormat, Transparency } from '../../constants';
+import { z, type ZodType } from 'zod';
+import { CORE_VALIDATIONS, INGESTION_VALIDATIONS, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
-import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from './job.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
+
+export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
+export const resourceIdSchema = z
+  .string()
+  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
+    message: 'Product ID must start with a letter and contain only letters, numbers and underscores',
+  })
+  .describe(INGESTION_VALIDATIONS.productId.description);
+export const versionSchema = z
+  .string()
+  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
+  .describe(INGESTION_VALIDATIONS.productVersion.description);
+
+export const layerSchema = z.object({
+  id: z.string().uuid(),
+  productId: resourceIdSchema,
+  productType: productTypeSchema,
+});
 
 export const rasterLayerCatalogSchema = z
   .object({
@@ -98,7 +115,7 @@ export const rasterLayerCatalogSchema = z
         producerName: z.string().optional(),
         footprint: polygonSchema.or(multiPolygonSchema),
         productId: resourceIdSchema,
-        productType: rasterProductTypeSchema,
+        productType: productTypeSchema,
       })
       .strict()
       .refine(

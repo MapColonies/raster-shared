@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import { INGESTION_VALIDATIONS } from '../../constants/ingestion/constants';
 import { Transparency } from '../../constants/core/constants';
-import { rasterProductTypeSchema, resourceIdSchema } from '../core';
+import { resourceIdSchema, productTypeSchema } from '../core/layer.schema';
 
 export const baseRasterLayerMetadataSchema = z
   .object({
@@ -17,7 +17,7 @@ export const newRasterLayerMetadataSchema = baseRasterLayerMetadataSchema
   .extend({
     productId: resourceIdSchema,
     productName: z.string().min(1),
-    productType: rasterProductTypeSchema,
+    productType: productTypeSchema,
     srs: z.literal('4326'),
     srsName: z.literal('WGS84GEO'),
     transparency: z.nativeEnum(Transparency),

@@ -1,6 +1,6 @@
 import z from 'zod';
 import { OperationStatus } from '@map-colonies/mc-priority-queue';
-import { rasterProductTypeSchema, resourceIdSchema, versionSchema } from './job.schema';
+import { productTypeSchema, resourceIdSchema, versionSchema } from './layer.schema';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const createCallbackResponseSchema = <T>(dataSchema?: z.ZodType<T>) => {
@@ -10,7 +10,7 @@ export const createCallbackResponseSchema = <T>(dataSchema?: z.ZodType<T>) => {
     jobType: z.string(),
     taskType: z.string(),
     productId: resourceIdSchema,
-    productType: rasterProductTypeSchema,
+    productType: productTypeSchema,
     version: versionSchema,
     status: z.nativeEnum(OperationStatus),
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers

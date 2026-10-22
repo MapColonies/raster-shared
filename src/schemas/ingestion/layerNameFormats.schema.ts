@@ -1,7 +1,7 @@
 import z, { ZodType } from 'zod';
 import { INGESTION_VALIDATIONS, RASTER_PRODUCT_TYPE_LIST } from '../../constants';
 import { PolygonPartsEntityName } from '../../types';
-import { rasterProductTypeSchema, resourceIdSchema } from '../core';
+import { productTypeSchema, resourceIdSchema } from '../core';
 
 export const polygonPartsEntityPatternSchema = z
   .string()
@@ -31,7 +31,7 @@ export const layerNamePatternSchema = z.string().refine(
       return false;
     }
 
-    const productTypeResult = rasterProductTypeSchema.safeParse(rasterProductType);
+    const productTypeResult = productTypeSchema.safeParse(rasterProductType);
     if (!productTypeResult.success) {
       return false;
     }
