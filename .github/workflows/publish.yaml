@@ -1,24 +1,39 @@
-name: publish
-
 on:
   workflow_dispatch:
-  release: 
+  release:
     types: [published]
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Init nodejs
         uses: ./.github/actions/init-npm
-        with:
-          node-version: 20.x
-      - name: Copy resources
-        run: npm run copy
-      - uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+      - run: npm install -g npm
+      - name: Get package version and branch
+        id: package-info
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          BRANCH=${GITHUB_REF#refs/heads/}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+      - name: Publish to npm
+        run: |
+          echo "is pre-release: ${{ github.event.release.prerelease }}"
+          echo "publish triggered on: ${{ github.ref_type }}"
+          if ([[ "${{ github.ref_type }}" == "tag" ]] &&
+            [[ "${{ github.event.release.prerelease }}" == "true" ]] &&
+            [[ "${{ github.ref_name }}" == "v${{ steps.package-info.outputs.version }}" ]]) ||
+            ([[ "${{ github.ref_type }}" == "branch" ]] &&
+            [[ "${{ github.ref_name }}" == "alpha" ]]); then
+            echo "publishing prerelease with alpha tag from ${{ github.ref_type }}"
+            npm publish --access public --tag alpha
+          else
+            echo "publishing standard release"
+            npm publish --access public
+          fi

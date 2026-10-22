@@ -1,7 +1,11 @@
 import z from 'zod';
+import { checksumSchema } from '../core';
+import { validationReportSchema } from './validationTask.schema';
+import { validationAggregatedErrorsSchema } from './validationTask.schema';
 
 export const ingestionNewFinalizeTaskParamsSchema = z
   .object({
+    processedParts: z.boolean(),
     insertedToMapproxy: z.boolean(),
     insertedToCatalog: z.boolean(),
     insertedToGeoServer: z.boolean(),
@@ -10,6 +14,7 @@ export const ingestionNewFinalizeTaskParamsSchema = z
 
 export const ingestionUpdateFinalizeTaskParamsSchema = z
   .object({
+    processedParts: z.boolean(),
     updatedInCatalog: z.boolean(),
   })
   .describe('ingestionUpdateFinalizeTaskParamsSchema');
@@ -19,3 +24,12 @@ export const ingestionSwapUpdateTaskParamsSchema = ingestionUpdateFinalizeTaskPa
     updatedInMapproxy: z.boolean(),
   })
   .describe('ingestionSwapUpdateTaskParamsSchema');
+
+export const ingestionValidationTaskParamsSchema = z
+  .object({
+    checksums: z.array(checksumSchema),
+    isValid: z.boolean().optional(),
+    report: validationReportSchema.optional(),
+    errorsSummary: validationAggregatedErrorsSchema.optional(),
+  })
+  .describe('ingestionValidationTaskParamsSchema');

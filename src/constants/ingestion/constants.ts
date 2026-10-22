@@ -33,25 +33,23 @@ export const INGESTION_VALIDATIONS = {
     description: 'Classification value between 0 and 100',
   },
   gpkgfileName: {
-    pattern: '^((\\/[\\w-]+)+)\\/([^\\/][\\wא-ת\\.-]+)\\.gpkg$',
+    pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/[\\wא-ת\\.-]+\\.gpkg$',
     description: 'Valid gpkg file path, file name must end with .gpkg',
   },
-  metadataShapefileFilePath: {
-    // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/ShapeMetadata\\.zip$',
-    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.zip',
+  metadataShapefilePath: {
+    pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/ShapeMetadata\\.shp$',
+    description: 'Valid metadata shapefile file path, must be end with /ShapeMetadata.shp',
   },
-  productShapefileFilePath: {
-    // eslint-disable-next-line no-useless-escape
-    pattern: '^(\\/[\\w-]+)+\\/Product\\.zip$',
-    description: 'Valid product shapefile file path, must be end with /Product.zip',
+  productShapefilePath: {
+    pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/Product\\.shp$',
+    description: 'Valid product shapefile file path, must be end with /Product.shp',
   },
   horizontalAccuracyCE90: {
     min: 0.01,
     max: 4000,
   },
   productId: {
-    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,37}$',
+    pattern: '^[A-Za-z]{1}[A-Za-z0-9_]{0,36}$',
     description: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   },
   productVersion: {
@@ -67,7 +65,7 @@ export const INGESTION_VALIDATIONS = {
     max: 100000000,
   },
   sensor: {
-    pattern: '^(?!\\s).+(?<!\\s)$',
+    pattern: '^([^\\s])(.*[^\\s])?$',
     description: 'Sensor name must not start or end with whitespace',
   },
   polygonPartsEntityName: {
@@ -76,3 +74,31 @@ export const INGESTION_VALIDATIONS = {
       'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   },
 } satisfies ValidationRules;
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const ShapefileExtensions = {
+  SHP: '.shp', // Main shapefile containing geometry data
+  SHX: '.shx', // Shape index file for spatial indexing
+  DBF: '.dbf', // Attribute data in dBASE format
+  PRJ: '.prj', // Projection/coordinate system info
+  CPG: '.cpg', // Code page file specifying character encoding
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type ShapefileExtensions = (typeof ShapefileExtensions)[keyof typeof ShapefileExtensions];
+
+export const SHAPEFILE_EXTENSIONS_LIST = Object.values(ShapefileExtensions);
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const ValidationErrorType = {
+  GEOMETRY_VALIDITY: 'Geometry_Validity',
+  VERTICES: 'Vertices',
+  METADATA: 'Metadata',
+  SMALL_GEOMETRY: 'Small_Geometry',
+  SMALL_HOLES: 'Small_Holes',
+  RESOLUTION: 'Resolution',
+  UNKNOWN: 'Unknown',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type ValidationErrorType = (typeof ValidationErrorType)[keyof typeof ValidationErrorType];

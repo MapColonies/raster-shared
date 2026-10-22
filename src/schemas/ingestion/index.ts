@@ -5,3 +5,6 @@ export * from './polygonParts.schema';
 export * from './job.schema';
 export * from './task.schema';
 export * from './layerNameFormats.schema';
+export * from './callback.schema';
+export * from './validationTask.schema';
+export * from './product.schema';

@@ -18,6 +18,8 @@ export const RasterProductTypes = pickEnum(ProductType, [
   'RASTER_VECTOR_BEST',
 ]);
 
+export const GEODETIC_GRIDS: readonly string[] = ['WorldCRS84'];
+
 export type RasterProductTypes = (typeof RasterProductTypes)[keyof typeof RasterProductTypes];
 
 export const RASTER_PRODUCT_TYPE_LIST = Object.values(RasterProductTypes);
@@ -50,4 +52,37 @@ export const CORE_VALIDATIONS = {
   },
 } satisfies ValidationRules;
 /* eslint-enable @typescript-eslint/no-magic-numbers */
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export const HASH_ALGORITHMS = ['XXH64'] as const;
+export type HashAlgorithm = (typeof HASH_ALGORITHMS)[number];
+
+export const MAX_ZOOM_LEVEL = 22;
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const SourceType = {
+  S3: 'S3',
+  GPKG: 'GPKG',
+  FS: 'FS',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const StorageProvider = {
+  ...pickEnum(SourceType, ['FS', 'S3']),
+  REDIS: 'REDIS',
+} as const;
+/* eslint-enable @typescript-eslint/naming-convention */
+
+export type StorageProvider = (typeof StorageProvider)[keyof typeof StorageProvider];
+
+/* eslint-disable @typescript-eslint/naming-convention */
+export const InstanceType = {
+  INGESTION: 'ingestion',
+  EXPORT: 'export',
+} as const;
+
+export type InstanceType = (typeof InstanceType)[keyof typeof InstanceType];
 /* eslint-enable @typescript-eslint/naming-convention */
