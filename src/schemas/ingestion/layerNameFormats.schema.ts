@@ -1,7 +1,7 @@
 import z, { ZodType } from 'zod';
 import { INGESTION_VALIDATIONS, RASTER_PRODUCT_TYPE_LIST } from '../../constants';
 import { PolygonPartsEntityName } from '../../types';
-import { productTypeSchema, resourceIdSchema } from '../core';
+import { productTypeSchema, resourceIdSchema } from '../core/layer.schema';
 
 export const polygonPartsEntityPatternSchema = z
   .string()
