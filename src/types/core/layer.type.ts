@@ -1,6 +1,6 @@
 import type z from 'zod';
 import { RasterProductTypes } from '../../constants';
-import type { rasterLayerCatalogSchema } from '../../schemas/core/layer.schema';
+import { layerSchema, linkSchema, revisionSchema, tilesetSchema } from '../../schemas/core/layer.schema';
 
 /**
  * Represents a layer name composed of a resourceId (equivalent to productId) and RasterProductType, joined by a hyphen.
@@ -76,4 +76,7 @@ export interface LayerNameFormats {
   layerName: LayerName;
 }
 
-export type RasterLayerCatalog = z.infer<typeof rasterLayerCatalogSchema>;
+export type LayerSchema = z.infer<typeof layerSchema>;
+export type LinkSchema = z.infer<typeof linkSchema>;
+export type TilesetSchema = z.infer<typeof tilesetSchema>;
+export type RevisionSchema = z.infer<typeof revisionSchema>;
