@@ -9,3 +9,4 @@ export * from './callback.type';
 export * from './polygonParts.type';
 export * from './tile.type';
 export * from './storage.type';
+export * from './geoserver.type';
