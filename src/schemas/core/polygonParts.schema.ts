@@ -64,7 +64,8 @@ export const partSchema = z
 export const partsSchema = z.array(partSchema).describe('partsSchema');
 
 //#region intersection
-export const intersectionFeaturePropertiesSchema = partSchema._def.schema
+export const intersectionFeaturePropertiesSchema = partSchema
+  .sourceType()
   .pick({ resolutionDegree: true })
   .describe('intersectionFeaturePropertiesSchema');
 export const intersectionFeatureGeometrySchema = polygonalGeometrySchema.describe('intersectionFeatureGeometrySchema');
