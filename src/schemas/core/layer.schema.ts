@@ -66,7 +66,7 @@ export const tilesetSchema = z
   .strict()
   .describe('tilesetSchema');
 
-export const revisionSchema = z
+export const revisionObjectSchema = z
   .object({
     id: z.string().uuid(),
     layerId: layerSchema.shape.id,
@@ -148,7 +148,9 @@ export const revisionSchema = z
     keywords: z.array(z.string().min(1)).optional(),
     footprint: polygonSchema.or(multiPolygonSchema),
   })
-  .strict()
+  .strict();
+
+export const revisionSchema = revisionObjectSchema
   .refine(
     (rasterLayerMetadata) =>
       rasterLayerMetadata.imagingTimeBeginUTC <= rasterLayerMetadata.imagingTimeEndUTC && rasterLayerMetadata.imagingTimeEndUTC <= new Date(),
