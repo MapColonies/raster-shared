@@ -171,6 +171,3 @@ export const revisionSchema = z
     message: 'Max resolution meter should be less than or equal to min resolution meter',
   })
   .describe('revisionSchema');
-
-export type TilesetSchema = z.infer<typeof tilesetSchema>;
-export type RevisionSchema = z.infer<typeof revisionSchema>;
