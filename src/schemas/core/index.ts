@@ -9,3 +9,4 @@ export * from './file.schema';
 export * from './polygonParts.schema';
 export * from './tile.schema';
 export * from './storage.schema';
+export * from './layer.schema';
