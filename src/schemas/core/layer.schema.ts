@@ -10,6 +10,7 @@ import {
   Transparency,
 } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
+import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
 
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
@@ -42,7 +43,7 @@ export const linkSchema = z
     id: z.string().uuid(),
     layerId: layerSchema.shape.id,
     protocol: z.string(),
-    url: z.string().url(),
+    url: urlSchema,
     name: z.string().optional(),
     description: z.string().optional(),
   })
@@ -140,7 +141,7 @@ export const revisionSchema = z
       .regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
     transparency: z.nativeEnum(Transparency),
     description: z.string().optional(),
-    productName: z.string().optional(),
+    productName: z.string().min(1),
     productSubType: z.string().optional(),
     producerName: z.string().optional(),
     scale: z.number().min(INGESTION_VALIDATIONS.scale.min).max(INGESTION_VALIDATIONS.scale.max).optional(),
