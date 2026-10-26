@@ -1,6 +1,5 @@
 export type * from './validation.type';
 export type * from './task.type';
-export type * from './metadata.type';
 export type * from './aggregation.type';
 export type * from './layer.type';
 export type * from './part.type';
