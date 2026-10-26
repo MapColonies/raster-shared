@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import { INGESTION_VALIDATIONS } from '../../constants';
-import { ingestionResolutionSchema } from '../ingestion';
+import { CORE_VALIDATIONS, INGESTION_VALIDATIONS } from '../../constants';
 import { featureCollectionSchema, featureSchema, multiPolygonSchema, polygonSchema } from './geo.schema';
 
 const polygonalGeometrySchema = polygonSchema.or(multiPolygonSchema).describe('polygonalGeometrySchema');
@@ -13,14 +12,13 @@ export const partSchema = z
     description: z.string({ message: 'Description should be a string' }).optional(),
     imagingTimeBeginUTC: z.coerce.date({ message: 'Imaging time begin UTC should be a datetime' }),
     imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
-    resolutionDegree: ingestionResolutionSchema,
-    resolutionMeter: z
-      .number({ message: 'Resolution meter should be a number' })
-      .min(INGESTION_VALIDATIONS.resolutionMeter.min, {
-        message: `Resolution meter should not be less than ${INGESTION_VALIDATIONS.resolutionMeter.min}`,
+    resolutionDegree: z
+      .number({ message: 'Resolution degree should be a number' })
+      .min(CORE_VALIDATIONS.resolutionDeg.min, {
+        message: `Resolution degree should not be lower than ${CORE_VALIDATIONS.resolutionDeg.min}`,
       })
-      .max(INGESTION_VALIDATIONS.resolutionMeter.max, {
-        message: `Resolution meter should not be larger than ${INGESTION_VALIDATIONS.resolutionMeter.max}`,
+      .max(CORE_VALIDATIONS.resolutionDeg.max, {
+        message: `Resolution degree should not be higher than ${CORE_VALIDATIONS.resolutionDeg.max}`,
       }),
     sourceResolutionMeter: z
       .number({ message: 'Source resolution meter should be a number' })

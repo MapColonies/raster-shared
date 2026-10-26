@@ -1,20 +1,13 @@
 import z from 'zod';
-import { CORE_VALIDATIONS, JobTypes } from '../../constants';
-import { urlsArraySchema } from '../core';
+import { JobTypes } from '../../constants';
+import { partObjectSchema, urlsArraySchema } from '../core';
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
 import { inputFilesSchema } from './inputFiles.schema';
 import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './layer.schema';
 
 export const ingestionJobTypeSchema = z.enum([JobTypes.Ingestion_New, JobTypes.Ingestion_Swap_Update, JobTypes.Ingestion_Update]);
 
-export const ingestionResolutionSchema = z
-  .number({ message: 'Resolution degree should be a number' })
-  .min(CORE_VALIDATIONS.resolutionDeg.min, {
-    message: `Resolution degree should not be lower than ${CORE_VALIDATIONS.resolutionDeg.min}`,
-  })
-  .max(CORE_VALIDATIONS.resolutionDeg.max, {
-    message: `Resolution degree should not be higher than ${CORE_VALIDATIONS.resolutionDeg.max}`,
-  });
+export const ingestionResolutionSchema = partObjectSchema.pick({ resolutionDegree: true });
 
 export const ingestionBaseJobParamsSchema = z
   .object({
