@@ -1,7 +1,5 @@
-import z from 'zod';
 import { IMetadataCommonModel, RecordStatus, TilesMimeFormat } from '@map-colonies/types';
 import { TileOutputFormat, Transparency } from '../../constants/core';
-import { aggregationFeatureSchema } from '../../schemas';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type RasterLayerMetadata = {
@@ -31,5 +29,3 @@ export type RasterLayerMetadata = {
   tileOutputFormat: TileOutputFormat;
   productStatus?: RecordStatus;
 } & IMetadataCommonModel;
-
-export type AggregationFeature = z.infer<typeof aggregationFeatureSchema>;
