@@ -12,6 +12,7 @@ import {
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
+import { partObjectSchema } from './polygonParts.schema';
 
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
 export const resourceIdSchema = z
@@ -57,7 +58,7 @@ export const tilesetSchema = z
     storageType: z.nativeEnum(StorageProvider),
     displayPath: z.string().uuid(),
     tileMimeFormat: tilesMimeFormatSchema,
-    tileOutputFormat: z.nativeEnum(TileOutputFormat), // TODO: DO WE HAVE TO KEEP BOTH FIELDS???
+    tileOutputFormat: z.nativeEnum(TileOutputFormat),
     upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL),
     ttl: z.number().int().min(0),
     bucket: z.string().min(1).optional(),
@@ -74,8 +75,6 @@ export const revisionObjectSchema = z
     productVersionMinor: z.number().int().min(0),
     ingestionDateUTC: z.coerce.date(),
     updateDateUTC: z.coerce.date(),
-    imagingTimeBeginUTC: z.coerce.date({ message: 'Imaging time begin UTC should be a datetime' }),
-    imagingTimeEndUTC: z.coerce.date({ message: 'Imaging time end UTC should be a datetime' }),
     maxResolutionDeg: z
       .number({ message: 'Max resolution degree should be a number' })
       .min(CORE_VALIDATIONS.resolutionDeg.min, {
@@ -124,14 +123,6 @@ export const revisionObjectSchema = z
       .max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max, {
         message: `Min horizontal accuracy CE90 should not be larger than ${INGESTION_VALIDATIONS.horizontalAccuracyCE90.max}`,
       }),
-    sensors: z
-      .array(
-        z.string({ message: 'Sensors should be an array of strings' }).regex(new RegExp(INGESTION_VALIDATIONS.sensor.pattern), {
-          message: 'Sensors should be an array with items not starting or ending with whitespace characters',
-        }),
-        { message: 'Sensors should be an array' }
-      )
-      .min(1, { message: 'Sensors should have an array length of at least 1' }),
     srs: z.literal('4326'),
     srsName: z.literal('WGS84GEO'),
     region: z.array(z.string().min(1)).min(1),
@@ -147,6 +138,13 @@ export const revisionObjectSchema = z
     keywords: z.array(z.string().min(1)).optional(),
     footprint: polygonSchema.or(multiPolygonSchema),
   })
+  .merge(
+    partObjectSchema.pick({
+      imagingTimeBeginUTC: true,
+      imagingTimeEndUTC: true,
+      sensors: true,
+    })
+  )
   .strict();
 
 export const revisionSchema = revisionObjectSchema
