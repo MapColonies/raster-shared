@@ -3,7 +3,7 @@ import { CORE_VALIDATIONS, JobTypes } from '../../constants';
 import { urlsArraySchema } from '../core';
 import { newAdditionalParamsSchema, swapUpdateAdditionalParamsSchema, updateAdditionalParamsSchema } from './additionalParams.schema';
 import { inputFilesSchema } from './inputFiles.schema';
-import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './metadata.schema';
+import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from './layer.schema';
 
 export const ingestionJobTypeSchema = z.enum([JobTypes.Ingestion_New, JobTypes.Ingestion_Swap_Update, JobTypes.Ingestion_Update]);
 
