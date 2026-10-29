@@ -59,10 +59,10 @@ export const tilesetSchema = z
     displayPath: z.string().uuid(),
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
-    upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL),
-    ttl: z.number().int().min(0),
+    upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL).optional(),
+    ttl: z.number().int().min(0).optional(),
     bucket: z.string().min(1).optional(),
-    grids: z.string().min(1).optional(),
+    grids: z.array(z.string().min(1)).optional(),
   })
   .strict()
   .describe('tilesetSchema');
@@ -132,8 +132,8 @@ export const revisionObjectSchema = z
     transparency: z.nativeEnum(Transparency),
     description: z.string().optional(),
     productName: z.string().min(1),
-    productSubType: z.string().optional(),
-    producerName: z.string().optional(),
+    productSubType: z.string().min(1).optional(),
+    producerName: z.string().min(1).optional(),
     scale: z.number().min(INGESTION_VALIDATIONS.scale.min).max(INGESTION_VALIDATIONS.scale.max).optional(),
     keywords: z.array(z.string().min(1)).optional(),
     footprint: polygonSchema.or(multiPolygonSchema),
