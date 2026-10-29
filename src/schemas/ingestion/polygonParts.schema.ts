@@ -18,7 +18,7 @@ export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polyg
 export const polygonPartsPayloadSchema = z.object({
   jobType: ingestionJobTypeSchema,
   productType: productTypeSchema,
-  catalogId: z.string().uuid({ message: 'Catalog ID should be a valid UUID' }),
+  catalogId: z.string().uuid(),
   productId: resourceIdSchema,
   productVersion: versionSchema,
   partsData: polygonPartsFeatureCollectionSchema,
