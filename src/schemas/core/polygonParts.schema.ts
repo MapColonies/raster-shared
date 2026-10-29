@@ -4,7 +4,7 @@ import { featureCollectionSchema, featureSchema, multiPolygonSchema, polygonSche
 
 const polygonalGeometrySchema = polygonSchema.or(multiPolygonSchema).describe('polygonalGeometrySchema');
 
-export const partSchema = z
+export const partObjectSchema = z
   .object({
     id: z.string(),
     sourceId: z.string({ message: 'Source id should be a string' }).optional(),
@@ -55,6 +55,9 @@ export const partSchema = z
       })
       .optional(),
   })
+  .strict();
+
+export const partSchema = partObjectSchema
   .refine((part) => part.imagingTimeBeginUTC <= part.imagingTimeEndUTC && part.imagingTimeEndUTC <= new Date(), {
     message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
   })
