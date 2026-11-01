@@ -53,7 +53,7 @@ export const INGESTION_VALIDATIONS = {
     description: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   },
   productVersion: {
-    pattern: '^[1-9]\\d*(\\.(0|[1-9]\\d+))?$',
+    pattern: '^[1-9]\\d*\\.(0|[1-9]\\d*)$',
     description: 'Product version in the format "x.y", e.g. "1.0"',
   },
   resolutionMeter: {
