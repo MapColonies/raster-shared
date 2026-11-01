@@ -7,7 +7,7 @@ import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '.
 
 export const ingestionJobTypeSchema = z.enum([JobTypes.Ingestion_New, JobTypes.Ingestion_Swap_Update, JobTypes.Ingestion_Update]);
 
-export const ingestionResolutionSchema = partObjectSchema.pick({ resolutionDegree: true });
+export const ingestionResolutionSchema = partObjectSchema.shape.resolutionDegree;
 
 export const ingestionBaseJobParamsSchema = z
   .object({
