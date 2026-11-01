@@ -1,10 +1,11 @@
 import { RecordStatus, RecordType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
-import { INGESTION_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, StorageProvider, TileOutputFormat, Transparency } from '../../constants';
+import { INGESTION_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
 import { partObjectSchema } from './polygonParts.schema';
+import { fsStorageSchema, redisStorageSchema, s3StorageSchema } from './storage.schema';
 
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
 export const resourceIdSchema = z
@@ -43,20 +44,36 @@ export const linkSchema = z
   .strict()
   .describe('linkSchema');
 
-export const tilesetSchema = z
+export const tilesetBaseSchema = z
   .object({
     id: z.string().uuid(),
     layerId: layerSchema.shape.id,
-    storageProvider: z.nativeEnum(StorageProvider),
     displayPath: z.string().uuid(),
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
     upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL).optional(),
-    ttl: z.number().int().min(0).optional(),
-    bucket: z.string().min(1).optional(),
     grids: z.array(z.string().min(1)).optional(),
   })
   .strict()
+  .describe('tilesetBaseSchema');
+
+export const redisTilesetStorageParamsSchema = z.object({ ttl: z.number().int().min(0).optional() }).strict();
+
+export const tilesetSchema = z
+  .discriminatedUnion('storageProvider', [
+    tilesetBaseSchema
+      .merge(fsStorageSchema.pick({ storageProvider: true }))
+      .merge(z.object({ storageParams: fsStorageSchema.omit({ storageProvider: true }) }))
+      .strict(),
+    tilesetBaseSchema
+      .merge(s3StorageSchema.pick({ storageProvider: true }))
+      .merge(z.object({ storageParams: s3StorageSchema.omit({ storageProvider: true }) }))
+      .strict(),
+    tilesetBaseSchema
+      .merge(redisStorageSchema.pick({ storageProvider: true }))
+      .merge(z.object({ storageParams: redisStorageSchema.omit({ storageProvider: true }).merge(redisTilesetStorageParamsSchema) }))
+      .strict(),
+  ])
   .describe('tilesetSchema');
 
 export const revisionObjectSchema = z
