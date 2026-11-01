@@ -26,7 +26,7 @@ export const layerSchema = z
     productType: productTypeSchema,
     recordType: z.literal(RecordType.RECORD_RASTER),
     currentVersionId: z.string().uuid(),
-    previousVersionId: z.string().uuid(),
+    previousVersionId: z.string().uuid().optional(),
     productStatus: z.nativeEnum(RecordStatus),
   })
   .strict()
