@@ -1,6 +1,6 @@
 import z from 'zod';
 import { inputFilesSchema } from '../../schemas/ingestion/inputFiles.schema';
-import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/metadata.schema';
+import { newRasterLayerMetadataSchema, updateRasterLayerMetadataSchema } from '../../schemas/ingestion/layer.schema';
 
 //#region LayerData
 export type InputFiles = z.infer<typeof inputFilesSchema>;

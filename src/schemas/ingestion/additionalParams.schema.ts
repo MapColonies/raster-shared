@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { CORE_VALIDATIONS, TileOutputFormat } from '../../constants/core/constants';
+import { CORE_VALIDATIONS } from '../../constants/core/constants';
+import { tilesetBaseSchema } from '../core';
 
 export const baseAdditionalParamsSchema = z
   .object({
@@ -8,17 +9,13 @@ export const baseAdditionalParamsSchema = z
   .describe('baseAdditionalParamsSchema');
 
 export const baseUpdateAdditionalParamsSchema = baseAdditionalParamsSchema
-  .extend({
-    tileOutputFormat: z.nativeEnum(TileOutputFormat),
-  })
+  .merge(tilesetBaseSchema.pick({ tileOutputFormat: true }))
   .describe('baseUpdateAdditionalParamsSchema');
 
 export const newAdditionalParamsSchema = baseAdditionalParamsSchema;
 
 export const updateAdditionalParamsSchema = baseUpdateAdditionalParamsSchema
-  .extend({
-    displayPath: z.string().uuid(),
-  })
+  .merge(tilesetBaseSchema.pick({ displayPath: true }))
   .describe('updateAdditionalParamsSchema');
 
 export const swapUpdateAdditionalParamsSchema = baseUpdateAdditionalParamsSchema.describe('swapUpdateAdditionalParamsSchema');

@@ -1,5 +1,6 @@
 import { RasterProductTypes } from '../constants';
-import { polygonPartsEntityPatternSchema, resourceIdSchema } from '../schemas';
+import { polygonPartsEntityPatternSchema } from '../schemas';
+import { resourceIdSchema } from '../schemas/core/layer.schema';
 import type { LayerName, PolygonPartsEntityName } from '../types';
 
 export function getEntityName(productId: string, productType: RasterProductTypes): PolygonPartsEntityName {

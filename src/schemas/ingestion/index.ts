@@ -1,6 +1,6 @@
 export * from './additionalParams.schema';
 export * from './inputFiles.schema';
-export * from './metadata.schema';
+export * from './layer.schema';
 export * from './polygonParts.schema';
 export * from './job.schema';
 export * from './task.schema';
