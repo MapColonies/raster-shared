@@ -47,7 +47,7 @@ export const tilesetSchema = z
   .object({
     id: z.string().uuid(),
     layerId: layerSchema.shape.id,
-    storageType: z.nativeEnum(StorageProvider),
+    storageProvider: z.nativeEnum(StorageProvider),
     displayPath: z.string().uuid(),
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
