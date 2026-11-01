@@ -16,7 +16,10 @@ components:
       type: string
       description: Layer's description
     Keywords:
-      type: string
+      type: array
+      items:
+        type: string
+        minLength: 1
       description: Layer's keywords
     Footprint:
       type: object
