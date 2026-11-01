@@ -76,7 +76,7 @@ export interface LayerNameFormats {
   layerName: LayerName;
 }
 
-export type LayerSchema = z.infer<typeof layerSchema>;
-export type LinkSchema = z.infer<typeof linkSchema>;
-export type TilesetSchema = z.infer<typeof tilesetSchema>;
-export type RevisionSchema = z.infer<typeof revisionSchema>;
+export type Layer = z.infer<typeof layerSchema>;
+export type Link = z.infer<typeof linkSchema>;
+export type Tileset = z.infer<typeof tilesetSchema>;
+export type Revision = z.infer<typeof revisionSchema>;
