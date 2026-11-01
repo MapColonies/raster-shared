@@ -13,6 +13,7 @@ export const partObjectSchema = z
     imagingTimeBeginUTC: z.coerce.date(),
     imagingTimeEndUTC: z.coerce.date(),
     resolutionDegree: z.number().min(CORE_VALIDATIONS.resolutionDeg.min).max(CORE_VALIDATIONS.resolutionDeg.max),
+    resolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
     sourceResolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
     horizontalAccuracyCE90: z.number().min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min).max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max),
     sensors: z.array(z.string().regex(new RegExp(INGESTION_VALIDATIONS.sensor.pattern))).min(1),
