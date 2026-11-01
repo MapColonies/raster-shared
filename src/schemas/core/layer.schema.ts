@@ -1,14 +1,6 @@
 import { RecordStatus, RecordType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
-import {
-  CORE_VALIDATIONS,
-  INGESTION_VALIDATIONS,
-  MAX_ZOOM_LEVEL,
-  RasterProductTypes,
-  StorageProvider,
-  TileOutputFormat,
-  Transparency,
-} from '../../constants';
+import { INGESTION_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, StorageProvider, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
@@ -75,12 +67,12 @@ export const revisionObjectSchema = z
     productVersionMinor: z.number().int().min(0),
     ingestionDateUTC: z.coerce.date(),
     updateDateUTC: z.coerce.date(),
-    maxResolutionDeg: z.number().min(CORE_VALIDATIONS.resolutionDeg.min).max(CORE_VALIDATIONS.resolutionDeg.max),
-    minResolutionDeg: z.number().min(CORE_VALIDATIONS.resolutionDeg.min).max(CORE_VALIDATIONS.resolutionDeg.max),
-    maxResolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
-    minResolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
-    maxHorizontalAccuracyCE90: z.number().min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min).max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max),
-    minHorizontalAccuracyCE90: z.number().min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min).max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max),
+    maxResolutionDeg: partObjectSchema.shape.resolutionDegree,
+    minResolutionDeg: partObjectSchema.shape.resolutionDegree,
+    maxResolutionMeter: partObjectSchema.shape.sourceResolutionMeter,
+    minResolutionMeter: partObjectSchema.shape.sourceResolutionMeter,
+    maxHorizontalAccuracyCE90: partObjectSchema.shape.horizontalAccuracyCE90,
+    minHorizontalAccuracyCE90: partObjectSchema.shape.horizontalAccuracyCE90,
     srs: z.literal('4326'),
     srsName: z.literal('WGS84GEO'),
     region: z.array(z.string().min(1)).min(1),
