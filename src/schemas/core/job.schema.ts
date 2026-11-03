@@ -1,19 +1,8 @@
-import { z, ZodType } from 'zod';
+import { z } from 'zod';
 import { IJobResponse, OperationStatus } from '@map-colonies/mc-priority-queue';
-import { INGESTION_VALIDATIONS, RASTER_DOMAIN, RasterProductTypes } from '../../constants';
+import { RASTER_DOMAIN } from '../../constants';
 import { createTaskResponseSchema } from './task.schema';
-
-export const rasterProductTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
-export const resourceIdSchema = z
-  .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
-    message: 'Product ID must start with a letter and contain only letters, numbers and underscores',
-  })
-  .describe(INGESTION_VALIDATIONS.productId.description);
-export const versionSchema = z
-  .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
-  .describe(INGESTION_VALIDATIONS.productVersion.description);
+import { resourceIdSchema, versionSchema, productTypeSchema } from './layer.schema';
 
 export const createJobResponseSchema = <T, P>(
   jobParametersSchema?: z.ZodType<T>,
@@ -40,7 +29,7 @@ export const createJobResponseSchema = <T, P>(
     internalId: z.string().optional().nullable(),
     producerName: z.string().optional().nullable(),
     productName: z.string().optional().nullable(),
-    productType: rasterProductTypeSchema.optional(),
+    productType: productTypeSchema.optional(),
     taskCount: z.number().int().min(0),
     completedTasks: z.number().int().min(0),
     failedTasks: z.number().int().min(0),

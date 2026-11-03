@@ -1,13 +1,6 @@
 import { z } from 'zod';
-import {
-  featureCollectionSchema,
-  featureSchema,
-  multiPolygonSchema,
-  polygonSchema,
-  rasterProductTypeSchema,
-  resourceIdSchema,
-  versionSchema,
-} from '../core';
+import { featureCollectionSchema, featureSchema, multiPolygonSchema, polygonSchema } from '../core';
+import { productTypeSchema, resourceIdSchema, versionSchema } from '../core/layer.schema';
 import { partSchema } from '../core/polygonParts.schema';
 import { ingestionJobTypeSchema } from './job.schema';
 import { polygonPartsEntityPatternSchema } from './layerNameFormats.schema';
@@ -24,8 +17,8 @@ export const polygonPartsFeatureCollectionSchema = featureCollectionSchema(polyg
 
 export const polygonPartsPayloadSchema = z.object({
   jobType: ingestionJobTypeSchema,
-  productType: rasterProductTypeSchema,
-  catalogId: z.string().uuid({ message: 'Catalog ID should be a valid UUID' }),
+  productType: productTypeSchema,
+  catalogId: z.string().uuid(),
   productId: resourceIdSchema,
   productVersion: versionSchema,
   partsData: polygonPartsFeatureCollectionSchema,

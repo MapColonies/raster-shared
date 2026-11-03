@@ -1,4 +1,6 @@
+import type z from 'zod';
 import { RasterProductTypes } from '../../constants';
+import { layerSchema, linkSchema, revisionSchema, tilesetSchema } from '../../schemas/core/layer.schema';
 
 /**
  * Represents a layer name composed of a resourceId (equivalent to productId) and RasterProductType, joined by a hyphen.
@@ -73,3 +75,8 @@ export interface LayerNameFormats {
   polygonPartsEntityName: PolygonPartsEntityName;
   layerName: LayerName;
 }
+
+export type Layer = z.infer<typeof layerSchema>;
+export type Link = z.infer<typeof linkSchema>;
+export type Tileset = z.infer<typeof tilesetSchema>;
+export type Revision = z.infer<typeof revisionSchema>;
