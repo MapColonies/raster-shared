@@ -7,6 +7,8 @@ import { tilesMimeFormatSchema } from './mime.schema';
 import { partObjectSchema } from './polygonParts.schema';
 import { fsStorageSchema, redisStorageSchema, s3StorageSchema } from './storage.schema';
 
+const redisTilesetStorageParamsSchema = z.object({ ttl: z.number().int().min(0).optional() }).strict();
+
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
 export const resourceIdSchema = z
   .string()
@@ -56,8 +58,6 @@ export const tilesetBaseSchema = z
   })
   .strict()
   .describe('tilesetBaseSchema');
-
-export const redisTilesetStorageParamsSchema = z.object({ ttl: z.number().int().min(0).optional() }).strict();
 
 export const tilesetSchema = z
   .discriminatedUnion('storageProvider', [
