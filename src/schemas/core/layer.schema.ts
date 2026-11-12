@@ -1,4 +1,4 @@
-import { RecordStatus, RecordType } from '@map-colonies/types';
+import { RecordStatus, RecordType, RasterLinkType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
 import { CORE_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
@@ -38,7 +38,7 @@ export const linkSchema = z
   .object({
     id: z.string().uuid(),
     layerId: layerSchema.shape.id,
-    protocol: z.string(),
+    linkType: z.nativeEnum(RasterLinkType),
     url: urlSchema,
     name: z.string().optional(),
     description: z.string().optional(),
