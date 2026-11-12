@@ -10,3 +10,4 @@ export * from './polygonParts.schema';
 export * from './tile.schema';
 export * from './storage.schema';
 export * from './layer.schema';
+export * from './layerNameFormats.schema';
