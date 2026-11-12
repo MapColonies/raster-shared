@@ -28,8 +28,8 @@ export const layerSchema = z
     productId: resourceIdSchema,
     productType: productTypeSchema,
     recordType: z.literal(RecordType.RECORD_RASTER),
-    currentVersionId: z.string().uuid(),
-    previousVersionId: z.string().uuid().optional(),
+    currentRevisionId: z.string().uuid(),
+    rollbackRevisionId: z.string().uuid().optional(),
     productStatus: z.nativeEnum(RecordStatus),
   })
   .strict()
