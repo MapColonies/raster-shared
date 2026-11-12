@@ -8,6 +8,9 @@ import { tilesMimeFormatSchema } from './mime.schema';
 import { partObjectSchema } from './polygonParts.schema';
 import { fsStorageSchema, redisStorageSchema, s3StorageSchema } from './storage.schema';
 
+const layerIdSchema = z.string().uuid();
+const revisionIdSchema = z.string().uuid();
+
 const redisTilesetStorageParamsSchema = z.object({ ttl: z.number().int().min(0).optional() }).strict();
 
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
@@ -24,12 +27,12 @@ export const versionSchema = z
 
 export const layerSchema = z
   .object({
-    id: z.string().uuid(),
+    id: layerIdSchema,
     productId: resourceIdSchema,
     productType: productTypeSchema,
     recordType: z.literal(RecordType.RECORD_RASTER),
-    currentRevisionId: z.string().uuid(),
-    rollbackRevisionId: z.string().uuid().optional(),
+    currentRevisionId: revisionIdSchema,
+    rollbackRevisionId: revisionIdSchema.optional(),
     productStatus: z.nativeEnum(RecordStatus),
   })
   .strict()
@@ -38,7 +41,7 @@ export const layerSchema = z
 export const linkSchema = z
   .object({
     id: z.string().uuid(),
-    layerId: layerSchema.shape.id,
+    layerId: layerIdSchema,
     linkType: z.nativeEnum(RasterLinkType),
     url: urlSchema,
     layerName: layerNamePatternSchema,
@@ -50,7 +53,7 @@ export const linkSchema = z
 export const tilesetBaseSchema = z
   .object({
     id: z.string().uuid(),
-    layerId: layerSchema.shape.id,
+    layerId: layerIdSchema,
     displayPath: z.string().uuid(),
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
@@ -79,8 +82,8 @@ export const tilesetSchema = z
 
 export const revisionObjectSchema = z
   .object({
-    id: z.string().uuid(),
-    layerId: layerSchema.shape.id,
+    id: revisionIdSchema,
+    layerId: layerIdSchema,
     productVersionMajor: z.number().int().min(1),
     productVersionMinor: z.number().int().min(0),
     ingestionDateUTC: z.coerce.date(),
