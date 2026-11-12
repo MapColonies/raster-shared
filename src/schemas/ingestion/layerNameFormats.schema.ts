@@ -1,11 +1,11 @@
 import z, { ZodType } from 'zod';
-import { INGESTION_VALIDATIONS, RASTER_PRODUCT_TYPE_LIST } from '../../constants';
+import { CORE_VALIDATIONS, RASTER_PRODUCT_TYPE_LIST } from '../../constants';
 import { PolygonPartsEntityName } from '../../types';
 import { productTypeSchema, resourceIdSchema } from '../core/layer.schema';
 
 export const polygonPartsEntityPatternSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.polygonPartsEntityName.pattern), {
+  .regex(new RegExp(CORE_VALIDATIONS.polygonPartsEntityName.pattern), {
     message:
       'Polygon parts entity name must start with a letter, end with a letter or number, and contain only lowercase letters, numbers and underscores',
   })

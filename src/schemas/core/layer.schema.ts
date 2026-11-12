@@ -1,6 +1,6 @@
 import { RecordStatus, RecordType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
-import { INGESTION_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
+import { CORE_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
@@ -12,14 +12,14 @@ const redisTilesetStorageParamsSchema = z.object({ ttl: z.number().int().min(0).
 export const productTypeSchema: ZodType<RasterProductTypes> = z.nativeEnum(RasterProductTypes);
 export const resourceIdSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productId.pattern), {
+  .regex(new RegExp(CORE_VALIDATIONS.productId.pattern), {
     message: 'Product ID must start with a letter and contain only letters, numbers and underscores',
   })
-  .describe(INGESTION_VALIDATIONS.productId.description);
+  .describe(CORE_VALIDATIONS.productId.description);
 export const versionSchema = z
   .string()
-  .regex(new RegExp(INGESTION_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
-  .describe(INGESTION_VALIDATIONS.productVersion.description);
+  .regex(new RegExp(CORE_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
+  .describe(CORE_VALIDATIONS.productVersion.description);
 
 export const layerSchema = z
   .object({
@@ -95,13 +95,13 @@ export const revisionObjectSchema = z
     region: z.array(z.string().min(1)).min(1),
     classification: z
       .string()
-      .regex(new RegExp(INGESTION_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
+      .regex(new RegExp(CORE_VALIDATIONS.classification.pattern), { message: 'Classification value must be between 0 and 100' }),
     transparency: z.nativeEnum(Transparency),
     description: z.string().optional(),
     productName: z.string().min(1),
     productSubType: z.string().min(1).optional(),
     producerName: z.string().min(1).optional(),
-    scale: z.number().min(INGESTION_VALIDATIONS.scale.min).max(INGESTION_VALIDATIONS.scale.max).optional(),
+    scale: z.number().min(CORE_VALIDATIONS.scale.min).max(CORE_VALIDATIONS.scale.max).optional(),
     keywords: z.array(z.string().min(1)).optional(),
     footprint: polygonSchema.or(multiPolygonSchema),
   })

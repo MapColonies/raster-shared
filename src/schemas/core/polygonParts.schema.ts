@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { CORE_VALIDATIONS, INGESTION_VALIDATIONS } from '../../constants';
+import { CORE_VALIDATIONS } from '../../constants/core/constants';
 import { featureCollectionSchema, featureSchema, multiPolygonSchema, polygonSchema } from './geo.schema';
 
 const polygonalGeometrySchema = polygonSchema.or(multiPolygonSchema).describe('polygonalGeometrySchema');
@@ -13,10 +13,10 @@ export const partObjectSchema = z
     imagingTimeBeginUTC: z.coerce.date(),
     imagingTimeEndUTC: z.coerce.date(),
     resolutionDegree: z.number().min(CORE_VALIDATIONS.resolutionDeg.min).max(CORE_VALIDATIONS.resolutionDeg.max),
-    resolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
-    sourceResolutionMeter: z.number().min(INGESTION_VALIDATIONS.resolutionMeter.min).max(INGESTION_VALIDATIONS.resolutionMeter.max),
-    horizontalAccuracyCE90: z.number().min(INGESTION_VALIDATIONS.horizontalAccuracyCE90.min).max(INGESTION_VALIDATIONS.horizontalAccuracyCE90.max),
-    sensors: z.array(z.string().regex(new RegExp(INGESTION_VALIDATIONS.sensor.pattern))).min(1),
+    resolutionMeter: z.number().min(CORE_VALIDATIONS.resolutionMeter.min).max(CORE_VALIDATIONS.resolutionMeter.max),
+    sourceResolutionMeter: z.number().min(CORE_VALIDATIONS.resolutionMeter.min).max(CORE_VALIDATIONS.resolutionMeter.max),
+    horizontalAccuracyCE90: z.number().min(CORE_VALIDATIONS.horizontalAccuracyCE90.min).max(CORE_VALIDATIONS.horizontalAccuracyCE90.max),
+    sensors: z.array(z.string().regex(new RegExp(CORE_VALIDATIONS.sensor.pattern))).min(1),
     countries: z.array(z.string().min(1)).optional(),
     cities: z.array(z.string().min(1)).optional(),
   })
