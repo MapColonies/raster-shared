@@ -1,7 +1,8 @@
-import { RecordStatus, RecordType, RasterLinkType } from '@map-colonies/types';
+import { RasterLinkType, RecordStatus, RecordType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
 import { CORE_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
+import { layerNamePatternSchema } from './layerNameFormats.schema';
 import { urlSchema } from './link.schema';
 import { tilesMimeFormatSchema } from './mime.schema';
 import { partObjectSchema } from './polygonParts.schema';
@@ -40,7 +41,7 @@ export const linkSchema = z
     layerId: layerSchema.shape.id,
     linkType: z.nativeEnum(RasterLinkType),
     url: urlSchema,
-    name: z.string().optional(),
+    layerName: layerNamePatternSchema,
     description: z.string().optional(),
   })
   .strict()
