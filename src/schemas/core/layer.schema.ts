@@ -1,6 +1,6 @@
 import { RasterLinkType, RecordStatus, RecordType } from '@map-colonies/types';
 import { z, type ZodType } from 'zod';
-import { CORE_VALIDATIONS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
+import { CORE_VALIDATIONS, GEODETIC_GRIDS, MAX_ZOOM_LEVEL, RasterProductTypes, TileOutputFormat, Transparency } from '../../constants';
 import { multiPolygonSchema, polygonSchema } from './geo.schema';
 import { layerNamePatternSchema } from './layerNameFormats.schema';
 import { urlSchema } from './link.schema';
@@ -58,7 +58,7 @@ export const tilesetBaseSchema = z
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
     upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL).optional(),
-    grids: z.array(z.string().min(1)).optional(),
+    grids: z.array(z.string().min(1)).refine((grids) => grids.every((grid) => GEODETIC_GRIDS.includes(grid))),
   })
   .strict()
   .describe('tilesetBaseSchema');
