@@ -123,20 +123,16 @@ export const revisionObjectSchema = z
   .strict();
 
 export const revisionSchema = revisionObjectSchema
-  .refine(
-    (rasterLayerMetadata) =>
-      rasterLayerMetadata.imagingTimeBeginUTC <= rasterLayerMetadata.imagingTimeEndUTC && rasterLayerMetadata.imagingTimeEndUTC <= new Date(),
-    {
-      message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
-    }
-  )
-  .refine((rasterLayerMetadata) => rasterLayerMetadata.maxHorizontalAccuracyCE90 <= rasterLayerMetadata.minHorizontalAccuracyCE90, {
+  .refine(({ imagingTimeBeginUTC, imagingTimeEndUTC }) => imagingTimeBeginUTC <= imagingTimeEndUTC && imagingTimeEndUTC <= new Date(), {
+    message: 'Imaging time begin UTC should be less than or equal to imaging time end UTC and both less than or equal to current timestamp',
+  })
+  .refine(({ maxHorizontalAccuracyCE90, minHorizontalAccuracyCE90 }) => maxHorizontalAccuracyCE90 <= minHorizontalAccuracyCE90, {
     message: 'Max horizontal accuracy CE90 should be less than or equal to min horizontal accuracy CE90',
   })
-  .refine((rasterLayerMetadata) => rasterLayerMetadata.maxResolutionDeg <= rasterLayerMetadata.minResolutionDeg, {
+  .refine(({ maxResolutionDeg, minResolutionDeg }) => maxResolutionDeg <= minResolutionDeg, {
     message: 'Max resolution degree should be less than or equal to min resolution degree',
   })
-  .refine((rasterLayerMetadata) => rasterLayerMetadata.maxResolutionMeter <= rasterLayerMetadata.minResolutionMeter, {
+  .refine(({ maxResolutionMeter, minResolutionMeter }) => maxResolutionMeter <= minResolutionMeter, {
     message: 'Max resolution meter should be less than or equal to min resolution meter',
   })
   .describe('revisionSchema');
