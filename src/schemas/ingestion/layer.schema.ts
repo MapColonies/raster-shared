@@ -1,4 +1,4 @@
-import { layerSchema, revisionObjectSchema } from '../core/layer.schema';
+import { layerObjectSchema, revisionObjectSchema } from '../core/layer.schema';
 
 export const baseRasterLayerMetadataSchema = revisionObjectSchema
   .pick({
@@ -8,7 +8,7 @@ export const baseRasterLayerMetadataSchema = revisionObjectSchema
   .describe('baseRasterLayerMetadataSchema');
 
 export const newRasterLayerMetadataSchema = baseRasterLayerMetadataSchema
-  .merge(layerSchema.pick({ productId: true, productType: true }))
+  .merge(layerObjectSchema.pick({ productId: true, productType: true }))
   .merge(
     revisionObjectSchema.pick({
       description: true,

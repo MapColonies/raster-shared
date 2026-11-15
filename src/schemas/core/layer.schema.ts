@@ -25,7 +25,7 @@ export const versionSchema = z
   .regex(new RegExp(CORE_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
   .describe(CORE_VALIDATIONS.productVersion.description);
 
-export const layerSchema = z
+export const layerObjectSchema = z
   .object({
     id: layerIdSchema,
     productId: resourceIdSchema,
@@ -36,6 +36,10 @@ export const layerSchema = z
     productStatus: z.nativeEnum(RecordStatus),
   })
   .strict()
+  .describe('layerBaseSchema');
+
+export const layerSchema = layerObjectSchema
+  .refine(({ currentRevisionId, rollbackRevisionId }) => currentRevisionId !== rollbackRevisionId)
   .describe('layerSchema');
 
 export const linkSchema = z
