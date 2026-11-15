@@ -21,10 +21,6 @@ export const TaskTypes = {
 export type TaskTypes = (typeof TaskTypes)[keyof typeof TaskTypes];
 
 export const INGESTION_VALIDATIONS = {
-  boundingBox: {
-    pattern: '^-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?,-?(0|[1-9]\\d*)(\\.\\d*)?$',
-    description: 'Bounding box in the format "minX,minY,maxX,maxY"',
-  },
   gpkgfileName: {
     pattern: '^(\\/?[\\w-]+)(\\/[\\w-]+)*\\/[\\wא-ת\\.-]+\\.gpkg$',
     description: 'Valid gpkg file path, file name must end with .gpkg',
