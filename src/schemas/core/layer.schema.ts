@@ -24,22 +24,29 @@ export const versionSchema = z
   .regex(new RegExp(CORE_VALIDATIONS.productVersion.pattern), { message: 'Product version in the format "x.y", e.g. "1.0"' })
   .describe(CORE_VALIDATIONS.productVersion.description);
 
-export const layerObjectSchema = z
+export const layerSchema = z
   .object({
     id: layerIdSchema,
     productId: resourceIdSchema,
     productType: productTypeSchema,
     recordType: z.literal(RecordType.RECORD_RASTER),
-    currentRevisionId: revisionIdSchema,
-    rollbackRevisionId: revisionIdSchema.optional(),
     productStatus: z.nativeEnum(RecordStatus),
   })
   .strict()
-  .describe('layerBaseSchema');
-
-export const layerSchema = layerObjectSchema
-  .refine(({ currentRevisionId, rollbackRevisionId }) => currentRevisionId !== rollbackRevisionId)
   .describe('layerSchema');
+
+export const layerRevisionObjectSchema = z
+  .object({
+    layerId: layerIdSchema,
+    currentRevisionId: revisionIdSchema,
+    rollbackRevisionId: revisionIdSchema.optional(),
+  })
+  .strict()
+  .describe('layerRevisionObjectSchema');
+
+export const layerRevisionSchema = layerRevisionObjectSchema
+  .refine(({ currentRevisionId, rollbackRevisionId }) => currentRevisionId !== rollbackRevisionId)
+  .describe('layerRevisionSchema');
 
 export const linkSchema = z
   .object({
