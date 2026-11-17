@@ -45,7 +45,9 @@ export const layerRevisionObjectSchema = z
   .describe('layerRevisionObjectSchema');
 
 export const layerRevisionSchema = layerRevisionObjectSchema
-  .refine(({ currentRevisionId, rollbackRevisionId }) => currentRevisionId !== rollbackRevisionId)
+  .refine(({ currentRevisionId, rollbackRevisionId }) => currentRevisionId !== rollbackRevisionId, {
+    message: 'Current revision id should be different from rollback revision id',
+  })
   .describe('layerRevisionSchema');
 
 export const linkSchema = z
@@ -67,7 +69,7 @@ export const tilesetBaseSchema = z
     tileMimeFormat: tilesMimeFormatSchema,
     tileOutputFormat: z.nativeEnum(TileOutputFormat),
     upscaleZoomLevels: z.number().int().min(0).max(MAX_ZOOM_LEVEL).optional(),
-    grids: z.array(z.string().min(1)).refine((grids) => grids.every((grid) => GEODETIC_GRIDS.includes(grid))),
+    grids: z.array(z.string().min(1)).refine((grids) => grids.every((grid) => GEODETIC_GRIDS.includes(grid)), { message: 'Grid is unsupported' }),
   })
   .strict()
   .describe('tilesetBaseSchema');
