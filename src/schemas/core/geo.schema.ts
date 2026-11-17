@@ -54,7 +54,6 @@ export const multiLineStringSchema: ZodType<MultiLineString> = z.object({
 export const polygonSchema: ZodType<Polygon> = z.object({
   type: z.literal('Polygon'),
   coordinates: z
-
     .array(z.array(positionSchema).min(4).refine(firstAndLastPositionsEquality, { message: 'First and last position are not equivalent' }))
     .min(1),
   bbox: bboxSchema.optional(),

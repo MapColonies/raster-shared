@@ -1,2 +1,2 @@
-export * from './task.type';
-export * from './job.type';
+export type * from './task.type';
+export type * from './job.type';

@@ -16,7 +16,10 @@ components:
       type: string
       description: Layer's description
     Keywords:
-      type: string
+      type: array
+      items:
+        type: string
+        minLength: 1
       description: Layer's keywords
     Footprint:
       type: object
@@ -87,7 +90,7 @@ components:
       minLength: 1
     ProductVersion:
       type: string
-      pattern: ^[1-9]\d*(\.(0|[1-9]\d?))?$
+      pattern: ^[1-9]\d*\.(0|[1-9]\d*)$
       description: Layer's version
     ProductType:
       type: string
